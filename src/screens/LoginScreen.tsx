@@ -8,10 +8,12 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
+  Alert,
 } from 'react-native';
 import { supabase } from '../lib/supabase';
 import { colors } from '../theme/colors';
 import { handleSupabaseError } from '../utils/authErrors';
+import { migrateJsonToSupabase } from '../utils/migration';
 
 interface LoginScreenProps {
   visible: boolean;
@@ -24,6 +26,9 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
   const [isSignUp, setIsSignUp] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [errorText, setErrorText] = useState('');
+  const [migrating, setMigrating] = useState(false);
+  const [migrateProgress, setMigrateProgress] = useState('');
+  const [migrateDone, setMigrateDone] = useState(false);
 
   const isPasswordWeak = isSignUp && password.length > 0 && password.length < 6;
 
@@ -64,6 +69,21 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     onClose();
+  };
+
+  const handleMigrate = async () => {
+    if (migrating) return;
+    setMigrating(true);
+    setMigrateProgress('Iniciando...');
+    const result = await migrateJsonToSupabase((done, total) => {
+      setMigrateProgress(`Migrando ${done}/${total}...`);
+    });
+    setMigrateProgress(`Hecho: ${result.inserted} insertados, ${result.errors} errores`);
+    setMigrating(false);
+    setMigrateDone(true);
+    if (result.errors > 0) {
+      Alert.alert('Migración completada', `${result.inserted} insertados, ${result.errors} errores`);
+    }
   };
 
   return (
@@ -150,9 +170,24 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-              <Text style={styles.logoutText}>Cerrar Sesión</Text>
-            </TouchableOpacity>
+            {migrateProgress ? (
+              <Text style={styles.migrateText}>{migrateProgress}</Text>
+            ) : null}
+
+            <View style={styles.adminRow}>
+              <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+                <Text style={styles.logoutText}>Cerrar Sesión</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.migrateButton}
+                onPress={handleMigrate}
+                disabled={migrating}
+              >
+                <Text style={styles.migrateButtonText}>
+                  {migrating ? 'Migrando...' : 'Migrar'}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </TouchableOpacity>
@@ -241,13 +276,41 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 14,
   },
+  adminRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 12,
+    marginTop: 12,
+  },
   logoutButton: {
-    marginTop: 8,
-    paddingVertical: 8,
-    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#E53935',
   },
   logoutText: {
     color: '#E53935',
-    fontSize: 14,
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  migrateButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: '#2A2A2A',
+  },
+  migrateButtonText: {
+    color: colors.primary,
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  migrateText: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    marginBottom: 4,
+    textAlign: 'center',
   },
 });
