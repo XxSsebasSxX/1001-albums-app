@@ -15,6 +15,7 @@ import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import albumsData from '../data/albums.json';
 import AlbumCover from '../components/AlbumCover';
+import UserProfileHeader from '../components/UserProfileHeader';
 import { getAffiliateLink } from '../utils/affiliate';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -35,6 +36,9 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.topBar}>
+        <UserProfileHeader />
+      </View>
       <MotiView style={styles.inner}>
         <Text style={styles.title}>1001 Albums</Text>
         <Text style={styles.subtitle}>Descubre tu próxima obra maestra</Text>
@@ -155,6 +159,11 @@ const styles = StyleSheet.create({
     color: '#0A0A0A',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  topBar: {
+    alignItems: 'flex-end',
+    paddingHorizontal: 16,
+    paddingTop: 8,
   },
   albumCard: {
     minHeight: 150,

@@ -17,7 +17,6 @@ import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import albumsData from '../data/albums.json';
 import AlbumCover from '../components/AlbumCover';
-import LoginScreen from './LoginScreen';
 import { getAffiliateLink } from '../utils/affiliate';
 
 const allAlbums: Album[] = albumsData;
@@ -77,10 +76,7 @@ export default function HistoryScreen() {
     markAsListened,
     addCustomAlbum,
     updateAlbumNotes,
-    user,
-    syncLocalDataWithCloud,
   } = useAlbums();
-  const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isAddVisible, setIsAddVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isManualMode, setIsManualMode] = useState(false);
@@ -163,22 +159,12 @@ export default function HistoryScreen() {
             {listened.length} {listened.length === 1 ? 'álbum escuchado' : 'álbumes escuchados'}
           </Text>
         </View>
-        <View style={styles.headerButtons}>
-          <TouchableOpacity
-            style={styles.cloudButton}
-            onPress={() => setIsLoginVisible(true)}
-          >
-            <Text style={styles.cloudIcon}>
-              {user ? '\u2601\uFE0F' : '\u26C5'}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.addButton}
-            onPress={() => setIsAddVisible(true)}
-          >
-            <Text style={styles.addButtonText}>+ Añadir</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => setIsAddVisible(true)}
+        >
+          <Text style={styles.addButtonText}>+ Añadir</Text>
+        </TouchableOpacity>
       </View>
 
       {listened.length === 0 ? (
@@ -440,16 +426,6 @@ export default function HistoryScreen() {
           </KeyboardAvoidingView>
         </TouchableOpacity>
       </Modal>
-
-      <LoginScreen
-        visible={isLoginVisible}
-        onClose={() => {
-          setIsLoginVisible(false);
-          if (user) {
-            syncLocalDataWithCloud();
-          }
-        }}
-      />
     </SafeAreaView>
   );
 }
@@ -476,17 +452,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textSecondary,
     marginTop: 2,
-  },
-  headerButtons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  cloudButton: {
-    padding: 8,
-  },
-  cloudIcon: {
-    fontSize: 20,
   },
   addButton: {
     backgroundColor: colors.primary,

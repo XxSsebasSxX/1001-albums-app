@@ -19,6 +19,7 @@ function migrateEntry(entry: Record<string, unknown>): ListenedAlbum {
   };
 }
 
+// Supabase table columns: user_id, album_id, artist, album, year, genre, rating, notes
 function toRow(a: ListenedAlbum, userId: string) {
   return {
     user_id: userId,
@@ -32,13 +33,14 @@ function toRow(a: ListenedAlbum, userId: string) {
   };
 }
 
-function fromRow(row: Record<string, unknown>): ListenedAlbum {
+function fromRow(row: Record<string, unknown>, fallback: ListenedAlbum): ListenedAlbum {
   return {
+    ...fallback,
     id: row.album_id as string,
     artist: row.artist as string,
     album: row.album as string,
-    year: (row.year as number) || 0,
-    genre: (row.genre as string) || 'Various',
+    year: (row.year as number) || fallback.year || 0,
+    genre: (row.genre as string) || fallback.genre || 'Various',
     rating: (row.rating as number) ?? 0,
     notes: (row.notes as string) ?? '',
   };
@@ -49,6 +51,7 @@ export function useAlbums() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // ── Auth listener ──────────────────────────────────────
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       setUser(data.session?.user ?? null);
@@ -62,139 +65,182 @@ export function useAlbums() {
     return () => listener?.subscription.unsubscribe();
   }, []);
 
-  const fetchCloudData = useCallback(async () => {
-    if (!user) return;
-    const { data, error } = await supabase
-      .from('user_albums')
-      .select('*')
-      .eq('user_id', user.id);
-    if (error) {
-      console.warn('Supabase fetch error:', error.message);
-      return;
+  // ── Local helper: set state + console.table ────────────
+  const emit = useCallback((next: ListenedAlbum[]) => {
+    setListened(next);
+    console.table(next.map((a) => ({ id: a.id, album: a.album, artist: a.artist, rating: a.rating })));
+  }, []);
+
+  // ── Fetch cloud, merge with local, update state ────────
+  const fetchAndMerge = useCallback(async (uid: string) => {
+    // Snapshot local data so year/genre survive the merge
+    const localRaw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = localRaw
+      ? JSON.parse(localRaw).map(migrateEntry)
+      : [];
+
+    try {
+      const { data, error, status, statusText } = await supabase
+        .from('user_albums')
+        .select('*')
+        .eq('user_id', uid);
+
+      console.log('Supabase fetch:', { data, error, status, statusText });
+
+      if (error) {
+        console.warn('Supabase fetch error:', error.message, error.details);
+        return;
+      }
+
+      const cloudAlbums = (data ?? []).map((row: Record<string, unknown>) => {
+        const match = local.find((l) => l.id === row.album_id);
+        const fallback: ListenedAlbum = match ?? {
+          id: row.album_id as string,
+          artist: '',
+          album: '',
+          year: 0,
+          genre: 'Various',
+          rating: 0,
+          notes: '',
+        };
+        return fromRow(row, fallback);
+      });
+
+      // Keep local-only entries that haven't been synced yet
+      const cloudIds = new Set(cloudAlbums.map((a) => a.id));
+      const localOnly = local.filter((l) => !cloudIds.has(l.id));
+      const merged = [...cloudAlbums, ...localOnly];
+
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+      emit(merged);
+    } catch (err) {
+      console.warn('Supabase fetch exception:', err);
     }
-    setListened((data ?? []).map(fromRow));
-  }, [user]);
+  }, [emit]);
+
+  // ── Load local → then cloud ────────────────────────────
+  useEffect(() => {
+    AsyncStorage.getItem(STORAGE_KEY).then((raw) => {
+      if (raw) {
+        const local = JSON.parse(raw).map(migrateEntry);
+        console.log(`[boot] loaded ${local.length} from AsyncStorage`);
+        emit(local);
+      }
+    });
+  }, []); // only on mount
 
   useEffect(() => {
-    if (user) {
-      fetchCloudData();
-    } else if (!loading) {
-      AsyncStorage.getItem(STORAGE_KEY).then((data) => {
-        if (data) {
-          setListened(JSON.parse(data).map(migrateEntry));
-        }
-      });
+    if (user) fetchAndMerge(user.id);
+  }, [user, fetchAndMerge]);
+
+  // ═══════════════════════════════════════════════════════
+  //  WRITE OPERATIONS — always local first, then cloud
+  // ═══════════════════════════════════════════════════════
+
+  const markAsListened = useCallback(async (album: Album) => {
+    const entry: ListenedAlbum = { ...album, rating: 0, notes: '' };
+    console.log('[markAsListened]', entry.id, entry.album);
+
+    // 1. Always save locally
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+    if (local.some((a) => a.id === entry.id)) {
+      console.log('[markAsListened] already saved, skipping');
+      return;
     }
-  }, [user, loading, fetchCloudData]);
+    const next = [...local, entry];
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    emit(next);
 
-  const markAsListened = useCallback(
-    async (album: Album) => {
-      const newEntry: ListenedAlbum = { ...album, rating: 0, notes: '' };
+    // 2. If logged in, sync to Supabase
+    if (!user) return;
+    try {
+      const { data, error, status, statusText } = await supabase
+        .from('user_albums')
+        .upsert(toRow(entry, user.id), { onConflict: 'user_id,album_id' });
+      console.log('[Supabase upsert]', { data, error, status, statusText });
+      if (error) Alert.alert('Error de sincronización', error.message);
+    } catch (err) {
+      console.warn('[Supabase upsert] exception:', err);
+    }
+  }, [user, emit]);
 
-      if (user) {
-        const { error } = await supabase
-          .from('user_albums')
-          .upsert(toRow(newEntry, user.id), { onConflict: 'user_id,album_id' });
-        if (error) {
-          Alert.alert('Error al guardar', error.message);
-          return;
-        }
-        setListened((prev) => {
-          if (prev.some((a) => a.id === newEntry.id)) return prev;
-          return [...prev, newEntry];
-        });
-      } else {
-        const data = await AsyncStorage.getItem(STORAGE_KEY);
-        const currentList: ListenedAlbum[] = data
-          ? JSON.parse(data).map(migrateEntry)
-          : [];
-        if (currentList.some((a) => a.id === newEntry.id)) return;
-        const updated = [...currentList, newEntry];
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-        setListened(updated);
-      }
-    },
-    [user],
-  );
+  const addCustomAlbum = useCallback(async (albumData: Omit<Album, 'id'>) => {
+    const entry: ListenedAlbum = {
+      id: Date.now().toString(),
+      ...albumData,
+      rating: 0,
+      notes: '',
+    };
+    console.log('[addCustomAlbum]', entry.id, entry.album);
 
-  const addCustomAlbum = useCallback(
-    async (albumData: Omit<Album, 'id'>) => {
-      const newEntry: ListenedAlbum = {
-        id: Date.now().toString(),
-        ...albumData,
-        rating: 0,
-        notes: '',
-      };
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+    const next = [entry, ...local];
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    emit(next);
 
-      if (user) {
-        const { error } = await supabase
-          .from('user_albums')
-          .upsert(toRow(newEntry, user.id), { onConflict: 'user_id,album_id' });
-        if (error) {
-          Alert.alert('Error al guardar', error.message);
-          return;
-        }
-        setListened((prev) => [newEntry, ...prev]);
-      } else {
-        const data = await AsyncStorage.getItem(STORAGE_KEY);
-        const currentList: ListenedAlbum[] = data
-          ? JSON.parse(data).map(migrateEntry)
-          : [];
-        const updated = [newEntry, ...currentList];
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-        setListened(updated);
-      }
-    },
-    [user],
-  );
+    if (!user) return;
+    try {
+      const { data, error, status, statusText } = await supabase
+        .from('user_albums')
+        .upsert(toRow(entry, user.id), { onConflict: 'user_id,album_id' });
+      console.log('[Supabase upsert]', { data, error, status, statusText });
+      if (error) Alert.alert('Error de sincronización', error.message);
+    } catch (err) {
+      console.warn('[Supabase upsert] exception:', err);
+    }
+  }, [user, emit]);
 
-  const updateAlbumNotes = useCallback(
-    async (id: string, rating: number, notes: string) => {
-      if (user) {
-        const { error } = await supabase
-          .from('user_albums')
-          .update({ rating, notes })
-          .eq('user_id', user.id)
-          .eq('album_id', id);
-        if (error) {
-          Alert.alert('Error al actualizar', error.message);
-          return;
-        }
-      } else {
-        const data = await AsyncStorage.getItem(STORAGE_KEY);
-        const currentList: ListenedAlbum[] = data
-          ? JSON.parse(data).map(migrateEntry)
-          : [];
-        const updated = currentList.map((a) =>
-          a.id === id ? { ...a, rating, notes } : a,
-        );
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-      }
-      setListened((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, rating, notes } : a)),
-      );
-    },
-    [user],
-  );
+  const updateAlbumNotes = useCallback(async (id: string, rating: number, notes: string) => {
+    console.log('[updateAlbumNotes]', id, rating);
+
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+    const next = local.map((a) =>
+      a.id === id ? { ...a, rating, notes } : a,
+    );
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    emit(next);
+
+    if (!user) return;
+    try {
+      const { data, error, status, statusText } = await supabase
+        .from('user_albums')
+        .update({ rating, notes })
+        .eq('user_id', user.id)
+        .eq('album_id', id);
+      console.log('[Supabase update]', { data, error, status, statusText });
+      if (error) Alert.alert('Error de sincronización', error.message);
+    } catch (err) {
+      console.warn('[Supabase update] exception:', err);
+    }
+  }, [user, emit]);
 
   const syncLocalDataWithCloud = useCallback(async () => {
     if (!user) return;
-    const data = await AsyncStorage.getItem(STORAGE_KEY);
-    if (!data) return;
-    const local: ListenedAlbum[] = JSON.parse(data).map(migrateEntry);
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const local: ListenedAlbum[] = JSON.parse(raw).map(migrateEntry);
     if (local.length === 0) return;
 
-    const { error } = await supabase.from('user_albums').upsert(
-      local.map((a) => toRow(a, user.id)),
-      { onConflict: 'user_id,album_id' },
-    );
-    if (error) {
-      Alert.alert('Error al sincronizar', error.message);
-      return;
+    console.log('[syncLocalDataWithCloud] pushing', local.length, 'entries');
+    try {
+      const { data, error, status, statusText } = await supabase
+        .from('user_albums')
+        .upsert(local.map((a) => toRow(a, user.id)), { onConflict: 'user_id,album_id' });
+      console.log('[Supabase sync]', { data, error, status, statusText });
+      if (error) {
+        Alert.alert('Error al sincronizar', error.message);
+        return;
+      }
+      await AsyncStorage.removeItem(STORAGE_KEY);
+      console.log('[syncLocalDataWithCloud] local cleared');
+      await fetchAndMerge(user.id);
+    } catch (err) {
+      console.warn('[Supabase sync] exception:', err);
     }
-    await AsyncStorage.removeItem(STORAGE_KEY);
-    await fetchCloudData();
-  }, [user, fetchCloudData]);
+  }, [user, fetchAndMerge]);
 
   return {
     listened,
