@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -14,33 +14,69 @@ import {
 import { Album } from '../types';
 import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
+import albumsData from '../data/albums.json';
+import AlbumCover from '../components/AlbumCover';
+
+const allAlbums: Album[] = albumsData;
 
 function AlbumCard({ item }: { item: Album }) {
   return (
     <View style={styles.card}>
-      <Text style={styles.cardAlbum}>{item.album}</Text>
-      <Text style={styles.cardArtist}>{item.artist}</Text>
-      <View style={styles.cardMetaRow}>
-        <Text style={styles.cardMeta}>{item.year || '?'}</Text>
-        <Text style={styles.cardMeta}>{item.genre}</Text>
+      <AlbumCover artist={item.artist} album={item.album} size={60} />
+      <View style={styles.cardTextBlock}>
+        <Text style={styles.cardAlbum}>{item.album}</Text>
+        <Text style={styles.cardArtist}>{item.artist}</Text>
+        <View style={styles.cardMetaRow}>
+          <Text style={styles.cardMeta}>{item.year || '?'}</Text>
+          <Text style={styles.cardMeta}>{item.genre}</Text>
+        </View>
       </View>
     </View>
   );
 }
 
 export default function HistoryScreen() {
-  const { listened, addCustomAlbum } = useAlbums();
+  const { listened, markAsListened, addCustomAlbum } = useAlbums();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isManualMode, setIsManualMode] = useState(false);
   const [title, setTitle] = useState('');
   const [artist, setArtist] = useState('');
   const [year, setYear] = useState('');
   const [genre, setGenre] = useState('');
+
+  const filteredAlbums = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const query = searchQuery.toLowerCase();
+    const results = allAlbums.filter(
+      (a) =>
+        a.album.toLowerCase().includes(query) ||
+        a.artist.toLowerCase().includes(query),
+    );
+    return results.slice(0, 20);
+  }, [searchQuery]);
 
   const resetForm = () => {
     setTitle('');
     setArtist('');
     setYear('');
     setGenre('');
+  };
+
+  const cleanAll = () => {
+    setSearchQuery('');
+    setIsManualMode(false);
+    resetForm();
+  };
+
+  const closeModal = () => {
+    cleanAll();
+    setIsModalVisible(false);
+  };
+
+  const handleSelectAlbum = (album: Album) => {
+    markAsListened(album);
+    closeModal();
   };
 
   const handleSave = () => {
@@ -51,8 +87,7 @@ export default function HistoryScreen() {
       year: year ? parseInt(year, 10) : 0,
       genre: genre.trim() || 'Various',
     });
-    resetForm();
-    setIsModalVisible(false);
+    closeModal();
   };
 
   return (
@@ -68,7 +103,7 @@ export default function HistoryScreen() {
           style={styles.addButton}
           onPress={() => setIsModalVisible(true)}
         >
-          <Text style={styles.addButtonText}>+ Añadir Manual</Text>
+          <Text style={styles.addButtonText}>+ Añadir</Text>
         </TouchableOpacity>
       </View>
 
@@ -92,57 +127,113 @@ export default function HistoryScreen() {
         visible={isModalVisible}
         animationType="slide"
         transparent={true}
-        onRequestClose={() => setIsModalVisible(false)}
+        onRequestClose={closeModal}
       >
         <TouchableOpacity
           style={styles.overlay}
           activeOpacity={1}
-          onPress={() => setIsModalVisible(false)}
+          onPress={closeModal}
         >
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
             style={styles.keyboardView}
           >
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={() => {}}
-              style={styles.formCard}
-            >
-              <Text style={styles.formTitle}>Añadir Álbum</Text>
+            <TouchableOpacity activeOpacity={1} onPress={() => {}} style={styles.formCard}>
+              {!isManualMode ? (
+                <>
+                  <Text style={styles.formTitle}>Buscar Álbum</Text>
 
-              <TextInput
-                style={styles.input}
-                placeholder="Título del álbum"
-                placeholderTextColor={colors.textSecondary}
-                value={title}
-                onChangeText={setTitle}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Artista"
-                placeholderTextColor={colors.textSecondary}
-                value={artist}
-                onChangeText={setArtist}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Año (opcional)"
-                placeholderTextColor={colors.textSecondary}
-                value={year}
-                onChangeText={setYear}
-                keyboardType="number-pad"
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Género (opcional)"
-                placeholderTextColor={colors.textSecondary}
-                value={genre}
-                onChangeText={setGenre}
-              />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Escribe el nombre del álbum o artista..."
+                    placeholderTextColor={colors.textSecondary}
+                    value={searchQuery}
+                    onChangeText={setSearchQuery}
+                    autoFocus
+                  />
 
-              <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-                <Text style={styles.saveButtonText}>Guardar</Text>
-              </TouchableOpacity>
+                  {filteredAlbums.length > 0 && (
+                    <FlatList
+                      data={filteredAlbums}
+                      keyExtractor={(item) => item.id}
+                      renderItem={({ item }) => (
+                        <TouchableOpacity
+                          style={styles.resultItem}
+                          onPress={() => handleSelectAlbum(item)}
+                        >
+                          <AlbumCover artist={item.artist} album={item.album} size={50} />
+                          <View style={styles.resultTextBlock}>
+                            <Text style={styles.resultAlbum}>{item.album}</Text>
+                            <Text style={styles.resultArtist}>{item.artist}</Text>
+                          </View>
+                        </TouchableOpacity>
+                      )}
+                      style={styles.resultsList}
+                      keyboardShouldPersistTaps="handled"
+                    />
+                  )}
+
+                  {searchQuery.trim() && filteredAlbums.length === 0 && (
+                    <Text style={styles.noResults}>
+                      No encontramos ese disco en la lista oficial.
+                    </Text>
+                  )}
+
+                  <TouchableOpacity
+                    style={styles.manualToggle}
+                    onPress={() => setIsManualMode(true)}
+                  >
+                    <Text style={styles.manualToggleText}>
+                      ¿No está en la lista? Añadir manualmente
+                    </Text>
+                  </TouchableOpacity>
+                </>
+              ) : (
+                <>
+                  <Text style={styles.formTitle}>Añadir Manualmente</Text>
+
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Título del álbum"
+                    placeholderTextColor={colors.textSecondary}
+                    value={title}
+                    onChangeText={setTitle}
+                  />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Artista"
+                    placeholderTextColor={colors.textSecondary}
+                    value={artist}
+                    onChangeText={setArtist}
+                  />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Año (opcional)"
+                    placeholderTextColor={colors.textSecondary}
+                    value={year}
+                    onChangeText={setYear}
+                    keyboardType="number-pad"
+                  />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Género (opcional)"
+                    placeholderTextColor={colors.textSecondary}
+                    value={genre}
+                    onChangeText={setGenre}
+                  />
+
+                  <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+                    <Text style={styles.saveButtonText}>Guardar</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={styles.backToSearch}
+                    onPress={() => setIsManualMode(false)}
+                  >
+                    <Text style={styles.backToSearchText}>Volver al buscador</Text>
+                  </TouchableOpacity>
+                </>
+              )}
             </TouchableOpacity>
           </KeyboardAvoidingView>
         </TouchableOpacity>
@@ -190,12 +281,18 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
   card: {
+    flexDirection: 'row',
     backgroundColor: colors.surface,
     borderRadius: 12,
-    padding: 16,
+    padding: 12,
     marginBottom: 12,
     borderWidth: 1,
     borderColor: colors.border,
+    alignItems: 'center',
+  },
+  cardTextBlock: {
+    flex: 1,
+    marginLeft: 12,
   },
   cardAlbum: {
     fontSize: 16,
@@ -206,7 +303,7 @@ const styles = StyleSheet.create({
   cardArtist: {
     fontSize: 14,
     color: colors.primary,
-    marginBottom: 8,
+    marginBottom: 4,
   },
   cardMetaRow: {
     flexDirection: 'row',
@@ -278,5 +375,56 @@ const styles = StyleSheet.create({
     color: '#0A0A0A',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  resultsList: {
+    maxHeight: 280,
+    marginTop: 4,
+  },
+  resultItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  resultTextBlock: {
+    flex: 1,
+    marginLeft: 12,
+  },
+  resultAlbum: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 2,
+  },
+  resultArtist: {
+    fontSize: 13,
+    color: colors.primary,
+  },
+  noResults: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 16,
+  },
+  manualToggle: {
+    marginTop: 16,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  manualToggleText: {
+    color: colors.primary,
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  backToSearch: {
+    marginTop: 12,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  backToSearchText: {
+    color: colors.textSecondary,
+    fontSize: 14,
   },
 });

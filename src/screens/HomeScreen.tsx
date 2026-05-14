@@ -12,6 +12,7 @@ import { RootStackParamList, Album } from '../types';
 import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import albumsData from '../data/albums.json';
+import AlbumCover from '../components/AlbumCover';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -49,6 +50,7 @@ export default function HomeScreen() {
               transition={{ type: 'timing', duration: 400 }}
               style={styles.albumCard}
             >
+              <AlbumCover artist={currentAlbum.artist} album={currentAlbum.album} size={250} />
               <Text style={styles.albumTitle}>{currentAlbum.album}</Text>
               <Text style={styles.albumArtist}>{currentAlbum.artist}</Text>
               <MotiView style={styles.metaRow}>
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.text,
     textAlign: 'center',
+    marginTop: 16,
     marginBottom: 8,
   },
   albumArtist: {
