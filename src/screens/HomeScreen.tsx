@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import {
+  View,
   Text,
   TouchableOpacity,
   SafeAreaView,
+  Linking,
   StyleSheet,
 } from 'react-native';
 import { AnimatePresence, View as MotiView } from 'moti';
@@ -13,6 +15,7 @@ import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import albumsData from '../data/albums.json';
 import AlbumCover from '../components/AlbumCover';
+import { getAffiliateLink } from '../utils/affiliate';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -70,6 +73,40 @@ export default function HomeScreen() {
               {isListened && (
                 <Text style={styles.listenedBadge}>✓ Escuchado</Text>
               )}
+
+              <View style={styles.affiliateRow}>
+                <TouchableOpacity
+                  style={styles.affiliateButton}
+                  onPress={() =>
+                    Linking.openURL(
+                      getAffiliateLink(
+                        currentAlbum.artist,
+                        currentAlbum.album,
+                        'amazon',
+                      ),
+                    )
+                  }
+                >
+                  <Text style={styles.affiliateIcon}>🛒</Text>
+                  <Text style={styles.affiliateText}>Comprar Vinilo</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.affiliateButton}
+                  onPress={() =>
+                    Linking.openURL(
+                      getAffiliateLink(
+                        currentAlbum.artist,
+                        currentAlbum.album,
+                        'apple',
+                      ),
+                    )
+                  }
+                >
+                  <Text style={styles.affiliateIcon}>🎵</Text>
+                  <Text style={styles.affiliateText}>Escuchar en Apple</Text>
+                </TouchableOpacity>
+              </View>
             </MotiView>
           )}
         </AnimatePresence>
@@ -173,6 +210,32 @@ const styles = StyleSheet.create({
   listenedBadge: {
     color: '#4CAF50',
     fontSize: 14,
+    fontWeight: '600',
+  },
+  affiliateRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 16,
+    width: '100%',
+  },
+  affiliateButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: '#1A1A1A',
+    gap: 6,
+  },
+  affiliateIcon: {
+    fontSize: 16,
+  },
+  affiliateText: {
+    color: colors.text,
+    fontSize: 12,
     fontWeight: '600',
   },
   historyButton: {

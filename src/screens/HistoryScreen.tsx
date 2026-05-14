@@ -9,41 +9,81 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  Linking,
   StyleSheet,
 } from 'react-native';
-import { Album } from '../types';
+import { Album, ListenedAlbum } from '../types';
 import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import albumsData from '../data/albums.json';
 import AlbumCover from '../components/AlbumCover';
+import { getAffiliateLink } from '../utils/affiliate';
 
 const allAlbums: Album[] = albumsData;
 
-function AlbumCard({ item }: { item: Album }) {
+function StarSelector({
+  value,
+  onChange,
+}: {
+  value: number;
+  onChange: (n: number) => void;
+}) {
   return (
-    <View style={styles.card}>
+    <View style={styles.starRow}>
+      {[1, 2, 3, 4, 5].map((n) => (
+        <TouchableOpacity key={n} onPress={() => onChange(n)}>
+          <Text style={[styles.star, n <= value && styles.starActive]}>
+            {n <= value ? '★' : '☆'}
+          </Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+}
+
+function AlbumCard({
+  item,
+  onPress,
+}: {
+  item: ListenedAlbum;
+  onPress: () => void;
+}) {
+  return (
+    <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
       <AlbumCover artist={item.artist} album={item.album} size={60} />
       <View style={styles.cardTextBlock}>
-        <Text style={styles.cardAlbum}>{item.album}</Text>
+        <View style={styles.cardTitleRow}>
+          <Text style={styles.cardAlbum} numberOfLines={1}>
+            {item.album}
+          </Text>
+          {item.rating > 0 && (
+            <Text style={styles.cardRating}>{'★'.repeat(item.rating)}</Text>
+          )}
+        </View>
         <Text style={styles.cardArtist}>{item.artist}</Text>
         <View style={styles.cardMetaRow}>
           <Text style={styles.cardMeta}>{item.year || '?'}</Text>
           <Text style={styles.cardMeta}>{item.genre}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 export default function HistoryScreen() {
-  const { listened, markAsListened, addCustomAlbum } = useAlbums();
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { listened, markAsListened, addCustomAlbum, updateAlbumNotes } =
+    useAlbums();
+  const [isAddVisible, setIsAddVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isManualMode, setIsManualMode] = useState(false);
   const [title, setTitle] = useState('');
   const [artist, setArtist] = useState('');
   const [year, setYear] = useState('');
   const [genre, setGenre] = useState('');
+
+  const [journalAlbum, setJournalAlbum] = useState<ListenedAlbum | null>(null);
+  const [journalRating, setJournalRating] = useState(0);
+  const [journalNotes, setJournalNotes] = useState('');
 
   const filteredAlbums = useMemo(() => {
     if (!searchQuery.trim()) return [];
@@ -63,23 +103,23 @@ export default function HistoryScreen() {
     setGenre('');
   };
 
-  const cleanAll = () => {
+  const cleanAdd = () => {
     setSearchQuery('');
     setIsManualMode(false);
     resetForm();
   };
 
-  const closeModal = () => {
-    cleanAll();
-    setIsModalVisible(false);
+  const closeAdd = () => {
+    cleanAdd();
+    setIsAddVisible(false);
   };
 
   const handleSelectAlbum = (album: Album) => {
     markAsListened(album);
-    closeModal();
+    closeAdd();
   };
 
-  const handleSave = () => {
+  const handleSaveCustom = () => {
     if (!title.trim() || !artist.trim()) return;
     addCustomAlbum({
       album: title.trim(),
@@ -87,7 +127,23 @@ export default function HistoryScreen() {
       year: year ? parseInt(year, 10) : 0,
       genre: genre.trim() || 'Various',
     });
-    closeModal();
+    closeAdd();
+  };
+
+  const openJournal = (item: ListenedAlbum) => {
+    setJournalAlbum(item);
+    setJournalRating(item.rating);
+    setJournalNotes(item.notes);
+  };
+
+  const closeJournal = () => {
+    setJournalAlbum(null);
+  };
+
+  const saveJournal = () => {
+    if (!journalAlbum) return;
+    updateAlbumNotes(journalAlbum.id, journalRating, journalNotes);
+    closeJournal();
   };
 
   return (
@@ -96,12 +152,13 @@ export default function HistoryScreen() {
         <View>
           <Text style={styles.title}>Tu Colección</Text>
           <Text style={styles.count}>
-            {listened.length} {listened.length === 1 ? 'álbum escuchado' : 'álbumes escuchados'}
+            {listened.length}{' '}
+            {listened.length === 1 ? 'álbum escuchado' : 'álbumes escuchados'}
           </Text>
         </View>
         <TouchableOpacity
           style={styles.addButton}
-          onPress={() => setIsModalVisible(true)}
+          onPress={() => setIsAddVisible(true)}
         >
           <Text style={styles.addButtonText}>+ Añadir</Text>
         </TouchableOpacity>
@@ -118,27 +175,39 @@ export default function HistoryScreen() {
         <FlatList
           data={listened}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <AlbumCard item={item} />}
+          renderItem={({ item }) => (
+            <AlbumCard item={item} onPress={() => openJournal(item)} />
+          )}
           contentContainerStyle={styles.list}
+          ListFooterComponent={
+            <Text style={styles.disclaimer}>
+              Como afiliado de Amazon, esta aplicación percibe ingresos por las
+              compras adscritas que cumplen los requisitos aplicables.
+            </Text>
+          }
         />
       )}
 
       <Modal
-        visible={isModalVisible}
+        visible={isAddVisible}
         animationType="slide"
         transparent={true}
-        onRequestClose={closeModal}
+        onRequestClose={closeAdd}
       >
         <TouchableOpacity
           style={styles.overlay}
           activeOpacity={1}
-          onPress={closeModal}
+          onPress={closeAdd}
         >
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
             style={styles.keyboardView}
           >
-            <TouchableOpacity activeOpacity={1} onPress={() => {}} style={styles.formCard}>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => {}}
+              style={styles.formCard}
+            >
               {!isManualMode ? (
                 <>
                   <Text style={styles.formTitle}>Buscar Álbum</Text>
@@ -161,10 +230,16 @@ export default function HistoryScreen() {
                           style={styles.resultItem}
                           onPress={() => handleSelectAlbum(item)}
                         >
-                          <AlbumCover artist={item.artist} album={item.album} size={50} />
+                          <AlbumCover
+                            artist={item.artist}
+                            album={item.album}
+                            size={50}
+                          />
                           <View style={styles.resultTextBlock}>
                             <Text style={styles.resultAlbum}>{item.album}</Text>
-                            <Text style={styles.resultArtist}>{item.artist}</Text>
+                            <Text style={styles.resultArtist}>
+                              {item.artist}
+                            </Text>
                           </View>
                         </TouchableOpacity>
                       )}
@@ -222,7 +297,10 @@ export default function HistoryScreen() {
                     onChangeText={setGenre}
                   />
 
-                  <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+                  <TouchableOpacity
+                    style={styles.saveButton}
+                    onPress={handleSaveCustom}
+                  >
                     <Text style={styles.saveButtonText}>Guardar</Text>
                   </TouchableOpacity>
 
@@ -230,7 +308,114 @@ export default function HistoryScreen() {
                     style={styles.backToSearch}
                     onPress={() => setIsManualMode(false)}
                   >
-                    <Text style={styles.backToSearchText}>Volver al buscador</Text>
+                    <Text style={styles.backToSearchText}>
+                      Volver al buscador
+                    </Text>
+                  </TouchableOpacity>
+                </>
+              )}
+            </TouchableOpacity>
+          </KeyboardAvoidingView>
+        </TouchableOpacity>
+      </Modal>
+
+      <Modal
+        visible={!!journalAlbum}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={closeJournal}
+      >
+        <TouchableOpacity
+          style={styles.overlay}
+          activeOpacity={1}
+          onPress={closeJournal}
+        >
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            style={styles.keyboardView}
+          >
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => {}}
+              style={styles.journalCard}
+            >
+              {journalAlbum && (
+                <>
+                  <AlbumCover
+                    artist={journalAlbum.artist}
+                    album={journalAlbum.album}
+                    size={180}
+                  />
+
+                  <Text style={styles.journalAlbum}>
+                    {journalAlbum.album}
+                  </Text>
+                  <Text style={styles.journalArtist}>
+                    {journalAlbum.artist}
+                  </Text>
+
+                  <View style={styles.journalSection}>
+                    <Text style={styles.journalLabel}>Tu puntuación</Text>
+                    <StarSelector
+                      value={journalRating}
+                      onChange={setJournalRating}
+                    />
+                  </View>
+
+                  <View style={styles.journalSection}>
+                    <Text style={styles.journalLabel}>Tus notas</Text>
+                    <TextInput
+                      style={styles.notesInput}
+                      placeholder="Escribe tu reseña personal..."
+                      placeholderTextColor={colors.textSecondary}
+                      value={journalNotes}
+                      onChangeText={setJournalNotes}
+                      multiline
+                      textAlignVertical="top"
+                    />
+                  </View>
+
+                  <View style={styles.affiliateRow}>
+                    <TouchableOpacity
+                      style={styles.affiliateButton}
+                      onPress={() =>
+                        Linking.openURL(
+                          getAffiliateLink(
+                            journalAlbum.artist,
+                            journalAlbum.album,
+                            'amazon',
+                          ),
+                        )
+                      }
+                    >
+                      <Text style={styles.affiliateIcon}>🛒</Text>
+                      <Text style={styles.affiliateText}>Comprar Vinilo</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      style={styles.affiliateButton}
+                      onPress={() =>
+                        Linking.openURL(
+                          getAffiliateLink(
+                            journalAlbum.artist,
+                            journalAlbum.album,
+                            'apple',
+                          ),
+                        )
+                      }
+                    >
+                      <Text style={styles.affiliateIcon}>🎵</Text>
+                      <Text style={styles.affiliateText}>
+                        Escuchar en Apple
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+
+                  <TouchableOpacity
+                    style={styles.saveButton}
+                    onPress={saveJournal}
+                  >
+                    <Text style={styles.saveButtonText}>Guardar Notas</Text>
                   </TouchableOpacity>
                 </>
               )}
@@ -294,11 +479,22 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 12,
   },
+  cardTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   cardAlbum: {
     fontSize: 16,
     fontWeight: 'bold',
     color: colors.text,
-    marginBottom: 4,
+    marginBottom: 2,
+    flexShrink: 1,
+  },
+  cardRating: {
+    fontSize: 14,
+    color: colors.primary,
+    marginLeft: 8,
   },
   cardArtist: {
     fontSize: 14,
@@ -347,6 +543,7 @@ const styles = StyleSheet.create({
     padding: 24,
     borderWidth: 1,
     borderColor: colors.border,
+    maxHeight: '80%',
   },
   formTitle: {
     fontSize: 20,
@@ -426,5 +623,93 @@ const styles = StyleSheet.create({
   backToSearchText: {
     color: colors.textSecondary,
     fontSize: 14,
+  },
+  journalCard: {
+    width: '85%',
+    backgroundColor: colors.surface,
+    borderRadius: 16,
+    padding: 24,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    maxHeight: '85%',
+  },
+  journalAlbum: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.text,
+    textAlign: 'center',
+    marginTop: 16,
+  },
+  journalArtist: {
+    fontSize: 16,
+    color: colors.primary,
+    marginTop: 4,
+    marginBottom: 16,
+  },
+  journalSection: {
+    width: '100%',
+    marginBottom: 16,
+  },
+  journalLabel: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginBottom: 8,
+    fontWeight: '600',
+  },
+  starRow: {
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
+  },
+  star: {
+    fontSize: 32,
+    color: colors.textSecondary,
+  },
+  starActive: {
+    color: '#F5A623',
+  },
+  notesInput: {
+    backgroundColor: '#2A2A2A',
+    borderRadius: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 15,
+    color: colors.text,
+    minHeight: 100,
+  },
+  affiliateRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 16,
+    width: '100%',
+  },
+  affiliateButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: '#1A1A1A',
+    gap: 6,
+  },
+  affiliateIcon: {
+    fontSize: 16,
+  },
+  affiliateText: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  disclaimer: {
+    fontSize: 11,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    paddingVertical: 20,
+    paddingHorizontal: 24,
+    lineHeight: 16,
   },
 });
