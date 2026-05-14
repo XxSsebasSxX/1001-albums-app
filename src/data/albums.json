@@ -1,0 +1,7009 @@
+[
+  {
+    "id": "1",
+    "artist": "Frank Sinatra",
+    "album": "In the Wee Small Hours",
+    "year": 1955,
+    "genre": "Various"
+  },
+  {
+    "id": "2",
+    "artist": "Elvis Presley",
+    "album": "Elvis Presley",
+    "year": 1956,
+    "genre": "Various"
+  },
+  {
+    "id": "3",
+    "artist": "The Louvin Brothers",
+    "album": "Tragic Songs of Life",
+    "year": 1956,
+    "genre": "Various"
+  },
+  {
+    "id": "4",
+    "artist": "Louis Prima",
+    "album": "The Wildest!",
+    "year": 1956,
+    "genre": "Various"
+  },
+  {
+    "id": "5",
+    "artist": "Fats Domino",
+    "album": "This Is Fats",
+    "year": 1956,
+    "genre": "Various"
+  },
+  {
+    "id": "6",
+    "artist": "Duke Ellington",
+    "album": "Ellington at Newport '56",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "7",
+    "artist": "Frank Sinatra",
+    "album": "Songs for Swinging Lovers!",
+    "year": 1956,
+    "genre": "Various"
+  },
+  {
+    "id": "8",
+    "artist": "Buddy Holly and the Crickets",
+    "album": "The \"Chirping\" Crickets",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "9",
+    "artist": "The Atomic Mr Basie",
+    "album": "Count Basie",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "10",
+    "artist": "Thelonious Monk",
+    "album": "Brilliant Corners",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "11",
+    "artist": "Sabu",
+    "album": "Palo Congo",
+    "year": 1957,
+    "genre": "Various"
+  },
+  {
+    "id": "12",
+    "artist": "Miles Davis",
+    "album": "Birth of the Cool",
+    "year": 1957,
+    "genre": "Various"
+  },
+  {
+    "id": "13",
+    "artist": "Kenya",
+    "album": "Machito",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "14",
+    "artist": "Here Little Richard",
+    "album": "Little Richard",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "15",
+    "artist": "Dance Mania",
+    "album": "Tito Puente",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "16",
+    "artist": "Billie Holiday",
+    "album": "Lady in Satin",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "17",
+    "artist": "Jack Takes the Floor",
+    "album": "Ramblin' Jack Elliott",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "18",
+    "artist": "Sarah Vaughan",
+    "album": "Sarah Vaughan at Mister Kelly's",
+    "year": 1958,
+    "genre": "Various"
+  },
+  {
+    "id": "19",
+    "artist": "Ella Fitzgerald",
+    "album": "Sings the Gershwin Song Book",
+    "year": 1959,
+    "genre": "Various"
+  },
+  {
+    "id": "20",
+    "artist": "Ray Charles",
+    "album": "Genius of",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "21",
+    "artist": "Miles Davis",
+    "album": "Kind of Blue",
+    "year": 1959,
+    "genre": "Various"
+  },
+  {
+    "id": "22",
+    "artist": "Marty Robbins",
+    "album": "Gunfighter Ballads and Trail Songs",
+    "year": 1959,
+    "genre": "Various"
+  },
+  {
+    "id": "23",
+    "artist": "The Dave Brubeck Quartet",
+    "album": "Time Out",
+    "year": 1959,
+    "genre": "Various"
+  },
+  {
+    "id": "24",
+    "artist": "Joan Baez",
+    "album": "Joan Baez",
+    "year": 1960,
+    "genre": "Various"
+  },
+  {
+    "id": "25",
+    "artist": "Elvis Is Back!",
+    "album": "Elvis Presley",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "26",
+    "artist": "Miriam Makeba",
+    "album": "Miriam Makeba",
+    "year": 1960,
+    "genre": "Various"
+  },
+  {
+    "id": "27",
+    "artist": "The Everly Brothers",
+    "album": "A Date With the Everly Brothers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "28",
+    "artist": "Back at the Chicken Shack",
+    "album": "Jimmy Smith",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "29",
+    "artist": "Muddy Waters",
+    "album": "Muddy Waters at Newport",
+    "year": 1960,
+    "genre": "Various"
+  },
+  {
+    "id": "30",
+    "artist": "Bill Evans",
+    "album": "Sunday at the Village Vanguard",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "31",
+    "artist": "Ray Charles",
+    "album": "Modern Sounds in Country and Western Music",
+    "year": 1962,
+    "genre": "Various"
+  },
+  {
+    "id": "32",
+    "artist": "Booker T. & the M.G.'S",
+    "album": "Green Onions",
+    "year": 1962,
+    "genre": "Various"
+  },
+  {
+    "id": "33",
+    "artist": "Jazz Samba",
+    "album": "Stan Getz / Charlie Byrd",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "34",
+    "artist": "Night Life",
+    "album": "Ray Price",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "35",
+    "artist": "With the Beatles",
+    "album": "The Beatles",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "36",
+    "artist": "Bob Dylan",
+    "album": "the Freewheelin' Bob Dylan",
+    "year": 1963,
+    "genre": "Various"
+  },
+  {
+    "id": "37",
+    "artist": "Phil Spector",
+    "album": "A Christmas Gift for You",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "38",
+    "artist": "Sam Cooke",
+    "album": "Live at the Harlem Square Club",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "39",
+    "artist": "Charles Mingus",
+    "album": "The Black Saint and the Sinner Lady",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "40",
+    "artist": "James Brown",
+    "album": "Live at the Apollo",
+    "year": 1963,
+    "genre": "Various"
+  },
+  {
+    "id": "41",
+    "artist": "Stan Getz & Joao Gilberto",
+    "album": "Getz/Gilberto",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "42",
+    "artist": "The Beatles",
+    "album": "A Hard Day's Night",
+    "year": 1964,
+    "genre": "Various"
+  },
+  {
+    "id": "43",
+    "artist": "Jacques Brel",
+    "album": "Olympia '64",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "44",
+    "artist": "Rock & Soul",
+    "album": "Solomon Burke",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "45",
+    "artist": "Dusty Springfield",
+    "album": "A Girl Called Dusty",
+    "year": 1964,
+    "genre": "Various"
+  },
+  {
+    "id": "46",
+    "artist": "The Rolling Stones",
+    "album": "The Rolling Stones",
+    "year": 1964,
+    "genre": "Various"
+  },
+  {
+    "id": "47",
+    "artist": "Buck Owens and His Buckaroos",
+    "album": "I've Got a Tiger by the Tail",
+    "year": 1964,
+    "genre": "Various"
+  },
+  {
+    "id": "48",
+    "artist": "Jerry Lee Lewis",
+    "album": "Live at the Star Club Hamburg",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "49",
+    "artist": "The Sonics",
+    "album": "Here Are the Sonics",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "50",
+    "artist": "Bob Dylan",
+    "album": "Bringing It All Back Home",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "51",
+    "artist": "Otis Redding",
+    "album": "Otis Blue: Otis Redding Sings Soul",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "52",
+    "artist": "The Beach Boys",
+    "album": "The Beach Boys Today!",
+    "year": 1965,
+    "genre": "Various"
+  },
+  {
+    "id": "53",
+    "artist": "John Coltrane",
+    "album": "a Love Supreme",
+    "year": 1965,
+    "genre": "Various"
+  },
+  {
+    "id": "54",
+    "artist": "B.B. King",
+    "album": "Live at the Regal",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "55",
+    "artist": "The Beatles",
+    "album": "Rubber Soul",
+    "year": 1965,
+    "genre": "Various"
+  },
+  {
+    "id": "56",
+    "artist": "Bert Jansch",
+    "album": "Bert Jansch",
+    "year": 1965,
+    "genre": "Various"
+  },
+  {
+    "id": "57",
+    "artist": "The Byrds",
+    "album": "Mr. Tambourine Man",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "58",
+    "artist": "Bob Dylan",
+    "album": "Highway 61 Revisited",
+    "year": 1965,
+    "genre": "Various"
+  },
+  {
+    "id": "59",
+    "artist": "The Who",
+    "album": "My Generation",
+    "year": 1965,
+    "genre": "Various"
+  },
+  {
+    "id": "60",
+    "artist": "The Beatles",
+    "album": "Revolver",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "61",
+    "artist": "The Beach Boys",
+    "album": "Pet Sounds",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "62",
+    "artist": "Fred Neil",
+    "album": "Fred Neil",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "63",
+    "artist": "The Byrds",
+    "album": "Fifth Dimension",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "64",
+    "artist": "Bob Dylan",
+    "album": "Blonde on Blonde",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "65",
+    "artist": "The Monks",
+    "album": "Black Monk Time",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "66",
+    "artist": "The Kinks",
+    "album": "Face to Face",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "67",
+    "artist": "If You Can Believe Your Eyes and Ears",
+    "album": "The Mamas & the Papa",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "68",
+    "artist": "Paul Revere and the Raiders",
+    "album": "Midnight Ride",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "69",
+    "artist": "The Mothers of Invention",
+    "album": "Freak Out!",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "70",
+    "artist": "The Rolling Stones",
+    "album": "Aftermath",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "71",
+    "artist": "Simon & Garfunkel",
+    "album": "Parsley, Sage, Rosemary, & Thyme",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "72",
+    "artist": "13th Floor Elevators",
+    "album": "the Psychedelic Sounds of the 13th Floor Elevators",
+    "year": 1966,
+    "genre": "Various"
+  },
+  {
+    "id": "73",
+    "artist": "John Mayall With Eric Clapton",
+    "album": "Blues Breakers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "74",
+    "artist": "The Yardbirds",
+    "album": "Roger the Engineer",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "75",
+    "artist": "Nina Simone",
+    "album": "Wild Is the Wind",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "76",
+    "artist": "Astrud Gilberto",
+    "album": "Beach Samba",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "77",
+    "artist": "Nico",
+    "album": "Chelsea Girl",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "78",
+    "artist": "The Beatles",
+    "album": "Sgt. Pepper's Lonely Hearts Club Band",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "79",
+    "artist": "Country Joe & the Fish",
+    "album": "Electric Music for the Mind and Body",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "80",
+    "artist": "Buffalo Springfield",
+    "album": "Buffalo Springfield Again",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "81",
+    "artist": "Captain Beefheart & His Magic Band",
+    "album": "Safe as Milk",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "82",
+    "artist": "Moby Grape",
+    "album": "Moby Grape",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "83",
+    "artist": "Love",
+    "album": "Da Capo",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "84",
+    "artist": "Beau Brummels",
+    "album": "Triangle",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "85",
+    "artist": "The Monkees",
+    "album": "Headquarters",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "86",
+    "artist": "Tim Buckley",
+    "album": "Goodbye and Hello",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "87",
+    "artist": "Love",
+    "album": "Forever Changes",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "88",
+    "artist": "Cream",
+    "album": "Disraeli Gears",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "89",
+    "artist": "Pink Floyd",
+    "album": "The Piper at the Gates of Dawn",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "90",
+    "artist": "The Who",
+    "album": "The Who Sell Out",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "91",
+    "artist": "The Velvet Underground and Nico",
+    "album": "The Velvet Underground & Nico",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "92",
+    "artist": "Francis Albert Sinatra & Antonio Carlos Jobim",
+    "album": "Francis Albert Sinatra & Antonio Carlos Jobim",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "93",
+    "artist": "The Doors",
+    "album": "The Doors",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "94",
+    "artist": "The Byrds",
+    "album": "Younger Than Yesterday",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "95",
+    "artist": "The Young Rascals",
+    "album": "Groovin'",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "96",
+    "artist": "Jefferson Airplane",
+    "album": "Surrealistic Pillow",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "97",
+    "artist": "The Kinks",
+    "album": "Something Else by the Kinks",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "98",
+    "artist": "Donovan",
+    "album": "Sunshine Superman",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "99",
+    "artist": "Merle Haggard",
+    "album": "I'm a Lonesome Fugitive",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "100",
+    "artist": "Are You Experienced?",
+    "album": "The Jimi Hendrix Experience",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "101",
+    "artist": "The Electric Prunes",
+    "album": "The Electric Prunes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "102",
+    "artist": "Loretta Lynn",
+    "album": "Don't Come Home a Drinkin' With Lovin' on Your Mind",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "103",
+    "artist": "Shivkumar Sharma",
+    "album": "Call of the Valley",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "104",
+    "artist": "The Velvet Underground",
+    "album": "White Light/White Heat",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "105",
+    "artist": "The Jimi Hendrix Experience",
+    "album": "Bold as Love",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "106",
+    "artist": "Aretha Franklin",
+    "album": "I Never Loved a Man the Way I Love You",
+    "year": 1967,
+    "genre": "Various"
+  },
+  {
+    "id": "107",
+    "artist": "The Rolling Stones",
+    "album": "Beggars Banquet",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "108",
+    "artist": "Traffic",
+    "album": "Traffic",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "109",
+    "artist": "The Incredible String Band",
+    "album": "The Hangman's Beautiful Daughter",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "110",
+    "artist": "The Kinks",
+    "album": "The Kinks Are the Village Green Preservation Society",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "111",
+    "artist": "Ravi Shankar",
+    "album": "The Sounds of India",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "112",
+    "artist": "Os Mutantes",
+    "album": "Os Mutantes",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "113",
+    "artist": "The Jimi Hendrix Experience",
+    "album": "Electric Ladyland",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "114",
+    "artist": "Leonard Cohen",
+    "album": "Songs of Leonard Cohen",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "115",
+    "artist": "Johnny Cash",
+    "album": "at Folsom Prison",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "116",
+    "artist": "Laura Nyro",
+    "album": "Eli and the Thirteenth Confession",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "117",
+    "artist": "Aretha Franklin",
+    "album": "Lady Soul",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "118",
+    "artist": "Blue Cheer",
+    "album": "Vincebus Eruptum",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "119",
+    "artist": "The Byrds",
+    "album": "The Notorious Byrd Brothers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "120",
+    "artist": "Big Brother and the Holding Company",
+    "album": "Cheap Thrills",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "121",
+    "artist": "United States of America",
+    "album": "S/T",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "122",
+    "artist": "Dr. John the Nighttripper",
+    "album": "Gris - Gris",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "123",
+    "artist": "Iron Butterfly",
+    "album": "In - A - Gadda - Da - Vida",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "124",
+    "artist": "The Pretty Things",
+    "album": "S.F. Sorrow",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "125",
+    "artist": "Bookends",
+    "album": "Simon & Garfunkel",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "126",
+    "artist": "Small Faces",
+    "album": "Ogden's Nut Gone Flake",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "127",
+    "artist": "The Band",
+    "album": "Music From Big Pink",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "128",
+    "artist": "Jeff Beck",
+    "album": "Truth",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "129",
+    "artist": "Caetano Veloso",
+    "album": "Caetano Veloso",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "130",
+    "artist": "Scott Walker",
+    "album": "Scott 2",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "131",
+    "artist": "The Zombies",
+    "album": "Odessey and Oracle",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "132",
+    "artist": "Van Morrison",
+    "album": "Astral Weeks",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "133",
+    "artist": "The Byrds",
+    "album": "Sweetheart of the Rodeo",
+    "year": 1968,
+    "genre": "Various"
+  },
+  {
+    "id": "134",
+    "artist": "The Beatles",
+    "album": "The Beatles White Album",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "135",
+    "artist": "Mothers of Invention",
+    "album": "We're Only in It for the Money",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "136",
+    "artist": "Neil Young",
+    "album": "Everybody Knows This Is Nowhere",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "137",
+    "artist": "Captain Beefheart & His Magic Band",
+    "album": "Trout Mask Replica",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "138",
+    "artist": "Creedence Clearwater Revival",
+    "album": "Bayou Country",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "139",
+    "artist": "Crosby",
+    "album": "Stills & Nash, Crosby Stills & Nash",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "140",
+    "artist": "Blood, Sweat & Tears",
+    "album": "Blood, Sweat & Tears",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "141",
+    "artist": "The Flying Burrito Bros",
+    "album": "The Gilded Palace of Sin",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "142",
+    "artist": "Johnny Cash",
+    "album": "At San Quentin",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "143",
+    "artist": "Creedence Clearwater Revival",
+    "album": "Green River",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "144",
+    "artist": "The Beatles",
+    "album": "Abbey Road",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "145",
+    "artist": "The Who",
+    "album": "Tommy",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "146",
+    "artist": "Miles Davis",
+    "album": "in a Silent Way",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "147",
+    "artist": "Bee Gees",
+    "album": "Odessa",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "148",
+    "artist": "Pentangle",
+    "album": "Basket of Light",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "149",
+    "artist": "The Rolling Stones",
+    "album": "Let It Bleed",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "150",
+    "artist": "Nick Drake",
+    "album": "Five Leaves Left",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "151",
+    "artist": "Dusty Springfield",
+    "album": "Dusty in Memphis",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "152",
+    "artist": "Elvis Presley",
+    "album": "From Elvis in Memphis",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "153",
+    "artist": "The Velvet Underground",
+    "album": "The Velvet Underground",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "154",
+    "artist": "Quicksilver Messenger Service",
+    "album": "Happy Trails",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "155",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "156",
+    "artist": "The Band",
+    "album": "The Band",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "157",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin II",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "158",
+    "artist": "MC5",
+    "album": "Kick Out the Jams",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "159",
+    "artist": "The Temptations",
+    "album": "Cloud Nine",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "160",
+    "artist": "Sly & the Family Stone",
+    "album": "Stand!",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "161",
+    "artist": "Tim Buckley",
+    "album": "Happy Sad",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "162",
+    "artist": "Chicago",
+    "album": "Chicago Transit Authority",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "163",
+    "artist": "Fairport Convention",
+    "album": "Unhalfbricking",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "164",
+    "artist": "Youngbloods",
+    "album": "Elephant Mountain",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "165",
+    "artist": "Isaac Hayes",
+    "album": "Hot Buttered Soul",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "166",
+    "artist": "Grateful Dead",
+    "album": "Live Dead",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "167",
+    "artist": "The Kinks",
+    "album": "Arthur or the Decline and Fall of the British Empire",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "168",
+    "artist": "King Crimson",
+    "album": "In the Court of the Crimson King",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "169",
+    "artist": "Leonard Cohen",
+    "album": "Songs From a Room",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "170",
+    "artist": "Fairport Convention",
+    "album": "Liege & Lief",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "171",
+    "artist": "Scott Walker",
+    "album": "Scott4",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "172",
+    "artist": "The Stooges",
+    "album": "the Stooges",
+    "year": 1969,
+    "genre": "Various"
+  },
+  {
+    "id": "173",
+    "artist": "Alexander Spence",
+    "album": "Oar",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "174",
+    "artist": "Frank Zappa",
+    "album": "Hot Rats",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "175",
+    "artist": "Creedence Clearwater Revival",
+    "album": "Cosmo's Factory",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "176",
+    "artist": "Derek and the Dominos",
+    "album": "Layla & Other Assorted Love Songs",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "177",
+    "artist": "Miles Davis",
+    "album": "Bitches Brew",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "178",
+    "artist": "Spirit",
+    "album": "Twelve Dreams of Dr. Sardonicus",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "179",
+    "artist": "Black Sabbath",
+    "album": "Black Sabbath",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "180",
+    "artist": "The Doors",
+    "album": "Morrison Hotel",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "181",
+    "artist": "Carpenters",
+    "album": "Close to You",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "182",
+    "artist": "Stephen Stills",
+    "album": "Stephen Stills",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "183",
+    "artist": "John Lennon",
+    "album": "John Lennon & Plastic Ono Band",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "184",
+    "artist": "Crosby,Stills,Nash & Young",
+    "album": "Deja Vu",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "185",
+    "artist": "Black Sabbath",
+    "album": "Paranoid",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "186",
+    "artist": "Neil Young",
+    "album": "After the Gold Rush",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "187",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin III",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "188",
+    "artist": "Deep Purple",
+    "album": "Deep Purple in Rock",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "189",
+    "artist": "Van Morrison",
+    "album": "Moondance",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "190",
+    "artist": "Grateful Dead",
+    "album": "American Beauty",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "191",
+    "artist": "Nick Drake",
+    "album": "Bryter Layter",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "192",
+    "artist": "Ananda Shankar",
+    "album": "Ananda Shankar",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "193",
+    "artist": "The Who",
+    "album": "Live at Leeds",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "194",
+    "artist": "Soft Machine",
+    "album": "Third",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "195",
+    "artist": "Rod Stewart",
+    "album": "Gasoline Alley",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "196",
+    "artist": "George Harrison",
+    "album": "All Things Must Pass",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "197",
+    "artist": "Simon & Garfunkel",
+    "album": "Bridge Over Troubled Water",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "198",
+    "artist": "Cat Stevens",
+    "album": "Tea for the Tillerman",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "199",
+    "artist": "Traffic",
+    "album": "John Barleycorn Must Die",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "200",
+    "artist": "The Stooges",
+    "album": "Fun House",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "201",
+    "artist": "James Taylor",
+    "album": "Sweet Baby James",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "202",
+    "artist": "Paul McCartney",
+    "album": "McCartney",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "203",
+    "artist": "Santana",
+    "album": "Abraxas",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "204",
+    "artist": "Syd Barrett",
+    "album": "The Madcap Laughs",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "205",
+    "artist": "Jethro Tull",
+    "album": "Aqualung",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "206",
+    "artist": "David Crosby",
+    "album": "If I Could Only Remember My Name",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "207",
+    "artist": "Sly & the Family Stone",
+    "album": "There's a Riot Goin' on",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "208",
+    "artist": "Marvin Gaye",
+    "album": "What's Going On",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "209",
+    "artist": "Bee Gees",
+    "album": "Trafalgar",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "210",
+    "artist": "The Yes Album",
+    "album": "Yes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "211",
+    "artist": "The Who",
+    "album": "Who's Next",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "212",
+    "artist": "Carole King",
+    "album": "Tapestry",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "213",
+    "artist": "Isaac Hayes",
+    "album": "Shaft: Music From the Soundtrack",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "214",
+    "artist": "The Allman Brothers Band",
+    "album": "At Fillmore East",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "215",
+    "artist": "The Rolling Stones",
+    "album": "Sticky Fingers",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "216",
+    "artist": "John Lennon",
+    "album": "Imagine",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "217",
+    "artist": "The Beach Boys",
+    "album": "Surf's Up",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "218",
+    "artist": "Yes",
+    "album": "Fragile",
+    "year": 1970,
+    "genre": "Various"
+  },
+  {
+    "id": "219",
+    "artist": "L.A. Woman",
+    "album": "The Doors",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "220",
+    "artist": "Can",
+    "album": "Tago Mago",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "221",
+    "artist": "Elton John",
+    "album": "Madman Across the Water",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "222",
+    "artist": "Coat of Many Colors",
+    "album": "Dolly Parton",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "223",
+    "artist": "Don McLean",
+    "album": "American Pie",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "224",
+    "artist": "Emerson, Lake & Palmer",
+    "album": "Tarkus",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "225",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin IV",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "226",
+    "artist": "Serge Gainsbourg",
+    "album": "Histoire De Melody Nelson",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "227",
+    "artist": "Rod Stewart",
+    "album": "Every Picture Tells a Story",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "228",
+    "artist": "Emerson, Lake & Palmer",
+    "album": "Pictures at an Exhibition",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "229",
+    "artist": "Leonard Cohen",
+    "album": "Songs of Love and Hate",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "230",
+    "artist": "Joni Mitchell",
+    "album": "Blue",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "231",
+    "artist": "Pearl",
+    "album": "Janis Joplin",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "232",
+    "artist": "Funkadelic",
+    "album": "Maggot Brain",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "233",
+    "artist": "Fela Ransome",
+    "album": "Kuti & the Afrika 70 With Ginger Baker - Live!",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "234",
+    "artist": "The Faces",
+    "album": "A Nod Is as Good as a Wink... to a Blind Horse",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "235",
+    "artist": "Flamin' Groovies",
+    "album": "Teenage Head",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "236",
+    "artist": "Gene Clark",
+    "album": "White Light",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "237",
+    "artist": "John Prine",
+    "album": "John Prine",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "238",
+    "artist": "Harry Nilsson",
+    "album": "Nilsson Schmilsson",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "239",
+    "artist": "T. Rex",
+    "album": "Electric Warrior",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "240",
+    "artist": "David Bowie",
+    "album": "Hunky Dory",
+    "year": 1971,
+    "genre": "Various"
+  },
+  {
+    "id": "241",
+    "artist": "Randy Newman",
+    "album": "Sail Away",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "242",
+    "artist": "Deep Purple",
+    "album": "Machine Head",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "243",
+    "artist": "Big Star",
+    "album": "#1 Record",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "244",
+    "artist": "Black Sabbath",
+    "album": "Black Sabbath, Vol. 4",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "245",
+    "artist": "Steely Dan",
+    "album": "Can't Buy a Thrill",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "246",
+    "artist": "Neil Young",
+    "album": "Harvest",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "247",
+    "artist": "Curtis Mayfield",
+    "album": "Superfly",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "248",
+    "artist": "Slade",
+    "album": "Slayed",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "249",
+    "artist": "Deep Purple",
+    "album": "Made in Japan",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "250",
+    "artist": "Yes",
+    "album": "Close to the Edge",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "251",
+    "artist": "Lou Reed",
+    "album": "Transformer",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "252",
+    "artist": "Hugh Masekela",
+    "album": "Home Is Where the Music Is",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "253",
+    "artist": "Milton Nascimento E Lô Borges",
+    "album": "Clube Da Esquina",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "254",
+    "artist": "Todd Rundgren",
+    "album": "Something/Anything?",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "255",
+    "artist": "Nitty Gritty Dirt Band",
+    "album": "Will the Circle Be Unbroken",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "256",
+    "artist": "Stevie Wonder",
+    "album": "Talking Book",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "257",
+    "artist": "Manassas",
+    "album": "Manassas",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "258",
+    "artist": "T. Rex",
+    "album": "The Slider",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "259",
+    "artist": "Davd Ackles",
+    "album": "American Gothic",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "260",
+    "artist": "Tim Buckley",
+    "album": "Greetings From LA",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "261",
+    "artist": "Nick Drake",
+    "album": "Pink Moon",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "262",
+    "artist": "Eagles",
+    "album": "Eagles",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "263",
+    "artist": "Paul Simon",
+    "album": "Paul Simon",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "264",
+    "artist": "Roxy Music",
+    "album": "Roxy Music",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "265",
+    "artist": "Alice Cooper",
+    "album": "School's Out",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "266",
+    "artist": "The Temptations",
+    "album": "All Directions",
+    "year": 1972,
+    "genre": "Various"
+  },
+  {
+    "id": "267",
+    "artist": "David Bowie",
+    "album": "The Rise and Fall of Ziggy Stardust & the Spiders From M",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "268",
+    "artist": "War",
+    "album": "The World Is a Ghetto",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "269",
+    "artist": "Al Green",
+    "album": "Let's Stay Together",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "270",
+    "artist": "Rolling Stones",
+    "album": "Exile on Main Street",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "271",
+    "artist": "Lynyrd Skynyrd",
+    "album": "Pronounced 'Lĕh - 'Nérd 'Skin - 'Nérd",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "272",
+    "artist": "The Incredible Bongo Band",
+    "album": "Bongo Rock",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "273",
+    "artist": "David Bowie",
+    "album": "Aladdin Sane",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "274",
+    "artist": "King Crimson",
+    "album": "Larks' Tongues in Aspic",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "275",
+    "artist": "Bob Marley and the Wailers",
+    "album": "Catch a Fire",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "276",
+    "artist": "Hawkwind",
+    "album": "Space Ritual",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "277",
+    "artist": "John Cale",
+    "album": "Paris",
+    "year": 1919,
+    "genre": "Various"
+  },
+  {
+    "id": "278",
+    "artist": "CAN",
+    "album": "Future Days",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "279",
+    "artist": "Lou Reed",
+    "album": "Berlin",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "280",
+    "artist": "Genesis",
+    "album": "Selling England by the Pound",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "281",
+    "artist": "Marvin Gaye",
+    "album": "Let's Get It On",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "282",
+    "artist": "John Martyn",
+    "album": "Solid Air",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "283",
+    "artist": "Roxy Music",
+    "album": "For Your Pleasure",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "284",
+    "artist": "Faust",
+    "album": "Faust IV",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "285",
+    "artist": "Herbie Hancock",
+    "album": "Head Hunters",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "286",
+    "artist": "Mott the Hoople",
+    "album": "Mott",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "287",
+    "artist": "Mike Oldfield",
+    "album": "Tubular Bells",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "288",
+    "artist": "Todd Rundgren",
+    "album": "A Wizard / a True Star",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "289",
+    "artist": "Elton John",
+    "album": "Goodbye Yellow Brick Road",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "290",
+    "artist": "Steely Dan",
+    "album": "Countdown to Ecstasy",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "291",
+    "artist": "Waylon Jennings",
+    "album": "Honky Tonk Heroes",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "292",
+    "artist": "Pink Floyd",
+    "album": "'Dark Side of the Moon'",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "293",
+    "artist": "Stevie Wonder",
+    "album": "Innervisions",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "294",
+    "artist": "ZZ Top",
+    "album": "Tres Hombres",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "295",
+    "artist": "Paul McCartney and Wings",
+    "album": "Band on the Run",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "296",
+    "artist": "The Sensational Alex Harvey Band",
+    "album": "Next",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "297",
+    "artist": "Alice Cooper",
+    "album": "Billion Dollar Babies",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "298",
+    "artist": "Iggy and the Stooges",
+    "album": "Raw Power",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "299",
+    "artist": "The Isley Brothers",
+    "album": "3 + 3",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "300",
+    "artist": "New York Dolls",
+    "album": "New York Dolls",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "301",
+    "artist": "Brian Eno",
+    "album": "Here Come the Warm Jets",
+    "year": 1973,
+    "genre": "Various"
+  },
+  {
+    "id": "302",
+    "artist": "Bad Company",
+    "album": "Bad Company",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "303",
+    "artist": "Genesis",
+    "album": "The Lamb Lies Down on Broadway",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "304",
+    "artist": "Shuggie Otis",
+    "album": "Inspiration Information",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "305",
+    "artist": "Stevie Wonder",
+    "album": "Fulfillingness First Finale",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "306",
+    "artist": "Eric Clapton",
+    "album": "461 Ocean Boulevard",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "307",
+    "artist": "Kraftwerk",
+    "album": "Autobahn",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "308",
+    "artist": "Van Morrison",
+    "album": "It's Too Late to Stop Now",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "309",
+    "artist": "Joni Mitchell",
+    "album": "Court and Spark",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "310",
+    "artist": "Queen",
+    "album": "Queen II",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "311",
+    "artist": "Roxy Music",
+    "album": "Country Life",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "312",
+    "artist": "Tangerine Dream",
+    "album": "Phaedra",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "313",
+    "artist": "Sparks",
+    "album": "Kimono My House",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "314",
+    "artist": "Supertramp",
+    "album": "Crime of the Century",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "315",
+    "artist": "Richard and Linda Thompson",
+    "album": "I Want to See the Bright Lights Tonight",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "316",
+    "artist": "Winter in America",
+    "album": "Gil Scott - Heron",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "317",
+    "artist": "Queen",
+    "album": "Sheer Heart Attack",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "318",
+    "artist": "Sheet Music",
+    "album": "10Cc",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "319",
+    "artist": "On the Beach",
+    "album": "Neil Young",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "320",
+    "artist": "George Jones",
+    "album": "The Grand Tour",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "321",
+    "artist": "Gene Clark",
+    "album": "No Other",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "322",
+    "artist": "Steely Dan",
+    "album": "Pretzel Logic",
+    "year": 1974,
+    "genre": "Various"
+  },
+  {
+    "id": "323",
+    "artist": "Randy Newman",
+    "album": "Good Old Boys",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "324",
+    "artist": "Bob Marley and the Wailers",
+    "album": "Natty Dread",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "325",
+    "artist": "Robert Wyatt",
+    "album": "Rock Bottom",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "326",
+    "artist": "Gram Parsons",
+    "album": "Grievous Angel",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "327",
+    "artist": "Brian Eno",
+    "album": "Another Green World",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "328",
+    "artist": "The Dictators",
+    "album": "Go Girl Crazy!",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "329",
+    "artist": "NEU!",
+    "album": "Neu! '75",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "330",
+    "artist": "Led Zeppelin",
+    "album": "Physical Graffiti",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "331",
+    "artist": "Keith Jarrett",
+    "album": "The Köln Concert",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "332",
+    "artist": "Aerosmith",
+    "album": "Toys in the Attic",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "333",
+    "artist": "David Bowie",
+    "album": "Young Americans",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "334",
+    "artist": "Burning Spear",
+    "album": "Marcus Garvey",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "335",
+    "artist": "Bruce Springsteen",
+    "album": "Born to Run",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "336",
+    "artist": "Emmylou Harris",
+    "album": "Pieces of the Sky",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "337",
+    "artist": "Dion",
+    "album": "Born to Be With You",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "338",
+    "artist": "Joni Mitchell",
+    "album": "The Hissing of Summer Lawns",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "339",
+    "artist": "Tom Waits",
+    "album": "Nighthawks at the Diner",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "340",
+    "artist": "Rahul Dev Burman",
+    "album": "Shalimar",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "341",
+    "artist": "Neil Young",
+    "album": "Tonight's the Night",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "342",
+    "artist": "Bob Dylan",
+    "album": "Blood on the Tracks",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "343",
+    "artist": "Patti Smith",
+    "album": "Horses",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "344",
+    "artist": "Pink Floyd",
+    "album": "Wish You Were Here",
+    "year": 1975,
+    "genre": "Various"
+  },
+  {
+    "id": "345",
+    "artist": "Queen",
+    "album": "A Night at the Opera",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "346",
+    "artist": "Willie Nelson",
+    "album": "Red Headed Stranger",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "347",
+    "artist": "Earth, Wind & Fire",
+    "album": "That's the Way of the World",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "348",
+    "artist": "Curtis Mayfield",
+    "album": "There's No Place Like America Today",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "349",
+    "artist": "Tom Petty and the Heartbreakers",
+    "album": "Tom Petty and the Heartbreakers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "350",
+    "artist": "The Modern Lovers",
+    "album": "The Modern Lovers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "351",
+    "artist": "David Bowie",
+    "album": "Station to Station",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "352",
+    "artist": "Joni Mitchell",
+    "album": "Hejira",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "353",
+    "artist": "Boston",
+    "album": "Boston",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "354",
+    "artist": "Eagles",
+    "album": "Hotel California",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "355",
+    "artist": "ABBA",
+    "album": "Arrival",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "356",
+    "artist": "Kiss",
+    "album": "Destroyer",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "357",
+    "artist": "Rush",
+    "album": "2112",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "358",
+    "artist": "Jorge Ben",
+    "album": "África Brasil",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "359",
+    "artist": "Joan Armatrading",
+    "album": "Joan Armatrading",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "360",
+    "artist": "Aerosmith",
+    "album": "Rocks",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "361",
+    "artist": "Parliament",
+    "album": "Mothership Connection",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "362",
+    "artist": "Penguin Cafe Orchestra",
+    "album": "Music From the Penguin Café",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "363",
+    "artist": "Jean",
+    "album": "Michelle Jarre - Oxygene",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "364",
+    "artist": "Ramones",
+    "album": "Ramones",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "365",
+    "artist": "Zombie",
+    "album": "Fela Kuti & Afrika 70",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "366",
+    "artist": "Peter Tosh",
+    "album": "Legalize It",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "367",
+    "artist": "Stevie Wonder",
+    "album": "Songs in the Key of Life",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "368",
+    "artist": "Peter Frampton",
+    "album": "Frampton Comes Alive!",
+    "year": 1976,
+    "genre": "Various"
+  },
+  {
+    "id": "369",
+    "artist": "Brian Eno",
+    "album": "Before and After Science",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "370",
+    "artist": "Kraftwerk",
+    "album": "Trans",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "371",
+    "artist": "Billy Joel",
+    "album": "The Stranger",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "372",
+    "artist": "Bob Marley and the Wailers",
+    "album": "Exodus",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "373",
+    "artist": "Electric Light Orchestra",
+    "album": "Out of the Blue",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "374",
+    "artist": "Weather Report",
+    "album": "Heavy Weather",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "375",
+    "artist": "Muddy Waters",
+    "album": "Hard Again",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "376",
+    "artist": "The Stranglers",
+    "album": "Rattus Norvegicus",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "377",
+    "artist": "The Clash",
+    "album": "The Clash",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "378",
+    "artist": "David Bowie",
+    "album": "Low",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "379",
+    "artist": "Steely Dan",
+    "album": "Aja",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "380",
+    "artist": "Wire",
+    "album": "Pink Flag",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "381",
+    "artist": "John Martyn",
+    "album": "One World",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "382",
+    "artist": "Talking Heads",
+    "album": "Talking Heads: 77",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "383",
+    "artist": "Fleetwood Mac",
+    "album": "Rumours",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "384",
+    "artist": "David Bowie",
+    "album": "\"Heroes\"",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "385",
+    "artist": "Dennis Wilson",
+    "album": "Pacific Ocean Blue",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "386",
+    "artist": "Suicide",
+    "album": "Suicide",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "387",
+    "artist": "Iggy Pop",
+    "album": "The Idiot",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "388",
+    "artist": "Peter Gabriel",
+    "album": "Peter Gabriel",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "389",
+    "artist": "Television",
+    "album": "Marquee Moon",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "390",
+    "artist": "Meat Loaf",
+    "album": "Bat Out of Hell",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "391",
+    "artist": "Elvis Costello",
+    "album": "My Aim Is True",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "392",
+    "artist": "Iggy Pop",
+    "album": "Lust for Life",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "393",
+    "artist": "Ian Dury",
+    "album": "New Boots and Panties!!",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "394",
+    "artist": "Sex Pistols",
+    "album": "Never Mind the Bollocks Here's the Sex Pistols",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "395",
+    "artist": "Pere Ubu",
+    "album": "The Modern Dance",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "396",
+    "artist": "Kraftwerk",
+    "album": "The Man - Machine",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "397",
+    "artist": "Blondie",
+    "album": "Parallel Lines",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "398",
+    "artist": "Elis Regina",
+    "album": "Vento De Maio",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "399",
+    "artist": "Pere Ubu",
+    "album": "Dub Housing",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "400",
+    "artist": "The Only Ones",
+    "album": "The Only Ones",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "401",
+    "artist": "Elvis Costello",
+    "album": "This Year's Model",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "402",
+    "artist": "The Jam",
+    "album": "All Mod Cons",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "403",
+    "artist": "Joe Ely",
+    "album": "Honky Tonk Masquerade",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "404",
+    "artist": "The Adverts",
+    "album": "Crossing the Red Sea With the Adverts",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "405",
+    "artist": "Big Star",
+    "album": "Third / Sister Lovers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "406",
+    "artist": "The Residents",
+    "album": "Duck Stab/Buster & Glen",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "407",
+    "artist": "Public Image Limited",
+    "album": "Public Image Limited",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "408",
+    "artist": "Magazine",
+    "album": "Real Life",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "409",
+    "artist": "Bruce Springsteen",
+    "album": "Darkness on the Edge of Town",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "410",
+    "artist": "Funkadelic",
+    "album": "One Nation Under a Groove",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "411",
+    "artist": "Throbbing Gristle",
+    "album": "D.O.A. Third and Final Report",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "412",
+    "artist": "Thin Lizzy",
+    "album": "Live and Dangerous",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "413",
+    "artist": "Talking Heads",
+    "album": "More Songs About Buildings and Food",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "414",
+    "artist": "Buzzcocks",
+    "album": "Another Music in a Different Kitchen",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "415",
+    "artist": "Van Halen",
+    "album": "Van Halen",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "416",
+    "artist": "Willie Colón & Rubén Blades",
+    "album": "Siembra",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "417",
+    "artist": "The Cars",
+    "album": "The Cars",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "418",
+    "artist": "Devo",
+    "album": "Are We Not Men? A: We Are Devo!",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "419",
+    "artist": "Dire Straits",
+    "album": "Dire Straits",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "420",
+    "artist": "The Saints",
+    "album": "Eternally Yours",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "421",
+    "artist": "Marvin Gaye Here",
+    "album": "My Dear",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "422",
+    "artist": "Willie Nelson",
+    "album": "Stardust",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "423",
+    "artist": "Chic",
+    "album": "C'est Chic",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "424",
+    "artist": "X",
+    "album": "Ray Spex - Germ - Free Adolescents",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "425",
+    "artist": "Brian Eno",
+    "album": "Ambient 1: Music for Airports",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "426",
+    "artist": "Siouxsie & the Banshees",
+    "album": "The Scream",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "427",
+    "artist": "AC/DC",
+    "album": "Highway to Hell",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "428",
+    "artist": "Sister Sledge",
+    "album": "We Are Family",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "429",
+    "artist": "The Crusaders",
+    "album": "Street Life",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "430",
+    "artist": "Germs",
+    "album": "GI",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "431",
+    "artist": "The B",
+    "album": "52'S - The B - 52'S",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "432",
+    "artist": "Holger Czukay",
+    "album": "Movies",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "433",
+    "artist": "The Police",
+    "album": "Reggatta de Blanc",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "434",
+    "artist": "The Fall",
+    "album": "Live at the Witch Trials",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "435",
+    "artist": "Talking Heads",
+    "album": "Fear of Music",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "436",
+    "artist": "Joy Division",
+    "album": "Unknown Pleasures",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "437",
+    "artist": "Chic",
+    "album": "Risque",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "438",
+    "artist": "Undertones",
+    "album": "The Undertones",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "439",
+    "artist": "The Clash",
+    "album": "London Calling",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "440",
+    "artist": "Japan",
+    "album": "Quiet Life",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "441",
+    "artist": "Broken English",
+    "album": "Marianne Faithfull",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "442",
+    "artist": "The Slits",
+    "album": "Cut",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "443",
+    "artist": "Elvis Costello and the Attractions",
+    "album": "Armed Forces",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "444",
+    "artist": "Neil Young and Crazy Horse",
+    "album": "Rust Never Sleeps",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "445",
+    "artist": "Gang of Four",
+    "album": "Entertainment!",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "446",
+    "artist": "Cheap Trick",
+    "album": "At Budokan",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "447",
+    "artist": "Fleetwood Mac",
+    "album": "Tusk",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "448",
+    "artist": "Pink Floyd",
+    "album": "The Wall",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "449",
+    "artist": "Public Image, Ltd.",
+    "album": "Metal Box",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "450",
+    "artist": "Michael Jackson",
+    "album": "Off the Wall",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "451",
+    "artist": "The Damned",
+    "album": "Machine Gun Etiquette",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "452",
+    "artist": "Gary Numan",
+    "album": "The Pleasure Principle",
+    "year": 1979,
+    "genre": "Various"
+  },
+  {
+    "id": "453",
+    "artist": "The Specials",
+    "album": "The Specials",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "454",
+    "artist": "Adam and the Ants",
+    "album": "Kings of the Wild Frontier",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "455",
+    "artist": "Dexy's Midnight Runners",
+    "album": "Searching for the Young Soul Rebels",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "456",
+    "artist": "AC/DC",
+    "album": "Back in Black",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "457",
+    "artist": "The Cramps",
+    "album": "The Songs the Lord Taught Us",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "458",
+    "artist": "The Dead Kennedys",
+    "album": "Fresh Fruit for Rotting Vegetables",
+    "year": 1980,
+    "genre": "Various"
+  },
+  {
+    "id": "459",
+    "artist": "Peter Gabriel",
+    "album": "Peter Gabriel",
+    "year": 1980,
+    "genre": "Various"
+  },
+  {
+    "id": "460",
+    "artist": "The Soft Boys",
+    "album": "Underwater Moonlight",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "461",
+    "artist": "The Cure",
+    "album": "Seventeen Seconds",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "462",
+    "artist": "Echo & the Bunnymen",
+    "album": "Crocodiles",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "463",
+    "artist": "Motörhead",
+    "album": "Ace of Spades",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "464",
+    "artist": "Killing Joke",
+    "album": "Killing Joke",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "465",
+    "artist": "Judas Priest",
+    "album": "British Steel",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "466",
+    "artist": "Circle Jerks",
+    "album": "Group Sex",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "467",
+    "artist": "Talking Heads",
+    "album": "Remain in Light",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "468",
+    "artist": "Joy Division",
+    "album": "Closer",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "469",
+    "artist": "Iron Maiden",
+    "album": "Iron Maiden",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "470",
+    "artist": "The Undertones",
+    "album": "Hypnotised",
+    "year": 1980,
+    "genre": "Various"
+  },
+  {
+    "id": "471",
+    "artist": "The Jam",
+    "album": "Sound Affects",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "472",
+    "artist": "Tom Waits",
+    "album": "Heartattack and Vine",
+    "year": 1980,
+    "genre": "Various"
+  },
+  {
+    "id": "473",
+    "artist": "Signing Off",
+    "album": "UB40",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "474",
+    "artist": "The Teardrop Explodes",
+    "album": "Kilimanjaro",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "475",
+    "artist": "The Specials",
+    "album": "More Specials",
+    "year": 1980,
+    "genre": "Various"
+  },
+  {
+    "id": "476",
+    "artist": "Steve Winwood",
+    "album": "Arc of a Driver",
+    "year": 1980,
+    "genre": "Various"
+  },
+  {
+    "id": "477",
+    "artist": "Pretenders",
+    "album": "Pretenders",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "478",
+    "artist": "Einstürzende Neubauten",
+    "album": "Kollaps",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "479",
+    "artist": "Siouxsie and the Banshees",
+    "album": "Juju",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "480",
+    "artist": "Penthouse and Pavement",
+    "album": "Heaven 17",
+    "year": 1981,
+    "genre": "Various"
+  },
+  {
+    "id": "481",
+    "artist": "Beauty and the Beat",
+    "album": "The Go Go's",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "482",
+    "artist": "Motorhead",
+    "album": "No Sleep 'Til Hammersmith",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "483",
+    "artist": "Soft Cell",
+    "album": "Non - Stop Erotic Cabaret",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "484",
+    "artist": "Orchestral Manoeuvres in the Dark",
+    "album": "Architecture & Morality",
+    "year": 1981,
+    "genre": "Various"
+  },
+  {
+    "id": "485",
+    "artist": "David Byrne & Brian Eno",
+    "album": "My Life in the Bush of Ghosts",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "486",
+    "artist": "Black Flag",
+    "album": "Damaged",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "487",
+    "artist": "X",
+    "album": "Wild Gift",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "488",
+    "artist": "The Psychedelic Furs",
+    "album": "Talk Talk Talk",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "489",
+    "artist": "The Human League",
+    "album": "Dare",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "490",
+    "artist": "Gun Club",
+    "album": "Fire of Love",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "491",
+    "artist": "Bauhaus",
+    "album": "Mask",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "492",
+    "artist": "Bobby Womack",
+    "album": "The Poet",
+    "year": 1981,
+    "genre": "Various"
+  },
+  {
+    "id": "493",
+    "artist": "Tom Tom Club",
+    "album": "Tom Tom Club",
+    "year": 1981,
+    "genre": "Various"
+  },
+  {
+    "id": "494",
+    "artist": "Rush",
+    "album": "Moving Pictures",
+    "year": 1981,
+    "genre": "Various"
+  },
+  {
+    "id": "495",
+    "artist": "ABBA",
+    "album": "The Visitors",
+    "year": 1981,
+    "genre": "Various"
+  },
+  {
+    "id": "496",
+    "artist": "ABC",
+    "album": "The Lexicon of Love",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "497",
+    "artist": "Prince",
+    "album": "Prince -",
+    "year": 1999,
+    "genre": "Various"
+  },
+  {
+    "id": "498",
+    "artist": "Grandmaster Flash",
+    "album": "The Message",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "499",
+    "artist": "Elvis Costello & the Attractions",
+    "album": "Imperial Bedroom",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "500",
+    "artist": "The Cure",
+    "album": "Pornography",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "501",
+    "artist": "Dexys Midnight Runners",
+    "album": "Too - Rye - Ay",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "502",
+    "artist": "Simple Minds",
+    "album": "New Gold Dream",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "503",
+    "artist": "Madness",
+    "album": "The Rise & Fall",
+    "year": 1982,
+    "genre": "Various"
+  },
+  {
+    "id": "504",
+    "artist": "Donald Fagen",
+    "album": "The Nightfly",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "505",
+    "artist": "Haircut One Hundred",
+    "album": "Pelican West",
+    "year": 1982,
+    "genre": "Various"
+  },
+  {
+    "id": "506",
+    "artist": "Kate Bush",
+    "album": "The Dreaming",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "507",
+    "artist": "Orange Juice",
+    "album": "Rip It Up",
+    "year": 1982,
+    "genre": "Various"
+  },
+  {
+    "id": "508",
+    "artist": "Michael Jackson",
+    "album": "Thriller",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "509",
+    "artist": "The Birthday Party",
+    "album": "Junkyard",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "510",
+    "artist": "Venom",
+    "album": "Black Metal",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "511",
+    "artist": "Bruce Springsteen",
+    "album": "Nebraska",
+    "year": 1982,
+    "genre": "Various"
+  },
+  {
+    "id": "512",
+    "artist": "Associates",
+    "album": "Sulk",
+    "year": 1982,
+    "genre": "Various"
+  },
+  {
+    "id": "513",
+    "artist": "Iron Maiden",
+    "album": "The Number of the Beast",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "514",
+    "artist": "Duran Duran",
+    "album": "Rio",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "515",
+    "artist": "Violent Femmes",
+    "album": "Violent Femmes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "516",
+    "artist": "Malcolm McLaren",
+    "album": "Duck Rock",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "517",
+    "artist": "Def Leppard",
+    "album": "Pyromania",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "518",
+    "artist": "R.E.M.",
+    "album": "Murmur",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "519",
+    "artist": "The",
+    "album": "The Soul Mining",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "520",
+    "artist": "Tom Waits",
+    "album": "Swordfishtrombones",
+    "year": 1983,
+    "genre": "Various"
+  },
+  {
+    "id": "521",
+    "artist": "The Blue Nile",
+    "album": "A Walk Across the Rooftops",
+    "year": 1984,
+    "genre": "Various"
+  },
+  {
+    "id": "522",
+    "artist": "Hanoi Rocks",
+    "album": "Back to Mystery City",
+    "year": 1983,
+    "genre": "Various"
+  },
+  {
+    "id": "523",
+    "artist": "Cyndi Lauper",
+    "album": "She's So Unusual",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "524",
+    "artist": "Paul Simon",
+    "album": "Hearts and Bones",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "525",
+    "artist": "Echo and the Bunnymen",
+    "album": "Porcupine",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "526",
+    "artist": "ZZ Top",
+    "album": "Eliminator",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "527",
+    "artist": "Eurythmics",
+    "album": "Sweet Dreams Are Made of This",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "528",
+    "artist": "U2",
+    "album": "War",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "529",
+    "artist": "The Police",
+    "album": "Synchronicity",
+    "year": 1983,
+    "genre": "Various"
+  },
+  {
+    "id": "530",
+    "artist": "Meat Puppets",
+    "album": "Meat Puppets II",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "531",
+    "artist": "Culture Club",
+    "album": "Colour by Numbers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "532",
+    "artist": "Frankie Goes to Hollywood",
+    "album": "Welcome to the Pleasuredome",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "533",
+    "artist": "Run DMC",
+    "album": "Run DMC",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "534",
+    "artist": "Sade",
+    "album": "Diamond Life",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "535",
+    "artist": "Cocteau Twins",
+    "album": "Treasure",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "536",
+    "artist": "Minor Threat",
+    "album": "Out of Step",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "537",
+    "artist": "Van Halen",
+    "album": "Van Halen",
+    "year": 1978,
+    "genre": "Various"
+  },
+  {
+    "id": "538",
+    "artist": "Prince",
+    "album": "Purple Rain",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "539",
+    "artist": "The Replacements",
+    "album": "Let It Be",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "540",
+    "artist": "The Style Council",
+    "album": "Café Bleu",
+    "year": 1984,
+    "genre": "Various"
+  },
+  {
+    "id": "541",
+    "artist": "Tina Turner",
+    "album": "Private Dancer",
+    "year": 1984,
+    "genre": "Various"
+  },
+  {
+    "id": "542",
+    "artist": "Echo and the Bunnymen",
+    "album": "Ocean Rain",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "543",
+    "artist": "Minutemen",
+    "album": "Double Nickels on the Dime",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "544",
+    "artist": "Llyod Cole and the Commotions",
+    "album": "Rattlesnakes",
+    "year": 1984,
+    "genre": "Various"
+  },
+  {
+    "id": "545",
+    "artist": "Youssou N'Dour",
+    "album": "Immigrés",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "546",
+    "artist": "Bruce Springsteen",
+    "album": "Born in the U.S.A",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "547",
+    "artist": "The Fall",
+    "album": "This Nation's Saving Grace",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "548",
+    "artist": "Abdullah Ibrahim",
+    "album": "Water From an Ancient Well",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "549",
+    "artist": "A",
+    "album": "Ha - Hunting High and Low",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "550",
+    "artist": "Tears for Fears",
+    "album": "Songs From the Big Chair",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "551",
+    "artist": "Dire Straits",
+    "album": "Brothers in Arms",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "552",
+    "artist": "Prefab Sprout",
+    "album": "Steve McQueen",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "553",
+    "artist": "The Mekons",
+    "album": "Fear and Whiskey",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "554",
+    "artist": "Big Black",
+    "album": "Atomizer",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "555",
+    "artist": "Suzanne Vega",
+    "album": "Suzanne Vega",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "556",
+    "artist": "The Pogues",
+    "album": "Rum Sodomy and the Lash",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "557",
+    "artist": "Kate Bush",
+    "album": "Hounds of Love",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "558",
+    "artist": "The Smiths",
+    "album": "Meat Is Murder",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "559",
+    "artist": "Tom Waits",
+    "album": "Rain Dogs",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "560",
+    "artist": "The Jesus and Mary Chain",
+    "album": "Psychocandy",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "561",
+    "artist": "New Order",
+    "album": "Low - Life",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "562",
+    "artist": "Simply Red",
+    "album": "Picture Book",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "563",
+    "artist": "Dexy's Midnight Runners",
+    "album": "Don't Stand Me Down",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "564",
+    "artist": "Scritti Politti",
+    "album": "Cupid & Psyche 85",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "565",
+    "artist": "Elvis Costello",
+    "album": "Blood & Chocolate",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "566",
+    "artist": "Afrika Bambaataa & the Soul Sonic Force",
+    "album": "Planet Rock",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "567",
+    "artist": "Beastie Boys",
+    "album": "Licensed to Ill",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "568",
+    "artist": "Metallica",
+    "album": "Master of Puppets",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "569",
+    "artist": "The The",
+    "album": "Infected",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "570",
+    "artist": "Nanci Griffith",
+    "album": "The Last of the True Believers",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "571",
+    "artist": "Billy Bragg",
+    "album": "Talking With the Taxman About Poetry",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "572",
+    "artist": "Talk Talk",
+    "album": "The Colour of Spring",
+    "year": 1985,
+    "genre": "Various"
+  },
+  {
+    "id": "573",
+    "artist": "Megadeth",
+    "album": "Peace Sells... but Who's Buying?",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "574",
+    "artist": "Bon Jovi",
+    "album": "Slippery When Wet",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "575",
+    "artist": "Sonic Youth",
+    "album": "EVOL",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "576",
+    "artist": "Slayer",
+    "album": "Reign in Blood",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "577",
+    "artist": "Throwing Muses",
+    "album": "Throwing Muses",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "578",
+    "artist": "Paul Simon",
+    "album": "Graceland",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "579",
+    "artist": "Run DMC",
+    "album": "Raising Hell",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "580",
+    "artist": "XTC",
+    "album": "Skylarking",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "581",
+    "artist": "Steve Earle",
+    "album": "Guitar Town",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "582",
+    "artist": "Bad Brains",
+    "album": "I Against I",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "583",
+    "artist": "Anita Baker",
+    "album": "Rapture",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "584",
+    "artist": "The Smiths",
+    "album": "The Queen Is Dead",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "585",
+    "artist": "Peter Gabriel",
+    "album": "So",
+    "year": 1986,
+    "genre": "Various"
+  },
+  {
+    "id": "586",
+    "artist": "Anthrax",
+    "album": "Among the Living",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "587",
+    "artist": "Dinosaur Jr",
+    "album": "You're Living All Over Me",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "588",
+    "artist": "Dolly Parton",
+    "album": "Linda Ronstadt - Emmylou Harrys - Trio",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "589",
+    "artist": "Def Leppard",
+    "album": "Hysteria",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "590",
+    "artist": "R.E.M.",
+    "album": "Document",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "591",
+    "artist": "Prince",
+    "album": "Sign 'O' the Times",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "592",
+    "artist": "The Cult",
+    "album": "Electric",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "593",
+    "artist": "Depeche Mode",
+    "album": "Music for the Masses",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "594",
+    "artist": "Sisters of Mercy",
+    "album": "Floodland",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "595",
+    "artist": "George Michael",
+    "album": "Faith",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "596",
+    "artist": "Hüsker Dü",
+    "album": "Warehouse: Songs and Stories",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "597",
+    "artist": "Butthole Surfers",
+    "album": "Locust Abortion Technician",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "598",
+    "artist": "Astor Piazzolla & Gary Burton",
+    "album": "The New Tango - Recorded at the Montreux Festival",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "599",
+    "artist": "The Smiths",
+    "album": "Strangeways, Here We Come",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "600",
+    "artist": "Guns N' Roses",
+    "album": "Appetite for Destruction",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "601",
+    "artist": "The Jesus and Mary Chains",
+    "album": "Darklands",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "602",
+    "artist": "Ladysmith Black Mambazo",
+    "album": "Shaka Zulu",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "603",
+    "artist": "Laibach",
+    "album": "Opus Dei",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "604",
+    "artist": "Napalm Death",
+    "album": "- \"Scum\"",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "605",
+    "artist": "Sonic Youth",
+    "album": "Sister",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "606",
+    "artist": "The Triffids",
+    "album": "Calenture",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "607",
+    "artist": "Michael Jackson",
+    "album": "Bad",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "608",
+    "artist": "Pet Shop Boys",
+    "album": "Actually",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "609",
+    "artist": "U2",
+    "album": "The Joshua Tree",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "610",
+    "artist": "Terence Trent D'Arby",
+    "album": "Introducing the Hardline According to Terence Trent D'Arby",
+    "year": 1987,
+    "genre": "Various"
+  },
+  {
+    "id": "611",
+    "artist": "The Pogues",
+    "album": "If I Should Fall From Grace With God",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "612",
+    "artist": "Leonard Cohen",
+    "album": "I'm Your Man",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "613",
+    "artist": "Fisherman's Blues",
+    "album": "The Waterboys",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "614",
+    "artist": "Fishbone",
+    "album": "Truth and Soul",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "615",
+    "artist": "Everything but the Girl",
+    "album": "Idlewild",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "616",
+    "artist": "Living Colour",
+    "album": "Vivid",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "617",
+    "artist": "Mudhoney",
+    "album": "Superfuzz Bigmuff",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "618",
+    "artist": "R.E.M.",
+    "album": "Green",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "619",
+    "artist": "The Happy Mondays",
+    "album": "Bummed",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "620",
+    "artist": "The Go",
+    "album": "Betweens - 16 Lovers Lane",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "621",
+    "artist": "Cowboy Junkies",
+    "album": "The Trinity Session",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "622",
+    "artist": "Tracy Chapman",
+    "album": "Tracy Chapman",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "623",
+    "artist": "My Bloody Valentine",
+    "album": "Isn't Anything",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "624",
+    "artist": "Pixies",
+    "album": "Surfer Rosa",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "625",
+    "artist": "Metallica",
+    "album": "...And Justice for All",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "626",
+    "artist": "Dinosaur Jr.",
+    "album": "Bug",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "627",
+    "artist": "Dagmar Krause",
+    "album": "Tank Battles",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "628",
+    "artist": "K.D. Lang",
+    "album": "Shadowland",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "629",
+    "artist": "American Music Club",
+    "album": "California",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "630",
+    "artist": "Morrissey",
+    "album": "Viva Hate",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "631",
+    "artist": "Sonic Youth",
+    "album": "Daydream Nation",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "632",
+    "artist": "The Sugarcubes",
+    "album": "Life's Too Good",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "633",
+    "artist": "Dwight Yoakam",
+    "album": "Buenas Noches From a Lonely Room",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "634",
+    "artist": "Jane's Addiction",
+    "album": "Nothing's Shocking",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "635",
+    "artist": "Public Enemy",
+    "album": "It Takes a Nation of Millions to Hold Us Back",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "636",
+    "artist": "Faith No More",
+    "album": "The Real Thing",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "637",
+    "artist": "Lenny Kravitz",
+    "album": "Let Love Rule",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "638",
+    "artist": "John Lee Hooker",
+    "album": "The Healer",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "639",
+    "artist": "New Order",
+    "album": "Technique",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "640",
+    "artist": "Madonna",
+    "album": "Like a Prayer",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "641",
+    "artist": "Queen Latifah",
+    "album": "All Hail the Queen",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "642",
+    "artist": "Spacemen 3",
+    "album": "Playing With Fire",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "643",
+    "artist": "Firehose",
+    "album": "Fromohio",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "644",
+    "artist": "The Beastie Boys",
+    "album": "Paul's Boutique",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "645",
+    "artist": "The Young Gods",
+    "album": "L'eau Rouge",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "646",
+    "artist": "John Zorn",
+    "album": "Spy vs. Spy",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "647",
+    "artist": "The Stone Roses",
+    "album": "The Stone Roses",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "648",
+    "artist": "Raw Like Sushi",
+    "album": "Neneh Cherry",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "649",
+    "artist": "Baaba Maal & Mansour Seck",
+    "album": "Djam Leelii",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "650",
+    "artist": "Kate Bush",
+    "album": "The Sensual World",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "651",
+    "artist": "The Cure",
+    "album": "Disintegration",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "652",
+    "artist": "90",
+    "album": "808 State",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "653",
+    "artist": "Coldcut",
+    "album": "What's That Noise?",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "654",
+    "artist": "Barry Adamson",
+    "album": "Moss Side Story",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "655",
+    "artist": "Aerosmith",
+    "album": "Pump",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "656",
+    "artist": "Pixies",
+    "album": "Doolittle",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "657",
+    "artist": "Nick of Time",
+    "album": "Bonnie Raitt",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "658",
+    "artist": "Fugazi",
+    "album": "Repeater",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "659",
+    "artist": "Soul II Soul",
+    "album": "Club Classics Vol. One",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "660",
+    "artist": "De La Soul",
+    "album": "3 Feet High and Rising",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "661",
+    "artist": "Janet Jackson",
+    "album": "Janet Jackson's Rhythm Nation 1814",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "662",
+    "artist": "Jungle Brothers",
+    "album": "Done by the Forces of Nature",
+    "year": 1989,
+    "genre": "Various"
+  },
+  {
+    "id": "663",
+    "artist": "N.W.A",
+    "album": "Straight Outta Compton",
+    "year": 1988,
+    "genre": "Various"
+  },
+  {
+    "id": "664",
+    "artist": "Cocteau Twins",
+    "album": "Heaven or Las Vegas",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "665",
+    "artist": "The Shamen",
+    "album": "En - Tact",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "666",
+    "artist": "Deee-Lite",
+    "album": "World Clique",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "667",
+    "artist": "The La's",
+    "album": "the La's",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "668",
+    "artist": "Black Crowes",
+    "album": "Shake Your Money Maker",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "669",
+    "artist": "Depeche Mode",
+    "album": "Violator",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "670",
+    "artist": "Pixies",
+    "album": "Bossanova",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "671",
+    "artist": "Megadeth",
+    "album": "Rust in Peace",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "672",
+    "artist": "Sex Packets",
+    "album": "Digital Underground",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "673",
+    "artist": "Pet Shop Boys",
+    "album": "Behaviour",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "674",
+    "artist": "Happy Mondays",
+    "album": "Pills N Thrills and Bellyaches",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "675",
+    "artist": "George Michael Listen Without Prejudice",
+    "album": "Vol 1",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "676",
+    "artist": "Neil Young and Crazy Horse",
+    "album": "Ragged Glory",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "677",
+    "artist": "Ice Cube",
+    "album": "Amerikkka's Most Wanted",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "678",
+    "artist": "Jane's Addiction",
+    "album": "Ritual De Lo Habitual",
+    "year": 1990,
+    "genre": "Various"
+  },
+  {
+    "id": "679",
+    "artist": "LL Cool J",
+    "album": "Mama Said Knock You Out",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "680",
+    "artist": "Public Enemy",
+    "album": "Fear of a Black Planet",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "681",
+    "artist": "Sinead O'Connor",
+    "album": "I Do Not Want What I Haven't Got",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "682",
+    "artist": "A Tribe Called Quest",
+    "album": "People's Instinctive Travels",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "683",
+    "artist": "Sonic Youth",
+    "album": "Goo",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "684",
+    "artist": "Ride",
+    "album": "Nowhere",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "685",
+    "artist": "My Bloody Valentine",
+    "album": "Loveless",
+    "year": 1991,
+    "genre": "Various"
+  },
+  {
+    "id": "686",
+    "artist": "Nirvana",
+    "album": "Nevermind",
+    "year": 1991,
+    "genre": "Various"
+  },
+  {
+    "id": "687",
+    "artist": "Crowded House",
+    "album": "Woodface",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "688",
+    "artist": "Cypress Hill",
+    "album": "Cypress Hill",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "689",
+    "artist": "Julian Cope",
+    "album": "Peggy Suicide",
+    "year": 1991,
+    "genre": "Various"
+  },
+  {
+    "id": "690",
+    "artist": "Gang Starr",
+    "album": "Step in the Arena",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "691",
+    "artist": "MC Solar",
+    "album": "Qui Seme Le Vent Recolte Le Tempo",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "692",
+    "artist": "Jah Wobble",
+    "album": "Rising Above Bedlam",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "693",
+    "artist": "Red Hot Chili Peppers",
+    "album": "Blood Sugar Sex Magik",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "694",
+    "artist": "O.G. Original Gangster",
+    "album": "Ice T",
+    "year": 1991,
+    "genre": "Various"
+  },
+  {
+    "id": "695",
+    "artist": "Mudhoney",
+    "album": "Every Good Boy Deserves Fudge",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "696",
+    "artist": "Public Enemy",
+    "album": "Apocalypse 91 Enemy Strikes Back",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "697",
+    "artist": "A Tribe Called Quest",
+    "album": "Low End Theory",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "698",
+    "artist": "Pearl Jam",
+    "album": "Ten",
+    "year": 1991,
+    "genre": "Various"
+  },
+  {
+    "id": "699",
+    "artist": "Saint Etienne",
+    "album": "Fox Base Alpha",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "700",
+    "artist": "Sepultura",
+    "album": "Arise",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "701",
+    "artist": "Slint",
+    "album": "Spiderland",
+    "year": 1991,
+    "genre": "Various"
+  },
+  {
+    "id": "702",
+    "artist": "U2",
+    "album": "Achtung Baby",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "703",
+    "artist": "The KLF",
+    "album": "The White Room",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "704",
+    "artist": "Massive Attack",
+    "album": "Blue Lines",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "705",
+    "artist": "Primal Scream",
+    "album": "Screamadelica",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "706",
+    "artist": "Teenage Fanclub",
+    "album": "Bandwagonesque",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "707",
+    "artist": "Metallica",
+    "album": "Metallica",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "708",
+    "artist": "Pavement",
+    "album": "Slanted and Enchanted",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "709",
+    "artist": "Aphex Twin",
+    "album": "Selected Ambient Works 85 - 92",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "710",
+    "artist": "Three Years",
+    "album": "Five Months, and Two Days in the Life of ..",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "711",
+    "artist": "Koweït",
+    "album": "Haut De Gamme / Koweït Rive Gauche",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "712",
+    "artist": "Morrissey",
+    "album": "Your Arsenal",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "713",
+    "artist": "Baaba Maal",
+    "album": "Lam Torro",
+    "year": 1992,
+    "genre": "Various"
+  },
+  {
+    "id": "714",
+    "artist": "Lemonheads",
+    "album": "It's a Shame About Ray",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "715",
+    "artist": "Rage Against the Machine",
+    "album": "Rage Against the Machine",
+    "year": 1992,
+    "genre": "Various"
+  },
+  {
+    "id": "716",
+    "artist": "Disposable Heroes of Hiphoprisy",
+    "album": "Hypocrisy Is the Greatest Luxury",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "717",
+    "artist": "Ingenue",
+    "album": "K.D. Lang",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "718",
+    "artist": "Dr. Dre",
+    "album": "The Chronic",
+    "year": 1992,
+    "genre": "Various"
+  },
+  {
+    "id": "719",
+    "artist": "R.E.M.",
+    "album": "Automatic for the People",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "720",
+    "artist": "The Pharcyde",
+    "album": "Bizarre Ride II the Pharcyde",
+    "year": 1992,
+    "genre": "Various"
+  },
+  {
+    "id": "721",
+    "artist": "Spiritualized",
+    "album": "Laser Guided Melodies",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "722",
+    "artist": "Sugar",
+    "album": "Copper Blue",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "723",
+    "artist": "Tom Waits",
+    "album": "Bone Machine",
+    "year": 1992,
+    "genre": "Various"
+  },
+  {
+    "id": "724",
+    "artist": "Sonic Youth",
+    "album": "Dirty",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "725",
+    "artist": "Stereo MC's",
+    "album": "Connected",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "726",
+    "artist": "Ministry",
+    "album": "Psalm 69",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "727",
+    "artist": "Tori Amos",
+    "album": "Little Earthquakes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "728",
+    "artist": "Ice Cube",
+    "album": "The Predator",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "729",
+    "artist": "Pantera",
+    "album": "Vulgar Display of Power",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "730",
+    "artist": "Alice in Chains",
+    "album": "Dirt",
+    "year": 1992,
+    "genre": "Various"
+  },
+  {
+    "id": "731",
+    "artist": "Nick Cave and the Bad Seeds",
+    "album": "By Henry's Dream",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "732",
+    "artist": "Ali Fateh Nusart Khan",
+    "album": "Devotional Songs",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "733",
+    "artist": "P.J. Harvey",
+    "album": "Dry",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "734",
+    "artist": "Suede",
+    "album": "Suede",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "735",
+    "artist": "Paul Weller",
+    "album": "Wild Wood",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "736",
+    "artist": "Smashing Pumpkins",
+    "album": "Siamese Dream",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "737",
+    "artist": "The Auteurs",
+    "album": "New Wave",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "738",
+    "artist": "Liz Phair",
+    "album": "Exile in Guyville",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "739",
+    "artist": "Afghan Whigs",
+    "album": "Gentlemen",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "740",
+    "artist": "Aimee Mann",
+    "album": "Whatever",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "741",
+    "artist": "Grant Lee Buffalo",
+    "album": "Fuzzy",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "742",
+    "artist": "Nirvana",
+    "album": "In Utero",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "743",
+    "artist": "Jamiroquai",
+    "album": "Emergency on Planet Earth",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "744",
+    "artist": "Pet Shop Boys",
+    "album": "Very",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "745",
+    "artist": "P.J. Harvey",
+    "album": "Rid of Me",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "746",
+    "artist": "Blur",
+    "album": "Modern Life Is Rubbish",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "747",
+    "artist": "Sheryl Crow",
+    "album": "Tuesday Night Music Club",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "748",
+    "artist": "The Fall",
+    "album": "The Infotainment Scan",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "749",
+    "artist": "Wu-Tang Clan",
+    "album": "Enter the Wu",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "750",
+    "artist": "Björk",
+    "album": "Debut",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "751",
+    "artist": "Orbital",
+    "album": "Orbital 2",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "752",
+    "artist": "Snoop Doggy Dogg",
+    "album": "Doggystyle",
+    "year": 1993,
+    "genre": "Various"
+  },
+  {
+    "id": "753",
+    "artist": "Sebadoh",
+    "album": "Bubble and Scrape",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "754",
+    "artist": "The Boo Radleys",
+    "album": "Giant Steps",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "755",
+    "artist": "William Orbit",
+    "album": "Strange Cargo Lll",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "756",
+    "artist": "Method Man",
+    "album": "Tical",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "757",
+    "artist": "Frank Black",
+    "album": "Teenager of the Year",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "758",
+    "artist": "Girls Against Boys",
+    "album": "Venus Luxure No 1 Baby",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "759",
+    "artist": "Jeru the Damaja",
+    "album": "The Sun Rises in the East",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "760",
+    "artist": "Pavement",
+    "album": "Crooked Rain, Crooked Rain",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "761",
+    "artist": "Portishead",
+    "album": "Dummy",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "762",
+    "artist": "Sabres of Paradise",
+    "album": "Haunted Dancehall",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "763",
+    "artist": "Nas",
+    "album": "Illmatic",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "764",
+    "artist": "Beastie Boys",
+    "album": "Ill Communication",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "765",
+    "artist": "Elvis Costello",
+    "album": "Brutal Youth",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "766",
+    "artist": "Morrissey",
+    "album": "Vauxhall and I",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "767",
+    "artist": "Crazysexycool",
+    "album": "TLC",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "768",
+    "artist": "Oasis",
+    "album": "Definitely Maybe",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "769",
+    "artist": "Soundgarden",
+    "album": "Superunknown",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "770",
+    "artist": "The Offspring",
+    "album": "Smash",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "771",
+    "artist": "Drive Like Jehu",
+    "album": "Yank Crime",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "772",
+    "artist": "Blur",
+    "album": "Parklife",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "773",
+    "artist": "G Love & Special Sauce",
+    "album": "G Love & Special Sauce",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "774",
+    "artist": "Ali Farka Touré & Ry Cooder",
+    "album": "Talking Timbuktu",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "775",
+    "artist": "Hole",
+    "album": "Live Through This",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "776",
+    "artist": "Massive Attack",
+    "album": "Protection",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "777",
+    "artist": "Manic Street Preachers",
+    "album": "The Holy Bible",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "778",
+    "artist": "Suede",
+    "album": "Dog Man Star",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "779",
+    "artist": "The Notorious B.I.G",
+    "album": "Ready to Die",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "780",
+    "artist": "Jeff Buckley",
+    "album": "Grace",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "781",
+    "artist": "Orbital",
+    "album": "Snivilisation",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "782",
+    "artist": "Nirvana",
+    "album": "MTV Unplugged in New York",
+    "year": 1994,
+    "genre": "Various"
+  },
+  {
+    "id": "783",
+    "artist": "Nine Inch Nails",
+    "album": "The Downward Spiral",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "784",
+    "artist": "The Prodigy",
+    "album": "Music for the Jilted Generation",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "785",
+    "artist": "Green Day",
+    "album": "Dookie",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "786",
+    "artist": "Foo Fighters",
+    "album": "Foo Fighters",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "787",
+    "artist": "Garbage",
+    "album": "Garbage",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "788",
+    "artist": "Nightmares on Wax",
+    "album": "Smokers Delight",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "789",
+    "artist": "Tricky",
+    "album": "Maxinquaye",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "790",
+    "artist": "Raekwon",
+    "album": "Only Built 4 Cuban Linx",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "791",
+    "artist": "Smashing Pumpkins",
+    "album": "Mellon Collie and the Infinite Sadness",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "792",
+    "artist": "Rocket From the Crypt",
+    "album": "Scream, Dracula, Scream",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "793",
+    "artist": "The Chemical Brothers",
+    "album": "Exit Planet Dust",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "794",
+    "artist": "2Pac",
+    "album": "Me Against the World",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "795",
+    "artist": "Elastica",
+    "album": "Elastica",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "796",
+    "artist": "Supergrass",
+    "album": "I Should Coco",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "797",
+    "artist": "Radiohead",
+    "album": "The Bends",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "798",
+    "artist": "Guided by Voices",
+    "album": "Alien Lanes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "799",
+    "artist": "Femi Kuti",
+    "album": "Femi Kuti",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "800",
+    "artist": "The Verve",
+    "album": "A Northern Soul",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "801",
+    "artist": "GZA",
+    "album": "Liquid Swords",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "802",
+    "artist": "Pulp",
+    "album": "Different Class",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "803",
+    "artist": "Leftfield",
+    "album": "Leftism",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "804",
+    "artist": "D'Angelo",
+    "album": "Brown Sugar",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "805",
+    "artist": "Oasis",
+    "album": "What's the Story Morning Glory?",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "806",
+    "artist": "Goldie",
+    "album": "Timeless",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "807",
+    "artist": "Alanis Morissette",
+    "album": "Jagged Little Pill",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "808",
+    "artist": "Screaming Trees",
+    "album": "Dust",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "809",
+    "artist": "Super Furry Animals",
+    "album": "Fuzzy Logic",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "810",
+    "artist": "The Chemical Brothers",
+    "album": "Better Living Through Chemistry",
+    "year": 1995,
+    "genre": "Various"
+  },
+  {
+    "id": "811",
+    "artist": "Dr. Octagon",
+    "album": "Dr. Octagonecologyst",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "812",
+    "artist": "Stereolab",
+    "album": "Emperor Tomato Ketchup",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "813",
+    "artist": "Tortoise",
+    "album": "Millions Now Living Will Never Die",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "814",
+    "artist": "Beck",
+    "album": "Odelay",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "815",
+    "artist": "Belle & Sebastian",
+    "album": "Tigermilk",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "816",
+    "artist": "Dj Shadow",
+    "album": "Endtroducing....",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "817",
+    "artist": "Eels",
+    "album": "Beautiful Freak",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "818",
+    "artist": "Divine Comedy",
+    "album": "Casanova",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "819",
+    "artist": "Fiona Apple",
+    "album": "Tidal",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "820",
+    "artist": "Wilco",
+    "album": "Being There",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "821",
+    "artist": "Sepultura",
+    "album": "Roots",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "822",
+    "artist": "Barry Adamson",
+    "album": "Oedipus Schmoedipus",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "823",
+    "artist": "Fun Lovin' Criminals",
+    "album": "Come Find Yourself",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "824",
+    "artist": "Maxwell",
+    "album": "Urban Hang Suite",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "825",
+    "artist": "The Charlatans",
+    "album": "Tellin' Stories",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "826",
+    "artist": "Manic Street Preachers",
+    "album": "Everything Must Go",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "827",
+    "artist": "Everything but the Girl",
+    "album": "Walking Wounded",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "828",
+    "artist": "Nick Cave & the Bad Seeds",
+    "album": "Murder Ballads",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "829",
+    "artist": "LTJ Bukem",
+    "album": "Logical Progression",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "830",
+    "artist": "Underworld",
+    "album": "Second Toughest in the Infants",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "831",
+    "artist": "Jon Spencer Blues Explosion",
+    "album": "Now I Got Worry",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "832",
+    "artist": "The Cardigans",
+    "album": "First Band on the Moon",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "833",
+    "artist": "Marilyn Manson",
+    "album": "Antichrist Superstar",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "834",
+    "artist": "The Score",
+    "album": "The Fugees",
+    "year": 1996,
+    "genre": "Various"
+  },
+  {
+    "id": "835",
+    "artist": "Ash",
+    "album": "Ash -",
+    "year": 1977,
+    "genre": "Various"
+  },
+  {
+    "id": "836",
+    "artist": "Belle and Sebastian",
+    "album": "If You're Feeling Sinister",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "837",
+    "artist": "Blur",
+    "album": "Blur",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "838",
+    "artist": "Radiohead",
+    "album": "OK Computer",
+    "year": 1997,
+    "genre": "Various"
+  },
+  {
+    "id": "839",
+    "artist": "Finley Quaye",
+    "album": "Maverick a Strike",
+    "year": 1997,
+    "genre": "Various"
+  },
+  {
+    "id": "840",
+    "artist": "Missy \"Misdemeanor\" Elliott",
+    "album": "Supa Dupa Fly",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "841",
+    "artist": "The Chemical Bros.",
+    "album": "Dig Your Own Hole",
+    "year": 1997,
+    "genre": "Various"
+  },
+  {
+    "id": "842",
+    "artist": "Primal Scream",
+    "album": "Vanishing Point",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "843",
+    "artist": "Robert Wyatt",
+    "album": "Shleep",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "844",
+    "artist": "David Holmes",
+    "album": "Lets Get Killed",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "845",
+    "artist": "The Prodigy",
+    "album": "The Fat of the Land",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "846",
+    "artist": "Sleater",
+    "album": "Kinney - Dig Me Out",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "847",
+    "artist": "Buena Vista Social Club",
+    "album": "Buena Vista Social Club",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "848",
+    "artist": "Nick Cave and the Bad Seeds",
+    "album": "The Boatman's Call",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "849",
+    "artist": "Divine Comedy",
+    "album": "A Short Album About Love",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "850",
+    "artist": "Cornershop",
+    "album": "When I Was Born for the 7th Time",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "851",
+    "artist": "Daft Punk",
+    "album": "Homework",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "852",
+    "artist": "Robbie Williams",
+    "album": "Life Thru a Lens",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "853",
+    "artist": "Mariah Carey",
+    "album": "Butterfly",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "854",
+    "artist": "Supergrass",
+    "album": "In It for the Money",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "855",
+    "artist": "Bob Dylan",
+    "album": "Time Out of Mind",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "856",
+    "artist": "Reprazent and Roni Size",
+    "album": "New Forms",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "857",
+    "artist": "Elliott Smith",
+    "album": "Either/Or",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "858",
+    "artist": "The Verve",
+    "album": "Urban Hymns",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "859",
+    "artist": "Spiritualized",
+    "album": "Ladies and Gentlemen We Are Floating in Space",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "860",
+    "artist": "System of a Down",
+    "album": "System of a Down",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "861",
+    "artist": "Bob Dylan",
+    "album": "Live 1966",
+    "year": 1998,
+    "genre": "Various"
+  },
+  {
+    "id": "862",
+    "artist": "Manu Chao",
+    "album": "Clandestino",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "863",
+    "artist": "Billy Bragg & Wilco",
+    "album": "Mermaid Avenue",
+    "year": 1998,
+    "genre": "Various"
+  },
+  {
+    "id": "864",
+    "artist": "Turbonegro",
+    "album": "Apocalypse Dudes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "865",
+    "artist": "Fatboy Slim",
+    "album": "You've Come a Long Way Baby",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "866",
+    "artist": "David Gray",
+    "album": "White Ladder",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "867",
+    "artist": "Lucinda Williams",
+    "album": "Car Wheels on a Gravel Road",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "868",
+    "artist": "Pulp",
+    "album": "This Is Hardcore",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "869",
+    "artist": "Madonna",
+    "album": "Ray of Light",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "870",
+    "artist": "Lauryn Hill",
+    "album": "The Miseducation of Lauryn Hill",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "871",
+    "artist": "Hole",
+    "album": "Celebrity Skin",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "872",
+    "artist": "Mercury Rev",
+    "album": "Deserter's Songs",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "873",
+    "artist": "Queens of the Stone Age",
+    "album": "Queens of the Stone Age",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "874",
+    "artist": "Air",
+    "album": "Moon Safari",
+    "year": 1998,
+    "genre": "Various"
+  },
+  {
+    "id": "875",
+    "artist": "Talvin Singh",
+    "album": "Ok",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "876",
+    "artist": "Korn",
+    "album": "Follow the Leader",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "877",
+    "artist": "Kid Rock",
+    "album": "Devil Without a Cause",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "878",
+    "artist": "Boards of Canada",
+    "album": "Music Has the Right to Children",
+    "year": 1998,
+    "genre": "Various"
+  },
+  {
+    "id": "879",
+    "artist": "Suba",
+    "album": "Sao Paulo Confessions",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "880",
+    "artist": "Khaled",
+    "album": "Kenza",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "881",
+    "artist": "XTC",
+    "album": "Apple Venus",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "882",
+    "artist": "Incubus",
+    "album": "Make Yourself",
+    "year": 1999,
+    "genre": "Various"
+  },
+  {
+    "id": "883",
+    "artist": "The Magnetic Fields",
+    "album": "69 Love Songs",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "884",
+    "artist": "Travis",
+    "album": "The Man Who",
+    "year": 1999,
+    "genre": "Various"
+  },
+  {
+    "id": "885",
+    "artist": "Slipknot",
+    "album": "Slipknot",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "886",
+    "artist": "Beth Orton",
+    "album": "Central Reservation",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "887",
+    "artist": "Nitin Sawhney",
+    "album": "Beyond Skin",
+    "year": 1999,
+    "genre": "Various"
+  },
+  {
+    "id": "888",
+    "artist": "Death in Vegas",
+    "album": "The Contino Sessions",
+    "year": 1999,
+    "genre": "Various"
+  },
+  {
+    "id": "889",
+    "artist": "Moby",
+    "album": "Play",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "890",
+    "artist": "The Flaming Lips",
+    "album": "The Soft Bulletin",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "891",
+    "artist": "Les Digitales Rhymes",
+    "album": "Darkdancer",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "892",
+    "artist": "Le Tigre",
+    "album": "Le Tigre",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "893",
+    "artist": "Eminem",
+    "album": "The Slim Shady LP",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "894",
+    "artist": "Metallica",
+    "album": "S&M",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "895",
+    "artist": "Bonnie 'Prince' Billy",
+    "album": "I See a Darkness",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "896",
+    "artist": "Shack",
+    "album": "H.M.S. Fable",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "897",
+    "artist": "Basement Jaxx",
+    "album": "Remedy",
+    "year": 1999,
+    "genre": "Various"
+  },
+  {
+    "id": "898",
+    "artist": "Red Hot Chili Peppers",
+    "album": "Californication",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "899",
+    "artist": "Sigur Rós",
+    "album": "Ágætis Byrjun",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "900",
+    "artist": "Doves",
+    "album": "Lost Souls",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "901",
+    "artist": "Air",
+    "album": "The Virgin Suicides",
+    "year": 2000,
+    "genre": "Various"
+  },
+  {
+    "id": "902",
+    "artist": "Ryan Adams",
+    "album": "Heartbreaker",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "903",
+    "artist": "Bebel Gilberto",
+    "album": "Tanto Tempo",
+    "year": 2000,
+    "genre": "Various"
+  },
+  {
+    "id": "904",
+    "artist": "MJ Cole",
+    "album": "Sincere",
+    "year": 2000,
+    "genre": "Various"
+  },
+  {
+    "id": "905",
+    "artist": "Emmylou Harris",
+    "album": "Red Dirt Girl",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "906",
+    "artist": "Radiohead",
+    "album": "Kid A",
+    "year": 2000,
+    "genre": "Various"
+  },
+  {
+    "id": "907",
+    "artist": "U2",
+    "album": "All That You Can't Leave Behind",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "908",
+    "artist": "Coldplay",
+    "album": "Parachutes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "909",
+    "artist": "Elliott Smith",
+    "album": "Figure 8",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "910",
+    "artist": "Erykah Badu",
+    "album": "Mama's Gun",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "911",
+    "artist": "PJ Harvey",
+    "album": "Stories From the City, Stories From the Sea",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "912",
+    "artist": "Lambchop",
+    "album": "Nixion",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "913",
+    "artist": "Mike Ladd",
+    "album": "Welcome to the Afterfuture",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "914",
+    "artist": "Goldfrapp",
+    "album": "Felt Mountain",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "915",
+    "artist": "Ute Lemper",
+    "album": "Punishing Kiss",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "916",
+    "artist": "The Avalanches",
+    "album": "Since I Left You",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "917",
+    "artist": "Outkast",
+    "album": "Stankonia",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "918",
+    "artist": "Common",
+    "album": "Like Water for Chocolate",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "919",
+    "artist": "Silver Jews",
+    "album": "Bright Flight",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "920",
+    "artist": "Björk",
+    "album": "Vespertine",
+    "year": 2001,
+    "genre": "Various"
+  },
+  {
+    "id": "921",
+    "artist": "Ryan Adams",
+    "album": "Gold",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "922",
+    "artist": "The Strokes",
+    "album": "Is This It",
+    "year": 2001,
+    "genre": "Various"
+  },
+  {
+    "id": "923",
+    "artist": "Gillian Welch",
+    "album": "The Revelator",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "924",
+    "artist": "Gotan Project",
+    "album": "La Revancha Del Tango",
+    "year": 2001,
+    "genre": "Various"
+  },
+  {
+    "id": "925",
+    "artist": "The White Stripes",
+    "album": "White Blood Cells",
+    "year": 2001,
+    "genre": "Various"
+  },
+  {
+    "id": "926",
+    "artist": "JAY Z",
+    "album": "The Blueprint",
+    "year": 2001,
+    "genre": "Various"
+  },
+  {
+    "id": "927",
+    "artist": "Röyksopp",
+    "album": "Melody A.M",
+    "year": 2001,
+    "genre": "Various"
+  },
+  {
+    "id": "928",
+    "artist": "Truckers Southern Rock Opera",
+    "album": "Drive",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "929",
+    "artist": "Super Furry Animals",
+    "album": "Rings Around the World",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "930",
+    "artist": "Jurassic 5",
+    "album": "Power in Numbers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "931",
+    "artist": "Wilco",
+    "album": "Yankee Hotel Foxtrot",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "932",
+    "artist": "Coldplay",
+    "album": "A Rush of Blood to the Head",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "933",
+    "artist": "Norah Jones",
+    "album": "Come Away With Me",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "934",
+    "artist": "The Flaming Lips",
+    "album": "Yoshimi Battles the Pink Robots",
+    "year": 2002,
+    "genre": "Various"
+  },
+  {
+    "id": "935",
+    "artist": "Doves",
+    "album": "The Last Broadcast",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "936",
+    "artist": "Bruce Springsteen",
+    "album": "The Rising",
+    "year": 2002,
+    "genre": "Various"
+  },
+  {
+    "id": "937",
+    "artist": "Beck",
+    "album": "Sea Change",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "938",
+    "artist": "The Roots",
+    "album": "Phrenology",
+    "year": 2002,
+    "genre": "Various"
+  },
+  {
+    "id": "939",
+    "artist": "Under Construction",
+    "album": "Missy Elliott",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "940",
+    "artist": "Outkast",
+    "album": "Speakerboxxx/The Love Below",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "941",
+    "artist": "Dizzee Rascal",
+    "album": "Boy in Da Corner",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "942",
+    "artist": "The Mars Volta",
+    "album": "De - Loused in the Comatorium",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "943",
+    "artist": "Elephant",
+    "album": "The White Stripes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "944",
+    "artist": "Yeah Yeah Yeahs",
+    "album": "Fever to Tell",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "945",
+    "artist": "Devendra Banhart",
+    "album": "Rejoicing in the Hands",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "946",
+    "artist": "Nick Cave and the Bad Seeds",
+    "album": "The Lyre of Orpheus/Abattoir Blues",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "947",
+    "artist": "Franz Ferdinand",
+    "album": "Franz Ferdinand",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "948",
+    "artist": "Kanye West",
+    "album": "The College Dropout",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "949",
+    "artist": "Cee",
+    "album": "Lo Green... Is the Soul Machine",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "950",
+    "artist": "Mylo",
+    "album": "Destroy Rock & Roll",
+    "year": 2004,
+    "genre": "Various"
+  },
+  {
+    "id": "951",
+    "artist": "The Streets",
+    "album": "A Grand Don't Come for Free",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "952",
+    "artist": "Rufus Wainwright",
+    "album": "Want Two",
+    "year": 2004,
+    "genre": "Various"
+  },
+  {
+    "id": "953",
+    "artist": "Arcade Fire",
+    "album": "Funeral",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "954",
+    "artist": "Green Day",
+    "album": "American Idiot",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "955",
+    "artist": "Common",
+    "album": "Be",
+    "year": 2005,
+    "genre": "Various"
+  },
+  {
+    "id": "956",
+    "artist": "Richard Hawley",
+    "album": "Coles Corner",
+    "year": 2005,
+    "genre": "Various"
+  },
+  {
+    "id": "957",
+    "artist": "Sufjan Stevens",
+    "album": "Illinois",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "958",
+    "artist": "Amy Winehouse",
+    "album": "Back to Black",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "959",
+    "artist": "Lupe Fiasco",
+    "album": "Lupe Fiasco's Food & Liquor",
+    "year": 2006,
+    "genre": "Various"
+  },
+  {
+    "id": "960",
+    "artist": "Ghostface Killah",
+    "album": "Fishscale",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "961",
+    "artist": "Ali Farka Touré",
+    "album": "Savane",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "962",
+    "artist": "Joanna Newsom",
+    "album": "Ys",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "963",
+    "artist": "Arctic Monkeys",
+    "album": "Whatever People Say I Am, That's What I'm Now",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "964",
+    "artist": "LCD Soundsystem",
+    "album": "Sound of Silver",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "965",
+    "artist": "Radiohead",
+    "album": "In Rainbows",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "966",
+    "artist": "MIA",
+    "album": "Kala",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "967",
+    "artist": "Justice",
+    "album": "Cross",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "968",
+    "artist": "Q",
+    "album": "Tip - The Renaissance",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "969",
+    "artist": "Fleet Foxes",
+    "album": "Fleet Foxes",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "970",
+    "artist": "Elbow",
+    "album": "The Seldom Seen Kid",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "971",
+    "artist": "Portishead",
+    "album": "Third",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "972",
+    "artist": "TV on the Radio",
+    "album": "Dear Science",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "973",
+    "artist": "Wild Beasts",
+    "album": "Two Dancers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "974",
+    "artist": "Animal Collective",
+    "album": "Merriweather Post Pavilion",
+    "year": 2009,
+    "genre": "Various"
+  },
+  {
+    "id": "975",
+    "artist": "Yeah Yeah Yeahs",
+    "album": "It's Blitz!",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "976",
+    "artist": "The Xx",
+    "album": "Xx",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "977",
+    "artist": "Beach House",
+    "album": "Teen Dream",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "978",
+    "artist": "The Black Keys",
+    "album": "Brothers",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "979",
+    "artist": "Kanye West",
+    "album": "My Beautiful Dark Twisted Fantasy",
+    "year": 2010,
+    "genre": "Various"
+  },
+  {
+    "id": "980",
+    "artist": "John Grant",
+    "album": "Queen of Denmark",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "981",
+    "artist": "Janelle Monáe",
+    "album": "The Archandroid",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "982",
+    "artist": "Deerhunter",
+    "album": "Halcyon Digest",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "983",
+    "artist": "P.J. Harvey",
+    "album": "Let England Shake",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "984",
+    "artist": "White Denim",
+    "album": "D",
+    "year": 2011,
+    "genre": "Various"
+  },
+  {
+    "id": "985",
+    "artist": "Kendrick Lamar",
+    "album": "Good Kid, M.A.A.D City",
+    "year": 2012,
+    "genre": "Various"
+  },
+  {
+    "id": "986",
+    "artist": "Hot Chip",
+    "album": "In Our Heads",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "987",
+    "artist": "Frank Ocean",
+    "album": "Channel Orange",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "988",
+    "artist": "Jack White",
+    "album": "Blunderbuss",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "989",
+    "artist": "Django Django",
+    "album": "Django Django",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "990",
+    "artist": "My Bloody Valentine",
+    "album": "M B V",
+    "year": 2013,
+    "genre": "Various"
+  },
+  {
+    "id": "991",
+    "artist": "Kanye West",
+    "album": "Yeezus",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "992",
+    "artist": "David Bowie",
+    "album": "The Next Day",
+    "year": 2013,
+    "genre": "Various"
+  },
+  {
+    "id": "993",
+    "artist": "CHVRCHES",
+    "album": "The Bones of What You Believe",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "994",
+    "artist": "Beyonce",
+    "album": "Beyonce",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "995",
+    "artist": "Taylor Swift",
+    "album": "1989",
+    "year": 2014,
+    "genre": "Various"
+  },
+  {
+    "id": "996",
+    "artist": "FKA Twigs",
+    "album": "LP1",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "997",
+    "artist": "Adele",
+    "album": "25",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "998",
+    "artist": "The War on Drugs",
+    "album": "Lost in the Dream",
+    "year": 0,
+    "genre": "Various"
+  },
+  {
+    "id": "999",
+    "artist": "Björk",
+    "album": "Vulnicura",
+    "year": 2015,
+    "genre": "Various"
+  },
+  {
+    "id": "1000",
+    "artist": "Songhoy Blues",
+    "album": "Music in Exile",
+    "year": 2015,
+    "genre": "Various"
+  },
+  {
+    "id": "1001",
+    "artist": "David Bowie",
+    "album": "Blackstar",
+    "year": 2016,
+    "genre": "Various"
+  }
+]
