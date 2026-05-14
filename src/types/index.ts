@@ -6,6 +6,11 @@ export interface Album {
   genre: string;
 }
 
+export interface ListenedAlbum extends Album {
+  rating: number;
+  notes: string;
+}
+
 export type RootStackParamList = {
   Home: undefined;
   History: undefined;
