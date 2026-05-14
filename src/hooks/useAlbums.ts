@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from '../lib/supabase';
@@ -8,6 +8,7 @@ import type { User } from '@supabase/supabase-js';
 const STORAGE_KEY = '@listened_albums';
 
 function migrateEntry(entry: Record<string, unknown>): ListenedAlbum {
+  const status = entry.status as string;
   return {
     id: entry.id as string,
     artist: entry.artist as string,
@@ -16,10 +17,11 @@ function migrateEntry(entry: Record<string, unknown>): ListenedAlbum {
     genre: (entry.genre as string) || 'Various',
     rating: (entry.rating as number) ?? 0,
     notes: (entry.notes as string) ?? '',
+    status: status === 'pending' ? 'pending' : 'listened',
   };
 }
 
-// Supabase table columns: user_id, album_id, artist, album, year, genre, rating, notes
+// Supabase table columns: user_id, album_id, artist, album, year, genre, rating, notes, status
 function toRow(a: ListenedAlbum, userId: string) {
   return {
     user_id: userId,
@@ -30,10 +32,12 @@ function toRow(a: ListenedAlbum, userId: string) {
     genre: a.genre,
     rating: a.rating,
     notes: a.notes,
+    status: a.status,
   };
 }
 
 function fromRow(row: Record<string, unknown>, fallback: ListenedAlbum): ListenedAlbum {
+  const status = row.status as string;
   return {
     ...fallback,
     id: row.album_id as string,
@@ -43,6 +47,7 @@ function fromRow(row: Record<string, unknown>, fallback: ListenedAlbum): Listene
     genre: (row.genre as string) || fallback.genre || 'Various',
     rating: (row.rating as number) ?? 0,
     notes: (row.notes as string) ?? '',
+    status: status === 'pending' ? 'pending' : 'listened',
   };
 }
 
@@ -94,6 +99,7 @@ export function useAlbums() {
 
       const cloudAlbums = (data ?? []).map((row: Record<string, unknown>) => {
         const match = local.find((l) => l.id === row.album_id);
+        const fallbackStatus = (row.status as string) === 'pending' ? 'pending' : 'listened';
         const fallback: ListenedAlbum = match ?? {
           id: row.album_id as string,
           artist: '',
@@ -102,6 +108,7 @@ export function useAlbums() {
           genre: 'Various',
           rating: 0,
           notes: '',
+          status: fallbackStatus,
         };
         return fromRow(row, fallback);
       });
@@ -133,37 +140,126 @@ export function useAlbums() {
     if (user) fetchAndMerge(user.id);
   }, [user, fetchAndMerge]);
 
+  // ── Derived lists ────────────────────────────────────
+  const listenedAlbums = useMemo(() => listened.filter((a) => a.status === 'listened'), [listened]);
+  const pendingAlbums = useMemo(() => listened.filter((a) => a.status === 'pending'), [listened]);
+
   // ═══════════════════════════════════════════════════════
   //  WRITE OPERATIONS — always local first, then cloud
   // ═══════════════════════════════════════════════════════
 
-  const markAsListened = useCallback(async (album: Album) => {
-    const entry: ListenedAlbum = { ...album, rating: 0, notes: '' };
-    console.log('[markAsListened]', entry.id, entry.album);
+  const lookupAlbum = useCallback(async (albumId: string): Promise<Album | null> => {
+    try {
+      const { data } = await supabase
+        .from('master_albums')
+        .select('*')
+        .eq('id', albumId)
+        .single();
+      if (data) return data as Album;
+    } catch {
+      // fallback below
+    }
+    const { default: albumsData } = await import('../data/albums.json');
+    return (albumsData as Album[]).find((a) => a.id === albumId) ?? null;
+  }, []);
 
-    // 1. Always save locally
+  const upsertLocally = useCallback(async (entry: ListenedAlbum) => {
     const raw = await AsyncStorage.getItem(STORAGE_KEY);
     const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
-    if (local.some((a) => a.id === entry.id)) {
-      console.log('[markAsListened] already saved, skipping');
-      return;
-    }
-    const next = [...local, entry];
+    const idx = local.findIndex((a) => a.id === entry.id);
+    const next = idx >= 0
+      ? local.map((a) => (a.id === entry.id ? entry : a))
+      : [...local, entry];
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     emit(next);
+    return next;
+  }, [emit]);
 
-    // 2. If logged in, sync to Supabase
+  const syncToSupabase = useCallback(async (entry: ListenedAlbum) => {
     if (!user) return;
     try {
       const { data, error, status, statusText } = await supabase
         .from('user_albums')
         .upsert(toRow(entry, user.id), { onConflict: 'user_id,album_id' });
-      console.log('[Supabase upsert]', { data, error, status, statusText });
+      console.log('[Supabase sync]', { data, error, status, statusText });
       if (error) Alert.alert('Error de sincronización', error.message);
     } catch (err) {
-      console.warn('[Supabase upsert] exception:', err);
+      console.warn('[Supabase sync] exception:', err);
     }
-  }, [user, emit]);
+  }, [user]);
+
+  const addToPending = useCallback(async (albumId: string) => {
+    console.log('[addToPending]', albumId);
+
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+
+    const existing = local.find((a) => a.id === albumId);
+    if (existing) {
+      if (existing.status === 'pending') {
+        console.log('[addToPending] already pending, skipping');
+        return;
+      }
+      if (existing.status === 'listened') {
+        console.log('[addToPending] already listened, skipping');
+        return;
+      }
+    }
+
+    const albumData = await lookupAlbum(albumId);
+    if (!albumData) {
+      Alert.alert('Error', 'No se encontró el álbum en la base de datos.');
+      return;
+    }
+
+    const entry: ListenedAlbum = { ...albumData, rating: 0, notes: '', status: 'pending' };
+    await upsertLocally(entry);
+    await syncToSupabase(entry);
+  }, [lookupAlbum, upsertLocally, syncToSupabase]);
+
+  const markAsListened = useCallback(async (albumId: string) => {
+    console.log('[markAsListened]', albumId);
+
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+
+    const existing = local.find((a) => a.id === albumId);
+    if (existing?.status === 'listened') {
+      console.log('[markAsListened] already listened, skipping');
+      return;
+    }
+
+    if (existing?.status === 'pending') {
+      // Promote from pending → listened
+      const entry: ListenedAlbum = { ...existing, status: 'listened' };
+      await upsertLocally(entry);
+      await syncToSupabase(entry);
+      return;
+    }
+
+    const albumData = await lookupAlbum(albumId);
+    if (!albumData) {
+      Alert.alert('Error', 'No se encontró el álbum en la base de datos.');
+      return;
+    }
+
+    const entry: ListenedAlbum = { ...albumData, rating: 0, notes: '', status: 'listened' };
+    await upsertLocally(entry);
+    await syncToSupabase(entry);
+  }, [lookupAlbum, upsertLocally, syncToSupabase]);
+
+  const markPendingAsListened = useCallback(async (albumId: string, rating: number, notes: string) => {
+    console.log('[markPendingAsListened]', albumId);
+
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+    const entry = local.find((a) => a.id === albumId);
+    if (!entry || entry.status !== 'pending') return;
+
+    const updated: ListenedAlbum = { ...entry, status: 'listened', rating, notes };
+    await upsertLocally(updated);
+    await syncToSupabase(updated);
+  }, [upsertLocally, syncToSupabase]);
 
   const addCustomAlbum = useCallback(async (albumData: Omit<Album, 'id'>) => {
     const entry: ListenedAlbum = {
@@ -171,26 +267,11 @@ export function useAlbums() {
       ...albumData,
       rating: 0,
       notes: '',
+      status: 'listened',
     };
-    console.log('[addCustomAlbum]', entry.id, entry.album);
-
-    const raw = await AsyncStorage.getItem(STORAGE_KEY);
-    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
-    const next = [entry, ...local];
-    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    emit(next);
-
-    if (!user) return;
-    try {
-      const { data, error, status, statusText } = await supabase
-        .from('user_albums')
-        .upsert(toRow(entry, user.id), { onConflict: 'user_id,album_id' });
-      console.log('[Supabase upsert]', { data, error, status, statusText });
-      if (error) Alert.alert('Error de sincronización', error.message);
-    } catch (err) {
-      console.warn('[Supabase upsert] exception:', err);
-    }
-  }, [user, emit]);
+    await upsertLocally(entry);
+    await syncToSupabase(entry);
+  }, [upsertLocally, syncToSupabase]);
 
   const updateAlbumNotes = useCallback(async (id: string, rating: number, notes: string) => {
     console.log('[updateAlbumNotes]', id, rating);
@@ -214,6 +295,31 @@ export function useAlbums() {
       if (error) Alert.alert('Error de sincronización', error.message);
     } catch (err) {
       console.warn('[Supabase update] exception:', err);
+    }
+  }, [user, emit]);
+
+  const removeAlbum = useCallback(async (albumId: string) => {
+    console.log('[removeAlbum]', albumId);
+
+    // 1. Remove from local
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const local: ListenedAlbum[] = raw ? JSON.parse(raw).map(migrateEntry) : [];
+    const next = local.filter((a) => a.id !== albumId);
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    emit(next);
+
+    // 2. If logged in, remove from Supabase
+    if (!user) return;
+    try {
+      const { data, error, status, statusText } = await supabase
+        .from('user_albums')
+        .delete()
+        .eq('user_id', user.id)
+        .eq('album_id', albumId);
+      console.log('[Supabase delete]', { data, error, status, statusText });
+      if (error) Alert.alert('Error de sincronización', error.message);
+    } catch (err) {
+      console.warn('[Supabase delete] exception:', err);
     }
   }, [user, emit]);
 
@@ -244,11 +350,16 @@ export function useAlbums() {
 
   return {
     listened,
+    listenedAlbums,
+    pendingAlbums,
     user,
     loading,
+    addToPending,
     markAsListened,
+    markPendingAsListened,
     addCustomAlbum,
     updateAlbumNotes,
+    removeAlbum,
     syncLocalDataWithCloud,
   };
 }

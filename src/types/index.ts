@@ -9,6 +9,7 @@ export interface Album {
 export interface ListenedAlbum extends Album {
   rating: number;
   notes: string;
+  status: 'listened' | 'pending';
 }
 
 export type RootStackParamList = {

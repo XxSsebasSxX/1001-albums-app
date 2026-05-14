@@ -5,14 +5,18 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from 'react-native';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { colors } from '../theme/colors';
+import { migrateJsonToSupabase } from '../utils/migration';
 
 export default function UserProfileHeader() {
   const { session } = useAuth();
   const [menuVisible, setMenuVisible] = useState(false);
+  const [migrating, setMigrating] = useState(false);
+  const [migrateProgress, setMigrateProgress] = useState('');
 
   const user = session?.user;
   const avatarUrl = user?.user_metadata?.avatar_url as string | undefined;
@@ -22,6 +26,20 @@ export default function UserProfileHeader() {
   const handleLogout = async () => {
     setMenuVisible(false);
     await supabase.auth.signOut();
+  };
+
+  const handleMigrate = async () => {
+    if (migrating) return;
+    setMigrating(true);
+    setMigrateProgress('Iniciando...');
+    const result = await migrateJsonToSupabase((done, total) => {
+      setMigrateProgress(`Migrando ${done}/${total}...`);
+    });
+    setMigrateProgress(`Hecho: ${result.inserted} insertados, ${result.errors} errores`);
+    setMigrating(false);
+    if (result.errors > 0) {
+      Alert.alert('Migración completada', `${result.inserted} insertados, ${result.errors} errores`);
+    }
   };
 
   return (
@@ -49,9 +67,22 @@ export default function UserProfileHeader() {
             <Text style={styles.email} numberOfLines={1}>
               {email}
             </Text>
-            <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-              <Text style={styles.logoutIcon}>⏻</Text>
+            <TouchableOpacity style={styles.menuButton} onPress={handleLogout}>
+              <Text style={styles.menuIcon}>⏻</Text>
               <Text style={styles.logoutText}>Cerrar Sesión</Text>
+            </TouchableOpacity>
+            {migrateProgress ? (
+              <Text style={styles.migrateText}>{migrateProgress}</Text>
+            ) : null}
+            <TouchableOpacity
+              style={styles.menuButton}
+              onPress={handleMigrate}
+              disabled={migrating}
+            >
+              <Text style={styles.migrateIcon}>☁</Text>
+              <Text style={styles.migrateButtonText}>
+                {migrating ? 'Migrando...' : 'Migrar álbumes a Supabase'}
+              </Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -120,7 +151,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-  logoutButton: {
+  menuButton: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
@@ -128,7 +159,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     gap: 8,
   },
-  logoutIcon: {
+  menuIcon: {
     fontSize: 14,
     color: '#E53935',
   },
@@ -136,5 +167,21 @@ const styles = StyleSheet.create({
     color: '#E53935',
     fontSize: 14,
     fontWeight: '600',
+  },
+  migrateIcon: {
+    fontSize: 14,
+    color: colors.primary,
+  },
+  migrateButtonText: {
+    color: colors.primary,
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  migrateText: {
+    color: colors.textSecondary,
+    fontSize: 11,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    textAlign: 'center',
   },
 });

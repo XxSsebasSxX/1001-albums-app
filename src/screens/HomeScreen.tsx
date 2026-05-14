@@ -7,7 +7,7 @@ import {
   Linking,
   StyleSheet,
 } from 'react-native';
-import { AnimatePresence, View as MotiView } from 'moti';
+import { View as MotiView } from 'moti';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList, Album } from '../types';
@@ -22,7 +22,7 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const { listened, markAsListened } = useAlbums();
+  const { listened, markAsListened, addToPending } = useAlbums();
   const [currentAlbum, setCurrentAlbum] = useState<Album | null>(null);
 
   const pickRandom = () => {
@@ -30,9 +30,11 @@ export default function HomeScreen() {
     setCurrentAlbum(albumsData[randomIndex]);
   };
 
-  const isListened = currentAlbum
-    ? listened.some((a) => a.id === currentAlbum.id)
-    : false;
+  const entry = currentAlbum
+    ? listened.find((a) => a.id === currentAlbum.id)
+    : undefined;
+  const isListened = entry?.status === 'listened';
+  const isPending = entry?.status === 'pending';
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,15 +49,15 @@ export default function HomeScreen() {
           <Text style={styles.randomButtonText}>Generar Disco Aleatorio</Text>
         </TouchableOpacity>
 
-        <AnimatePresence>
-          {currentAlbum && (
+        {currentAlbum && (
+          <View
+            style={styles.albumCard}
+          >
             <MotiView
               key={currentAlbum.id}
-              from={{ opacity: 0, translateY: 20, scale: 0.95 }}
-              animate={{ opacity: 1, translateY: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ type: 'timing', duration: 400 }}
-              style={styles.albumCard}
+              from={{ opacity: 0, translateY: 12 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ type: 'timing', duration: 350 }}
             >
               <AlbumCover artist={currentAlbum.artist} album={currentAlbum.album} size={250} />
               <Text style={styles.albumTitle}>{currentAlbum.album}</Text>
@@ -65,17 +67,37 @@ export default function HomeScreen() {
                 <Text style={styles.albumMeta}>{currentAlbum.genre}</Text>
               </MotiView>
 
-              {!isListened && (
-                <TouchableOpacity
-                  style={styles.listenButton}
-                  onPress={() => markAsListened(currentAlbum)}
-                >
-                  <Text style={styles.listenButtonText}>Marcar como Escuchado</Text>
-                </TouchableOpacity>
-              )}
-
               {isListened && (
                 <Text style={styles.listenedBadge}>✓ Escuchado</Text>
+              )}
+
+              {isPending && (
+                <View style={{ alignItems: 'center', gap: 8 }}>
+                  <Text style={styles.pendingBadge}>⏳ Pendiente</Text>
+                  <TouchableOpacity
+                    style={styles.listenButton}
+                    onPress={() => markAsListened(currentAlbum.id)}
+                  >
+                    <Text style={styles.listenButtonText}>Marcar como Escuchado</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+
+              {!isListened && !isPending && (
+                <View style={{ flexDirection: 'row', gap: 10 }}>
+                  <TouchableOpacity
+                    style={[styles.listenButton, { flex: 1 }]}
+                    onPress={() => markAsListened(currentAlbum.id)}
+                  >
+                    <Text style={styles.listenButtonText}>✓ Escuchado</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[styles.pendingButton, { flex: 1 }]}
+                    onPress={() => addToPending(currentAlbum.id)}
+                  >
+                    <Text style={styles.pendingButtonText}>⏳ Pendiente</Text>
+                  </TouchableOpacity>
+                </View>
               )}
 
               <View style={styles.affiliateRow}>
@@ -112,8 +134,8 @@ export default function HomeScreen() {
                 </TouchableOpacity>
               </View>
             </MotiView>
-          )}
-        </AnimatePresence>
+          </View>
+        )}
 
         <TouchableOpacity
           style={styles.historyButton}
@@ -218,6 +240,24 @@ const styles = StyleSheet.create({
   },
   listenedBadge: {
     color: '#4CAF50',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  pendingBadge: {
+    color: '#FFA726',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  pendingButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: '#FFA726',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  pendingButtonText: {
+    color: '#FFA726',
     fontSize: 14,
     fontWeight: '600',
   },
