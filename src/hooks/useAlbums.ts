@@ -144,6 +144,64 @@ export function useAlbums() {
   const listenedAlbums = useMemo(() => listened.filter((a) => a.status === 'listened'), [listened]);
   const pendingAlbums = useMemo(() => listened.filter((a) => a.status === 'pending'), [listened]);
 
+  // ── Stats ────────────────────────────────────────────
+  const statsData = useMemo(() => {
+    const listenedOnly = listenedAlbums;
+
+    const total = listenedOnly.length;
+    const avgRating =
+      total > 0
+        ? listenedOnly.reduce((s, a) => s + a.rating, 0) / total
+        : 0;
+
+    // Decades
+    const decades: Record<string, number> = {};
+    for (const a of listenedOnly) {
+      if (a.year > 0) {
+        const d = `${Math.floor(a.year / 10) * 10}s`;
+        decades[d] = (decades[d] || 0) + 1;
+      }
+    }
+    const decadeLabels = Object.keys(decades).sort();
+    const decadeData = decadeLabels.map((l) => decades[l]);
+
+    // Genres
+    const genres: Record<string, number> = {};
+    for (const a of listenedOnly) {
+      const g = a.genre || 'Various';
+      genres[g] = (genres[g] || 0) + 1;
+    }
+    const sortedGenres = Object.entries(genres).sort((a, b) => b[1] - a[1]);
+    const topGenres3 = sortedGenres.slice(0, 3);
+    const genreColors = ['#F5A623', '#4CAF50', '#2196F3', '#E53935', '#9C27B0', '#00BCD4', '#FF5722', '#607D8B'];
+    const genreChartData = sortedGenres.slice(0, 8).map(([name, count], i) => ({
+      name: name.length > 12 ? name.slice(0, 12) + '…' : name,
+      count,
+      color: genreColors[i % genreColors.length],
+      legendFontColor: '#AAAAAA',
+      legendFontSize: 11,
+    }));
+
+    // Top artists
+    const artists: Record<string, number> = {};
+    for (const a of listenedOnly) {
+      artists[a.artist] = (artists[a.artist] || 0) + 1;
+    }
+    const topArtists5 = Object.entries(artists)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+
+    return {
+      total,
+      avgRating,
+      decadeLabels,
+      decadeData,
+      genreChartData,
+      topGenres3,
+      topArtists5,
+    };
+  }, [listenedAlbums]);
+
   // ═══════════════════════════════════════════════════════
   //  WRITE OPERATIONS — always local first, then cloud
   // ═══════════════════════════════════════════════════════
@@ -352,6 +410,7 @@ export function useAlbums() {
     listened,
     listenedAlbums,
     pendingAlbums,
+    statsData,
     user,
     loading,
     addToPending,

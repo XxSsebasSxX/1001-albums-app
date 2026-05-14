@@ -15,10 +15,12 @@ import {
   LayoutAnimation,
 } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
-import { Album, ListenedAlbum } from '../types';
+import { Album, ListenedAlbum, RootStackParamList } from '../types';
 import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import { supabase } from '../lib/supabase';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AlbumCover from '../components/AlbumCover';
 import { getAffiliateLink } from '../utils/affiliate';
 
@@ -104,7 +106,10 @@ function AlbumCard({
   );
 }
 
+type NavProp = NativeStackNavigationProp<RootStackParamList>;
+
 export default function HistoryScreen() {
+  const navigation = useNavigation<NavProp>();
   const {
     listenedAlbums,
     pendingAlbums,
@@ -260,12 +265,20 @@ export default function HistoryScreen() {
             {listenedAlbums.length + pendingAlbums.length} discos
           </Text>
         </View>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => setIsAddVisible(true)}
-        >
-          <Text style={styles.addButtonText}>+ Añadir</Text>
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', gap: 8 }}>
+          <TouchableOpacity
+            style={styles.statsButton}
+            onPress={() => navigation.navigate('Statistics')}
+          >
+            <Text style={styles.statsButtonText}>📊</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => setIsAddVisible(true)}
+          >
+            <Text style={styles.addButtonText}>+ Añadir</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={styles.tabRow}>
@@ -620,6 +633,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textSecondary,
     marginTop: 2,
+  },
+  statsButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  statsButtonText: {
+    fontSize: 16,
   },
   addButton: {
     backgroundColor: colors.primary,
