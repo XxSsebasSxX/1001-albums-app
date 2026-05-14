@@ -7,11 +7,11 @@ import {
   Modal,
   KeyboardAvoidingView,
   Platform,
-  Alert,
   StyleSheet,
 } from 'react-native';
 import { supabase } from '../lib/supabase';
 import { colors } from '../theme/colors';
+import { handleSupabaseError } from '../utils/authErrors';
 
 interface LoginScreenProps {
   visible: boolean;
@@ -23,12 +23,23 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorText, setErrorText] = useState('');
+
+  const isPasswordWeak = isSignUp && password.length > 0 && password.length < 6;
 
   const handleSubmit = async () => {
+    setErrorText('');
+
     if (!email.trim() || !password.trim()) {
-      Alert.alert('Campos requeridos', 'Completa email y contraseña.');
+      setErrorText('Completa email y contraseña.');
       return;
     }
+
+    if (isSignUp && password.length < 6) {
+      setErrorText('La contraseña debe tener al menos 6 caracteres.');
+      return;
+    }
+
     setSubmitting(true);
     const action = isSignUp
       ? supabase.auth.signUp({ email: email.trim(), password })
@@ -37,15 +48,16 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
     setSubmitting(false);
 
     if (error) {
-      Alert.alert('Error', error.message);
+      setErrorText(handleSupabaseError(error));
       return;
     }
+
     if (isSignUp) {
-      Alert.alert(
-        'Registro exitoso',
-        'Revisa tu correo para confirmar la cuenta.',
-      );
+      setErrorText('');
+      onClose();
+      return;
     }
+
     onClose();
   };
 
@@ -76,27 +88,47 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
             </Text>
 
             <TextInput
-              style={styles.input}
+              style={[styles.input, errorText ? styles.inputError : null]}
               placeholder="Email"
               placeholderTextColor={colors.textSecondary}
               value={email}
-              onChangeText={setEmail}
+              onChangeText={(v) => { setEmail(v); setErrorText(''); }}
               autoCapitalize="none"
               keyboardType="email-address"
             />
+
             <TextInput
-              style={styles.input}
+              style={[styles.input, errorText ? styles.inputError : null]}
               placeholder="Contraseña"
               placeholderTextColor={colors.textSecondary}
               value={password}
-              onChangeText={setPassword}
+              onChangeText={(v) => { setPassword(v); setErrorText(''); }}
               secureTextEntry
             />
 
+            {isPasswordWeak && (
+              <Text style={styles.hint}>
+                La contraseña debe tener al menos 6 caracteres.
+              </Text>
+            )}
+
+            {errorText ? (
+              <Text style={styles.error}>{errorText}</Text>
+            ) : null}
+
+            {isSignUp && (
+              <Text style={styles.successHint}>
+                Te enviaremos un email para confirmar tu cuenta.
+              </Text>
+            )}
+
             <TouchableOpacity
-              style={styles.submitButton}
+              style={[
+                styles.submitButton,
+                isPasswordWeak && styles.submitButtonDisabled,
+              ]}
               onPress={handleSubmit}
-              disabled={submitting}
+              disabled={submitting || !!isPasswordWeak}
             >
               <Text style={styles.submitText}>
                 {submitting
@@ -109,7 +141,7 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
 
             <TouchableOpacity
               style={styles.toggleButton}
-              onPress={() => setIsSignUp(!isSignUp)}
+              onPress={() => { setIsSignUp(!isSignUp); setErrorText(''); }}
             >
               <Text style={styles.toggleText}>
                 {isSignUp
@@ -164,12 +196,36 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: 12,
   },
+  inputError: {
+    borderWidth: 1,
+    borderColor: '#E53935',
+  },
+  hint: {
+    color: colors.textSecondary,
+    fontSize: 13,
+    marginBottom: 8,
+  },
+  error: {
+    color: '#E53935',
+    fontSize: 13,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  successHint: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
   submitButton: {
     backgroundColor: colors.primary,
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 4,
+  },
+  submitButtonDisabled: {
+    opacity: 0.5,
   },
   submitText: {
     color: '#0A0A0A',
