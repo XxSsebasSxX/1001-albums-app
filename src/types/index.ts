@@ -15,4 +15,5 @@ export interface ListenedAlbum extends Album {
 export type RootStackParamList = {
   Home: undefined;
   History: undefined;
+  Statistics: undefined;
 };

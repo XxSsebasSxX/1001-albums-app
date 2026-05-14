@@ -6,6 +6,7 @@ import { AuthProvider, useAuth } from './src/contexts/AuthContext';
 import { colors } from './src/theme/colors';
 import HomeScreen from './src/screens/HomeScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
+import StatisticsScreen from './src/screens/StatisticsScreen';
 import AuthScreen from './src/screens/AuthScreen';
 import UserProfileHeader from './src/components/UserProfileHeader';
 
@@ -31,6 +32,11 @@ function MainNavigator() {
           name="History"
           component={HistoryScreen}
           options={{ title: 'Mi Diario' }}
+        />
+        <Stack.Screen
+          name="Statistics"
+          component={StatisticsScreen}
+          options={{ title: 'Estadísticas' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

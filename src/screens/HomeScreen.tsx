@@ -26,8 +26,11 @@ export default function HomeScreen() {
   const [currentAlbum, setCurrentAlbum] = useState<Album | null>(null);
 
   const pickRandom = () => {
-    const randomIndex = Math.floor(Math.random() * albumsData.length);
-    setCurrentAlbum(albumsData[randomIndex]);
+    const addedIds = new Set(listened.map((a) => a.id));
+    const available = albumsData.filter((a) => !addedIds.has(a.id));
+    if (available.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * available.length);
+    setCurrentAlbum(available[randomIndex]);
   };
 
   const entry = currentAlbum
