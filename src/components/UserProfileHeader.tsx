@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-} from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
+import { YStack, XStack, Card, Button, SizableText } from 'tamagui';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
-import { colors } from '../theme/colors';
 import { migrateJsonToSupabase } from '../utils/migration';
+import { Alert } from 'react-native';
+
+const AVATAR_SIZE = 36;
 
 export default function UserProfileHeader() {
   const { session } = useAuth();
@@ -43,145 +39,87 @@ export default function UserProfileHeader() {
   };
 
   return (
-    <View style={styles.wrapper}>
-      <TouchableOpacity
-        style={styles.avatarButton}
+    <YStack position="relative" zIndex={10}>
+      <Button
+        width={AVATAR_SIZE}
+        height={AVATAR_SIZE}
+        borderRadius={AVATAR_SIZE / 2}
+        padding={0}
+        backgroundColor="transparent"
+        overflow="hidden"
+        pressStyle={{ opacity: 0.8, scale: 0.95 }}
         onPress={() => setMenuVisible(true)}
       >
         {avatarUrl ? (
-          <Image source={{ uri: avatarUrl }} style={styles.avatar} />
+          <Image source={{ uri: avatarUrl }} style={{ width: AVATAR_SIZE, height: AVATAR_SIZE, borderRadius: AVATAR_SIZE / 2 }} />
         ) : (
-          <View style={styles.avatarFallback}>
-            <Text style={styles.initial}>{initial}</Text>
-          </View>
+          <YStack width={AVATAR_SIZE} height={AVATAR_SIZE} borderRadius={AVATAR_SIZE / 2} backgroundColor="#3A3A3A" justifyContent="center" alignItems="center">
+            <SizableText color="$color" fontSize={16} fontWeight="bold">{initial}</SizableText>
+          </YStack>
         )}
-      </TouchableOpacity>
+      </Button>
 
       {menuVisible && (
         <TouchableOpacity
-          style={styles.overlay}
+          style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 100 }}
           activeOpacity={1}
           onPress={() => setMenuVisible(false)}
         >
-          <View style={styles.menu}>
-            <Text style={styles.email} numberOfLines={1}>
+          <Card
+            position="absolute"
+            top={AVATAR_SIZE + 8}
+            right={0}
+            backgroundColor="$brandSurface"
+            borderRadius={12}
+            padding={8}
+            minWidth={180}
+            borderWidth={1}
+            borderColor="$brandGray"
+            elevation={12}
+            zIndex={101}
+          >
+            <SizableText color="$colorHover" fontSize={12} paddingHorizontal={12} paddingVertical={8} numberOfLines={1}>
               {email}
-            </Text>
-            <TouchableOpacity style={styles.menuButton} onPress={handleLogout}>
-              <Text style={styles.menuIcon}>⏻</Text>
-              <Text style={styles.logoutText}>Cerrar Sesión</Text>
-            </TouchableOpacity>
+            </SizableText>
+            <Button
+              backgroundColor="transparent"
+              flexDirection="row"
+              alignItems="center"
+              paddingVertical={10}
+              paddingHorizontal={12}
+              borderRadius={8}
+              gap={8}
+              pressStyle={{ opacity: 0.8, scale: 0.97 }}
+              onPress={handleLogout}
+            >
+              <SizableText fontSize={14} color="$brandRed">⏻</SizableText>
+              <SizableText color="$brandRed" fontSize={14} fontWeight="600">Cerrar Sesión</SizableText>
+            </Button>
             {migrateProgress ? (
-              <Text style={styles.migrateText}>{migrateProgress}</Text>
+              <SizableText color="$colorHover" fontSize={11} paddingHorizontal={12} paddingVertical={4} textAlign="center">
+                {migrateProgress}
+              </SizableText>
             ) : null}
-            <TouchableOpacity
-              style={styles.menuButton}
+            <Button
+              backgroundColor="transparent"
+              flexDirection="row"
+              alignItems="center"
+              paddingVertical={10}
+              paddingHorizontal={12}
+              borderRadius={8}
+              gap={8}
+              pressStyle={{ opacity: 0.8, scale: 0.97 }}
               onPress={handleMigrate}
               disabled={migrating}
             >
-              <Text style={styles.migrateIcon}>☁</Text>
-              <Text style={styles.migrateButtonText}>
+              <SizableText fontSize={14} color="$brandGold">☁</SizableText>
+              <SizableText color="$brandGold" fontSize={14} fontWeight="600">
                 {migrating ? 'Migrando...' : 'Migrar álbumes a Supabase'}
-              </Text>
-            </TouchableOpacity>
-          </View>
+              </SizableText>
+            </Button>
+          </Card>
         </TouchableOpacity>
       )}
-    </View>
+    </YStack>
   );
 }
-
-const AVATAR_SIZE = 36;
-
-const styles = StyleSheet.create({
-  wrapper: {
-    position: 'relative',
-  },
-  avatarButton: {
-    width: AVATAR_SIZE,
-    height: AVATAR_SIZE,
-    borderRadius: AVATAR_SIZE / 2,
-    overflow: 'hidden',
-  },
-  avatar: {
-    width: AVATAR_SIZE,
-    height: AVATAR_SIZE,
-    borderRadius: AVATAR_SIZE / 2,
-  },
-  avatarFallback: {
-    width: AVATAR_SIZE,
-    height: AVATAR_SIZE,
-    borderRadius: AVATAR_SIZE / 2,
-    backgroundColor: '#3A3A3A',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  initial: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 100,
-  },
-  menu: {
-    position: 'absolute',
-    top: AVATAR_SIZE + 8,
-    right: 0,
-    backgroundColor: colors.surface,
-    borderRadius: 12,
-    padding: 8,
-    minWidth: 180,
-    borderWidth: 1,
-    borderColor: colors.border,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
-    elevation: 12,
-  },
-  email: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-  },
-  menuButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    gap: 8,
-  },
-  menuIcon: {
-    fontSize: 14,
-    color: '#E53935',
-  },
-  logoutText: {
-    color: '#E53935',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  migrateIcon: {
-    fontSize: 14,
-    color: colors.primary,
-  },
-  migrateButtonText: {
-    color: colors.primary,
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  migrateText: {
-    color: colors.textSecondary,
-    fontSize: 11,
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-    textAlign: 'center',
-  },
-});

@@ -1,15 +1,7 @@
 import { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
-} from 'react-native';
+import { KeyboardAvoidingView, Platform } from 'react-native';
+import { YStack, XStack, Input, Button, SizableText } from 'tamagui';
 import { supabase } from '../lib/supabase';
-import { colors } from '../theme/colors';
 import { handleSupabaseError } from '../utils/authErrors';
 
 export default function AuthScreen() {
@@ -43,179 +35,100 @@ export default function AuthScreen() {
 
     if (error) {
       setErrorText(handleSupabaseError(error));
-      return;
     }
   };
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={styles.container}
+      style={{ flex: 1, backgroundColor: '#121212', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 }}
     >
-      <View style={styles.card}>
-        <Text style={styles.brand}>1001 Albums</Text>
-        <Text style={styles.subtitle}>Diario Musical</Text>
+      <YStack width="100%" maxWidth={400} backgroundColor="$brandSurface" borderRadius={16} padding={32} borderWidth={1} borderColor="$brandGray">
+        <SizableText fontSize={28} fontWeight="bold" color="$color" textAlign="center">
+          1001 Albums
+        </SizableText>
+        <SizableText fontSize={14} color="$colorHover" textAlign="center" marginBottom={32} marginTop={4}>
+          Diario Musical
+        </SizableText>
 
-        <Text style={styles.title}>
+        <SizableText fontSize={18} fontWeight="600" color="$color" marginBottom={20} textAlign="center">
           {isSignUp ? 'Crear Cuenta' : 'Iniciar Sesión'}
-        </Text>
+        </SizableText>
 
-        <TextInput
-          style={[styles.input, errorText ? styles.inputError : null]}
+        <Input
+          backgroundColor="$brandGray"
+          borderRadius={10}
+          paddingHorizontal={16}
+          paddingVertical={12}
+          marginBottom={12}
+          borderWidth={errorText ? 1 : 0}
+          borderColor={errorText ? '$brandRed' : 'transparent'}
           placeholder="Email"
-          placeholderTextColor={colors.textSecondary}
           value={email}
           onChangeText={(v) => { setEmail(v); setErrorText(''); }}
           autoCapitalize="none"
           keyboardType="email-address"
         />
 
-        <TextInput
-          style={[styles.input, errorText ? styles.inputError : null]}
+        <Input
+          backgroundColor="$brandGray"
+          borderRadius={10}
+          paddingHorizontal={16}
+          paddingVertical={12}
+          marginBottom={12}
+          borderWidth={errorText ? 1 : 0}
+          borderColor={errorText ? '$brandRed' : 'transparent'}
           placeholder="Contraseña"
-          placeholderTextColor={colors.textSecondary}
           value={password}
           onChangeText={(v) => { setPassword(v); setErrorText(''); }}
           secureTextEntry
         />
 
         {isPasswordWeak && (
-          <Text style={styles.hint}>
+          <SizableText color="$colorHover" fontSize={13} marginBottom={8}>
             La contraseña debe tener al menos 6 caracteres.
-          </Text>
+          </SizableText>
         )}
 
         {errorText ? (
-          <Text style={styles.error}>{errorText}</Text>
+          <SizableText color="$brandRed" fontSize={13} marginBottom={12} textAlign="center">
+            {errorText}
+          </SizableText>
         ) : null}
 
         {isSignUp && (
-          <Text style={styles.successHint}>
+          <SizableText color="$colorHover" fontSize={12} marginBottom={12} textAlign="center">
             Te enviaremos un email para confirmar tu cuenta.
-          </Text>
+          </SizableText>
         )}
 
-        <TouchableOpacity
-          style={[
-            styles.submitButton,
-            isPasswordWeak && styles.submitButtonDisabled,
-          ]}
-          onPress={handleSubmit}
+        <Button
+          backgroundColor="$brandGold"
+          paddingVertical={14}
+          borderRadius={10}
+          marginTop={4}
+          opacity={isPasswordWeak ? 0.5 : 1}
           disabled={submitting || !!isPasswordWeak}
+          pressStyle={{ opacity: 0.8, scale: 0.97 }}
+          onPress={handleSubmit}
         >
-          <Text style={styles.submitText}>
-            {submitting
-              ? 'Enviando...'
-              : isSignUp
-                ? 'Registrarse'
-                : 'Entrar'}
-          </Text>
-        </TouchableOpacity>
+          <SizableText color="#0A0A0A" fontSize={16} fontWeight="bold">
+            {submitting ? 'Enviando...' : isSignUp ? 'Registrarse' : 'Entrar'}
+          </SizableText>
+        </Button>
 
-        <TouchableOpacity
-          style={styles.toggleButton}
+        <Button
+          backgroundColor="transparent"
+          marginTop={16}
+          paddingVertical={8}
+          pressStyle={{ opacity: 0.8, scale: 0.97 }}
           onPress={() => { setIsSignUp(!isSignUp); setErrorText(''); }}
         >
-          <Text style={styles.toggleText}>
-            {isSignUp
-              ? '¿Ya tienes cuenta? Inicia sesión'
-              : '¿No tienes cuenta? Regístrate'}
-          </Text>
-        </TouchableOpacity>
-      </View>
+          <SizableText color="$brandGold" fontSize={14}>
+            {isSignUp ? '¿Ya tienes cuenta? Inicia sesión' : '¿No tienes cuenta? Regístrate'}
+          </SizableText>
+        </Button>
+      </YStack>
     </KeyboardAvoidingView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-  },
-  card: {
-    width: '100%',
-    maxWidth: 400,
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 32,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  brand: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: colors.text,
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginBottom: 32,
-    marginTop: 4,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  input: {
-    backgroundColor: '#2A2A2A',
-    borderRadius: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 15,
-    color: colors.text,
-    marginBottom: 12,
-  },
-  inputError: {
-    borderWidth: 1,
-    borderColor: '#E53935',
-  },
-  hint: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    marginBottom: 8,
-  },
-  error: {
-    color: '#E53935',
-    fontSize: 13,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  successHint: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  submitButton: {
-    backgroundColor: colors.primary,
-    paddingVertical: 14,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  submitButtonDisabled: {
-    opacity: 0.5,
-  },
-  submitText: {
-    color: '#0A0A0A',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  toggleButton: {
-    marginTop: 16,
-    paddingVertical: 8,
-    alignItems: 'center',
-  },
-  toggleText: {
-    color: colors.primary,
-    fontSize: 14,
-  },
-});

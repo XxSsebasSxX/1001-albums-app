@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import {
   View,
-  Image,
-  ActivityIndicator,
   Text,
   StyleSheet,
 } from 'react-native';
 import { colors } from '../theme/colors';
+import AlbumImageWithSkeleton from './AlbumImageWithSkeleton';
 
 interface AlbumCoverProps {
   artist: string;
@@ -16,12 +15,10 @@ interface AlbumCoverProps {
 
 export default function AlbumCover({ artist, album, size = 200 }: AlbumCoverProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     let mounted = true;
-    setIsLoading(true);
     setImageUrl(null);
     setHasError(false);
 
@@ -37,13 +34,9 @@ export default function AlbumCover({ artist, album, size = 200 }: AlbumCoverProp
           );
           setImageUrl(url);
         }
-        setIsLoading(false);
       })
       .catch(() => {
-        if (mounted) {
-          setHasError(true);
-          setIsLoading(false);
-        }
+        if (mounted) setHasError(true);
       });
 
     return () => {
@@ -51,22 +44,8 @@ export default function AlbumCover({ artist, album, size = 200 }: AlbumCoverProp
     };
   }, [artist, album]);
 
-  if (isLoading) {
-    return (
-      <View style={[styles.container, { width: size, height: size, borderRadius: 8 }]}>
-        <ActivityIndicator color={colors.primary} size="small" />
-      </View>
-    );
-  }
-
   if (imageUrl && !hasError) {
-    return (
-      <Image
-        source={{ uri: imageUrl }}
-        style={{ width: size, height: size, borderRadius: 8 }}
-        onError={() => setHasError(true)}
-      />
-    );
+    return <AlbumImageWithSkeleton source={{ uri: imageUrl }} size={size} />;
   }
 
   return (
@@ -79,11 +58,6 @@ export default function AlbumCover({ artist, album, size = 200 }: AlbumCoverProp
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.surface,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   fallback: {
     backgroundColor: '#1A1A1A',
     justifyContent: 'center',
