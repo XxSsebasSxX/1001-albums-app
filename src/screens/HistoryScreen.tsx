@@ -1,22 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
 import {
   View,
-  Text,
+  Dimensions,
   FlatList,
   SafeAreaView,
   Modal,
-  TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
   Linking,
-  StyleSheet,
   Alert,
   LayoutAnimation,
 } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
+import { Card, XStack, YStack, Input, Sheet, Button, SizableText } from 'tamagui';
 import { Album, ListenedAlbum, RootStackParamList } from '../types';
-import { colors } from '../theme/colors';
 import { useAlbums } from '../hooks/useAlbums';
 import { supabase } from '../lib/supabase';
 import { useNavigation } from '@react-navigation/native';
@@ -32,76 +30,92 @@ function StarSelector({
   onChange: (n: number) => void;
 }) {
   return (
-    <View style={styles.starRow}>
+    <XStack gap={8} justifyContent="center">
       {[1, 2, 3, 4, 5].map((n) => (
         <TouchableOpacity key={n} onPress={() => onChange(n)}>
-          <Text style={[styles.star, n <= value && styles.starActive]}>
+          <SizableText fontSize={32} color={n <= value ? '$brandGold' : '$colorHover'}>
             {n <= value ? '★' : '☆'}
-          </Text>
+          </SizableText>
         </TouchableOpacity>
       ))}
-    </View>
+    </XStack>
   );
 }
+
+const GRID_GAP = 10;
+const GRID_PADDING = 12;
+const CARD_PADDING = 6;
+
+const screenWidth = Dimensions.get('window').width;
+const gridCols = screenWidth > 600 ? 4 : 3;
+const coverSize = Math.floor((screenWidth - GRID_PADDING * 2 - GRID_GAP * (gridCols - 1)) / gridCols - CARD_PADDING * 2);
 
 function AlbumCard({
   item,
   onPress,
   onDelete,
-  onQuickListen,
 }: {
   item: ListenedAlbum;
   onPress: () => void;
   onDelete: () => void;
-  onQuickListen?: () => void;
 }) {
   const swipeRef = useRef<Swipeable>(null);
 
   const renderRightActions = () => (
-    <TouchableOpacity
-      style={styles.deleteAction}
+    <Button
+      backgroundColor="$brandRed"
+      justifyContent="center"
+      alignItems="center"
+      width={60}
+      borderRadius={10}
+      pressStyle={{ opacity: 0.8, scale: 0.97 }}
       onPress={() => {
         swipeRef.current?.close();
         onDelete();
       }}
     >
-      <Text style={styles.deleteActionText}>🗑️</Text>
-    </TouchableOpacity>
+      <SizableText fontSize={18} color="#FFFFFF">🗑️</SizableText>
+    </Button>
   );
 
   return (
     <Swipeable ref={swipeRef} renderRightActions={renderRightActions}>
-      <View>
-        <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
-          <AlbumCover artist={item.artist} album={item.album} size={60} />
-          <View style={styles.cardTextBlock}>
-            <View style={styles.cardTitleRow}>
-              <Text style={styles.cardAlbum} numberOfLines={1}>
-                {item.album}
-              </Text>
-              {item.status === 'pending' && (
-                <Text style={styles.pendingTag}>⏳</Text>
-              )}
-              {item.status === 'listened' && item.rating > 0 && (
-                <Text style={styles.cardRating}>{'★'.repeat(item.rating)}</Text>
-              )}
-            </View>
-            <Text style={styles.cardArtist}>{item.artist}</Text>
-            <View style={styles.cardMetaRow}>
-              <Text style={styles.cardMeta}>{item.year || '?'}</Text>
-              <Text style={styles.cardMeta}>{item.genre}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-        {item.status === 'pending' && onQuickListen && (
-          <TouchableOpacity
-            style={styles.quickListenButton}
-            onPress={onQuickListen}
-          >
-            <Text style={styles.quickListenText}>✓ Marcar como escuchado</Text>
-          </TouchableOpacity>
-        )}
-      </View>
+      <Card
+        backgroundColor="$brandSurface"
+        borderRadius={10}
+        borderWidth={1}
+        borderColor="$brandGray"
+        padding={CARD_PADDING}
+        onPress={onPress}
+      >
+        <YStack gap="$2">
+          <YStack position="relative">
+            <AlbumCover artist={item.artist} album={item.album} size={coverSize} />
+            {item.status === 'pending' && (
+              <YStack
+                position="absolute"
+                top={2}
+                right={2}
+                backgroundColor="rgba(0,0,0,0.65)"
+                borderRadius={3}
+                paddingHorizontal={3}
+                paddingVertical={1}
+              >
+                <SizableText fontSize={9} color="$brandOrange">⏳</SizableText>
+              </YStack>
+            )}
+          </YStack>
+          <SizableText size="$3" fontWeight="bold" color="$color" numberOfLines={1}>
+            {item.album}
+          </SizableText>
+          <SizableText size="$1" color="$colorHover" numberOfLines={1}>
+            {item.artist}
+            {'  •  '}
+            {item.year || '?'}
+            {item.status === 'listened' && item.rating > 0 && `  •  ★ ${item.rating}`}
+          </SizableText>
+        </YStack>
+      </Card>
     </Swipeable>
   );
 }
@@ -257,85 +271,155 @@ export default function HistoryScreen() {
   const currentList = activeTab === 'listened' ? listenedAlbums : pendingAlbums;
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.title}>Mi Diario</Text>
-          <Text style={styles.count}>
+    <YStack flex={1} backgroundColor="$brandBg">
+      <XStack
+        paddingHorizontal={16}
+        paddingTop={16}
+        paddingBottom={8}
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <YStack>
+          <SizableText fontSize={28} fontWeight="bold" color="$color">
+            Mi Diario
+          </SizableText>
+          <SizableText fontSize={14} color="$colorHover" marginTop={2}>
             {listenedAlbums.length + pendingAlbums.length} discos
-          </Text>
-        </View>
-        <View style={{ flexDirection: 'row', gap: 8 }}>
-          <TouchableOpacity
-            style={styles.statsButton}
+          </SizableText>
+        </YStack>
+        <XStack gap={8}>
+          <Button
+            paddingVertical={8}
+            paddingHorizontal={10}
+            borderRadius={8}
+            borderWidth={1}
+            borderColor="$colorHover"
+            pressStyle={{ opacity: 0.8, scale: 0.97 }}
             onPress={() => navigation.navigate('Statistics')}
           >
-            <Text style={styles.statsButtonText}>📊</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.addButton}
+            <SizableText fontSize={16}>📊</SizableText>
+          </Button>
+          <Button
+            backgroundColor="$brandGold"
+            paddingVertical={8}
+            paddingHorizontal={14}
+            borderRadius={8}
+            pressStyle={{ opacity: 0.8, scale: 0.97 }}
             onPress={() => setIsAddVisible(true)}
           >
-            <Text style={styles.addButtonText}>+ Añadir</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+            <SizableText color="#0A0A0A" fontSize={13} fontWeight="bold">+ Añadir</SizableText>
+          </Button>
+        </XStack>
+      </XStack>
 
-      <View style={styles.tabRow}>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'listened' && styles.tabActive]}
+      <XStack paddingHorizontal={16} marginBottom={12} gap={8}>
+        <Button
+          flex={1}
+          paddingVertical={10}
+          borderRadius={10}
+          backgroundColor={activeTab === 'listened' ? '$brandGold' : '$brandGray'}
+          pressStyle={{ opacity: 0.8, scale: 0.97 }}
           onPress={() => setActiveTab('listened')}
         >
-          <Text style={[styles.tabText, activeTab === 'listened' && styles.tabTextActive]}>
+          <SizableText
+            color={activeTab === 'listened' ? '#0A0A0A' : '$colorHover'}
+            fontSize={13}
+            fontWeight="600"
+          >
             Escuchados ({listenedAlbums.length})
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'pending' && styles.tabActive]}
+          </SizableText>
+        </Button>
+        <Button
+          flex={1}
+          paddingVertical={10}
+          borderRadius={10}
+          backgroundColor={activeTab === 'pending' ? '$brandGold' : '$brandGray'}
+          pressStyle={{ opacity: 0.8, scale: 0.97 }}
           onPress={() => setActiveTab('pending')}
         >
-          <Text style={[styles.tabText, activeTab === 'pending' && styles.tabTextActive]}>
+          <SizableText
+            color={activeTab === 'pending' ? '#0A0A0A' : '$colorHover'}
+            fontSize={13}
+            fontWeight="600"
+          >
             Pendientes ({pendingAlbums.length})
-          </Text>
-        </TouchableOpacity>
-      </View>
+          </SizableText>
+        </Button>
+      </XStack>
 
       {currentList.length === 0 ? (
-        <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>
+        <YStack flex={1} alignItems="center" justifyContent="center" paddingHorizontal={24}>
+          <SizableText fontSize={18} color="$color" marginBottom={8}>
             {activeTab === 'listened' ? 'Aún no has escuchado nada' : 'No tienes discos pendientes'}
-          </Text>
-          <Text style={styles.emptySubtext}>
+          </SizableText>
+          <SizableText fontSize={14} color="$colorHover" textAlign="center">
             {activeTab === 'listened'
               ? 'Vuelve a inicio y descubre tu primer disco'
               : 'Marca discos como pendientes desde el buscador'}
-          </Text>
-        </View>
+          </SizableText>
+        </YStack>
       ) : (
         <FlatList
           data={currentList}
           keyExtractor={(item) => item.id}
+          numColumns={gridCols}
+          columnWrapperStyle={{ gap: GRID_GAP, justifyContent: 'flex-start' }}
+          ListHeaderComponent={
+            <Card backgroundColor="$brandSurface" borderRadius={12} padding="$4" borderWidth={1} borderColor="$brandGray" marginBottom="$4">
+              <YStack gap="$2">
+                <SizableText size="$6" fontWeight="bold" color="$color">
+                  Tu Viaje Musical
+                </SizableText>
+                {activeTab === 'listened' ? (
+                  <SizableText size="$3" color="$colorHover">
+                    Has completado{' '}
+                    <SizableText size="$3" fontWeight="bold" color="$brandGold">{listenedAlbums.length}</SizableText>
+                    {' '}de 1001 álbumes. 
+                    {listenedAlbums.length > 0
+                      ? '¡Buen ritmo!'
+                      : '¡Empieza tu aventura!'}
+                  </SizableText>
+                ) : (
+                  <SizableText size="$3" color="$colorHover">
+                    Tienes{' '}
+                    <SizableText size="$3" fontWeight="bold" color="$brandOrange">{pendingAlbums.length}</SizableText>
+                    {' '}discos esperándote en tu lista de pendientes.
+                  </SizableText>
+                )}
+                {listenedAlbums.length > 0 && (
+                  <YStack gap="$1">
+                    <XStack height={8} width="100%" borderRadius={4} backgroundColor="$brandGray" overflow="hidden">
+                      <View
+                        style={{
+                          height: '100%',
+                          width: `${Math.min((listenedAlbums.length / 1001) * 100, 100)}%`,
+                          backgroundColor: '#F5A623',
+                          borderRadius: 4,
+                        }}
+                      />
+                    </XStack>
+                    <SizableText size="$1" color="$colorHover" textAlign="right">
+                      {Math.round((listenedAlbums.length / 1001) * 100)}% completado
+                    </SizableText>
+                  </YStack>
+                )}
+              </YStack>
+            </Card>
+          }
+          ItemSeparatorComponent={() => <XStack height={GRID_GAP} />}
+          contentContainerStyle={{ paddingHorizontal: GRID_PADDING, paddingBottom: 100 }}
           renderItem={({ item }) => (
             <AlbumCard
               item={item}
               onPress={() => openJournal(item)}
               onDelete={() => confirmDeleteAlbum(item)}
-              onQuickListen={
-                item.status === 'pending'
-                  ? () => {
-                      markAsListened(item.id);
-                      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-                    }
-                  : undefined
-              }
             />
           )}
-          contentContainerStyle={styles.list}
           ListFooterComponent={
-            <Text style={styles.disclaimer}>
+            <SizableText fontSize={11} color="$colorHover" textAlign="center" paddingVertical={20} paddingHorizontal={24} lineHeight={16}>
               Como afiliado de Amazon, esta aplicación percibe ingresos por las
               compras adscritas que cumplen los requisitos aplicables.
-            </Text>
+            </SizableText>
           }
         />
       )}
@@ -347,34 +431,54 @@ export default function HistoryScreen() {
         onRequestClose={closeAdd}
       >
         <TouchableOpacity
-          style={styles.overlay}
+          style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', alignItems: 'center' }}
           activeOpacity={1}
           onPress={closeAdd}
         >
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-            style={styles.keyboardView}
+            style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }}
           >
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={() => {}}
-              style={styles.formCard}
+            <YStack
+              width="85%"
+              backgroundColor="$brandSurface"
+              borderRadius={16}
+              padding={24}
+              borderWidth={1}
+              borderColor="$brandGray"
+              maxHeight="80%"
             >
               {!isManualMode ? (
-                <>
-                  <Text style={styles.formTitle}>Buscar Álbum</Text>
+                <YStack>
+                  <SizableText fontSize={20} fontWeight="bold" color="$color" marginBottom={20} textAlign="center">
+                    Buscar Álbum
+                  </SizableText>
 
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Escribe el nombre del álbum o artista..."
-                    placeholderTextColor={colors.textSecondary}
-                    value={searchQuery}
-                    onChangeText={setSearchQuery}
-                    autoFocus
-                  />
+                  <XStack
+                    backgroundColor="$brandGray"
+                    borderRadius={10}
+                    alignItems="center"
+                    paddingLeft={12}
+                    marginBottom={12}
+                  >
+                    <SizableText fontSize={16} color="$colorHover">🔍</SizableText>
+                    <Input
+                      placeholder="Escribe el nombre del álbum o artista..."
+                      value={searchQuery}
+                      onChangeText={setSearchQuery}
+                      autoFocus
+                      backgroundColor="transparent"
+                      borderWidth={0}
+                      borderRadius={10}
+                      size="$4"
+                      flex={1}
+                    />
+                  </XStack>
 
                   {searchLoading && (
-                    <Text style={styles.searchStatus}>Buscando...</Text>
+                    <SizableText color="$colorHover" fontSize={13} textAlign="center" marginTop={16}>
+                      Buscando...
+                    </SizableText>
                   )}
 
                   {!searchLoading && searchResults.length > 0 && (
@@ -382,649 +486,255 @@ export default function HistoryScreen() {
                       data={searchResults}
                       keyExtractor={(item) => item.id}
                       renderItem={({ item }) => (
-                        <View>
-                          <View style={styles.resultItem}>
-                            <AlbumCover
-                              artist={item.artist}
-                              album={item.album}
-                              size={50}
-                            />
-                            <View style={styles.resultTextBlock}>
-                              <Text style={styles.resultAlbum}>{item.album}</Text>
-                              <Text style={styles.resultArtist}>
+                        <YStack>
+                          <XStack alignItems="center" paddingVertical={10} paddingHorizontal={4} borderBottomWidth={1} borderBottomColor="$brandGray">
+                            <AlbumCover artist={item.artist} album={item.album} size={50} />
+                            <YStack flex={1} marginLeft={12}>
+                              <SizableText fontSize={15} fontWeight="600" color="$color" marginBottom={2}>
+                                {item.album}
+                              </SizableText>
+                              <SizableText fontSize={13} color="$brandGold">
                                 {item.artist}
-                              </Text>
-                            </View>
-                          </View>
-                          <View style={styles.resultActions}>
-                            <TouchableOpacity
-                              style={styles.resultListenButton}
+                              </SizableText>
+                            </YStack>
+                          </XStack>
+                          <XStack gap={8} paddingHorizontal={4} paddingBottom={10} borderBottomWidth={1} borderBottomColor="$brandGray">
+                            <Button
+                              flex={1}
+                              paddingVertical={6}
+                              borderRadius={6}
+                              borderWidth={1}
+                              borderColor="$brandGreen"
+                              backgroundColor="transparent"
+                              pressStyle={{ opacity: 0.8, scale: 0.97 }}
                               onPress={() => handleMarkAsListened(item)}
                             >
-                              <Text style={styles.resultListenText}>✓ Escuchado</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                              style={styles.resultPendingButton}
+                              <SizableText color="$brandGreen" fontSize={12} fontWeight="600">✓ Escuchado</SizableText>
+                            </Button>
+                            <Button
+                              flex={1}
+                              paddingVertical={6}
+                              borderRadius={6}
+                              borderWidth={1}
+                              borderColor="$brandOrange"
+                              backgroundColor="transparent"
+                              pressStyle={{ opacity: 0.8, scale: 0.97 }}
                               onPress={() => handleAddToPending(item)}
                             >
-                              <Text style={styles.resultPendingText}>⏳ Pendiente</Text>
-                            </TouchableOpacity>
-                          </View>
-                        </View>
+                              <SizableText color="$brandOrange" fontSize={12} fontWeight="600">⏳ Pendiente</SizableText>
+                            </Button>
+                          </XStack>
+                        </YStack>
                       )}
-                      style={styles.resultsList}
+                      style={{ maxHeight: 280, marginTop: 4 }}
                       keyboardShouldPersistTaps="handled"
                     />
                   )}
 
                   {!searchLoading && searchQuery.trim() && searchResults.length === 0 && (
-                    <Text style={styles.noResults}>
+                    <SizableText color="$colorHover" fontSize={14} textAlign="center" marginTop={16}>
                       No encontramos ese disco en la lista oficial.
-                    </Text>
+                    </SizableText>
                   )}
 
-                  <TouchableOpacity
-                    style={styles.manualToggle}
+                  <Button
+                    backgroundColor="transparent"
+                    marginTop={16}
+                    paddingVertical={10}
+                    pressStyle={{ opacity: 0.8, scale: 0.97 }}
                     onPress={() => setIsManualMode(true)}
                   >
-                    <Text style={styles.manualToggleText}>
+                    <SizableText color="$brandGold" fontSize={14} fontWeight="600">
                       ¿No está en la lista? Añadir manualmente
-                    </Text>
-                  </TouchableOpacity>
-                </>
+                    </SizableText>
+                  </Button>
+                </YStack>
               ) : (
-                <>
-                  <Text style={styles.formTitle}>Añadir Manualmente</Text>
+                <YStack>
+                  <SizableText fontSize={20} fontWeight="bold" color="$color" marginBottom={20} textAlign="center">
+                    Añadir Manualmente
+                  </SizableText>
 
-                  <TextInput
-                    style={styles.input}
+                  <Input
+                    backgroundColor="$brandGray"
+                    borderRadius={10}
+                    paddingHorizontal={16}
+                    paddingVertical={12}
+                    marginBottom={12}
                     placeholder="Título del álbum"
-                    placeholderTextColor={colors.textSecondary}
                     value={title}
                     onChangeText={setTitle}
                   />
-                  <TextInput
-                    style={styles.input}
+                  <Input
+                    backgroundColor="$brandGray"
+                    borderRadius={10}
+                    paddingHorizontal={16}
+                    paddingVertical={12}
+                    marginBottom={12}
                     placeholder="Artista"
-                    placeholderTextColor={colors.textSecondary}
                     value={artist}
                     onChangeText={setArtist}
                   />
-                  <TextInput
-                    style={styles.input}
+                  <Input
+                    backgroundColor="$brandGray"
+                    borderRadius={10}
+                    paddingHorizontal={16}
+                    paddingVertical={12}
+                    marginBottom={12}
                     placeholder="Año (opcional)"
-                    placeholderTextColor={colors.textSecondary}
                     value={year}
                     onChangeText={setYear}
                     keyboardType="number-pad"
                   />
-                  <TextInput
-                    style={styles.input}
+                  <Input
+                    backgroundColor="$brandGray"
+                    borderRadius={10}
+                    paddingHorizontal={16}
+                    paddingVertical={12}
+                    marginBottom={12}
                     placeholder="Género (opcional)"
-                    placeholderTextColor={colors.textSecondary}
                     value={genre}
                     onChangeText={setGenre}
                   />
 
-                  <TouchableOpacity
-                    style={styles.saveButton}
+                  <Button
+                    backgroundColor="$brandGold"
+                    paddingVertical={14}
+                    borderRadius={10}
+                    marginTop={4}
+                    pressStyle={{ opacity: 0.8, scale: 0.97 }}
                     onPress={handleSaveCustom}
                   >
-                    <Text style={styles.saveButtonText}>Guardar</Text>
-                  </TouchableOpacity>
+                    <SizableText color="#0A0A0A" fontSize={16} fontWeight="bold">Guardar</SizableText>
+                  </Button>
 
-                  <TouchableOpacity
-                    style={styles.backToSearch}
+                  <Button
+                    backgroundColor="transparent"
+                    marginTop={12}
+                    paddingVertical={10}
+                    pressStyle={{ opacity: 0.8, scale: 0.97 }}
                     onPress={() => setIsManualMode(false)}
                   >
-                    <Text style={styles.backToSearchText}>
-                      Volver al buscador
-                    </Text>
-                  </TouchableOpacity>
-                </>
+                    <SizableText color="$colorHover" fontSize={14}>Volver al buscador</SizableText>
+                  </Button>
+                </YStack>
               )}
-            </TouchableOpacity>
+            </YStack>
           </KeyboardAvoidingView>
         </TouchableOpacity>
       </Modal>
 
-      <Modal
-        visible={!!journalAlbum}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={closeJournal}
+      <Sheet
+        modal
+        open={!!journalAlbum}
+        onOpenChange={(open: boolean) => { if (!open) closeJournal(); }}
+        snapPoints={[85]}
+        dismissOnSnapToBottom
       >
-        <View style={styles.overlay}>
-          <TouchableOpacity
-            style={StyleSheet.absoluteFill}
-            activeOpacity={1}
-            onPress={closeJournal}
-          />
-          <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-            style={styles.keyboardView}
-          >
-            <View style={styles.journalCard}>
-              {journalAlbum && (
-                <>
-                  <View style={styles.journalHeaderRow}>
-                    <TouchableOpacity
-                      style={styles.closeButton}
-                      onPress={closeJournal}
-                    >
-                      <Text style={styles.closeButtonText}>✕</Text>
-                    </TouchableOpacity>
-                    <View style={{ flex: 1 }} />
-                    <TouchableOpacity
-                      style={styles.journalDeleteButton}
-                      onPress={() => confirmDeleteAlbum(journalAlbum)}
-                    >
-                      <Text style={styles.journalDeleteText}>
-                        Eliminar del diario
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
+        <Sheet.Overlay />
+        <Sheet.Frame backgroundColor="$brandSurface" padding={24} paddingBottom={40}>
+          <Sheet.Handle backgroundColor="#555" />
+          {journalAlbum && (
+            <YStack alignItems="center" gap={16}>
+              <XStack width="100%" justifyContent="flex-end">
+                <Button
+                  backgroundColor="transparent"
+                  pressStyle={{ opacity: 0.8, scale: 0.97 }}
+                  onPress={() => confirmDeleteAlbum(journalAlbum)}
+                >
+                  <SizableText color="$brandRed" fontSize={13} fontWeight="600">Eliminar del diario</SizableText>
+                </Button>
+              </XStack>
 
-                  <AlbumCover
-                    artist={journalAlbum.artist}
-                    album={journalAlbum.album}
-                    size={180}
-                  />
+              <AlbumCover
+                artist={journalAlbum.artist}
+                album={journalAlbum.album}
+                size={180}
+              />
 
-                  <Text style={styles.journalAlbum}>
-                    {journalAlbum.album}
-                  </Text>
-                  <Text style={styles.journalArtist}>
-                    {journalAlbum.artist}
-                  </Text>
+              <YStack alignItems="center" gap={4}>
+                <SizableText fontSize={20} fontWeight="bold" color="$color" textAlign="center" marginTop={16}>
+                  {journalAlbum.album}
+                </SizableText>
+                <SizableText fontSize={16} color="$brandGold" marginTop={4} marginBottom={16}>
+                  {journalAlbum.artist}
+                </SizableText>
+              </YStack>
 
-                  <View style={styles.journalSection}>
-                    <Text style={styles.journalLabel}>Tu puntuación</Text>
-                    <StarSelector
-                      value={journalRating}
-                      onChange={setJournalRating}
-                    />
-                  </View>
+              <YStack width="100%" gap={6}>
+                <SizableText fontSize={14} color="$colorHover" fontWeight="600">Tu puntuación</SizableText>
+                <StarSelector value={journalRating} onChange={setJournalRating} />
+              </YStack>
 
-                  <View style={styles.journalSection}>
-                    <Text style={styles.journalLabel}>Tus notas</Text>
-                    <TextInput
-                      style={styles.notesInput}
-                      placeholder="Escribe tu reseña personal..."
-                      placeholderTextColor={colors.textSecondary}
-                      value={journalNotes}
-                      onChangeText={setJournalNotes}
-                      multiline
-                      textAlignVertical="top"
-                    />
-                  </View>
+              <YStack width="100%" gap={6}>
+                <SizableText fontSize={14} color="$colorHover" fontWeight="600">Tus notas</SizableText>
+                <Input
+                  multiline
+                  backgroundColor="$brandGray"
+                  borderWidth={0}
+                  borderRadius={10}
+                  placeholder="Escribe tu reseña personal..."
+                  value={journalNotes}
+                  onChangeText={setJournalNotes}
+                  minHeight={100}
+                  textAlignVertical="top"
+                  padding={12}
+                />
+              </YStack>
 
-                  <View style={styles.affiliateRow}>
-                    <TouchableOpacity
-                      style={styles.affiliateButton}
-                      onPress={() =>
-                        Linking.openURL(
-                          getAffiliateLink(
-                            journalAlbum.artist,
-                            journalAlbum.album,
-                            'amazon',
-                          ),
-                        )
-                      }
-                    >
-                      <Text style={styles.affiliateIcon}>🛒</Text>
-                      <Text style={styles.affiliateText}>Comprar Vinilo</Text>
-                    </TouchableOpacity>
+              <XStack gap={12} width="100%">
+                <Button
+                  flex={1}
+                  flexDirection="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  backgroundColor="#1A1A1A"
+                  borderRadius={10}
+                  borderWidth={1}
+                  borderColor="$brandGray"
+                  gap={6}
+                  pressStyle={{ opacity: 0.8, scale: 0.97 }}
+                  onPress={() =>
+                    Linking.openURL(getAffiliateLink(journalAlbum.artist, journalAlbum.album, 'amazon'))
+                  }
+                >
+                  <SizableText fontSize={16}>🛒</SizableText>
+                  <SizableText color="$color" fontSize={12} fontWeight="600">Comprar Vinilo</SizableText>
+                </Button>
+                <Button
+                  flex={1}
+                  flexDirection="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  backgroundColor="#1A1A1A"
+                  borderRadius={10}
+                  borderWidth={1}
+                  borderColor="$brandGray"
+                  gap={6}
+                  pressStyle={{ opacity: 0.8, scale: 0.97 }}
+                  onPress={() =>
+                    Linking.openURL(getAffiliateLink(journalAlbum.artist, journalAlbum.album, 'apple'))
+                  }
+                >
+                  <SizableText fontSize={16}>🎵</SizableText>
+                  <SizableText color="$color" fontSize={12} fontWeight="600">Escuchar en Apple</SizableText>
+                </Button>
+              </XStack>
 
-                    <TouchableOpacity
-                      style={styles.affiliateButton}
-                      onPress={() =>
-                        Linking.openURL(
-                          getAffiliateLink(
-                            journalAlbum.artist,
-                            journalAlbum.album,
-                            'apple',
-                          ),
-                        )
-                      }
-                    >
-                      <Text style={styles.affiliateIcon}>🎵</Text>
-                      <Text style={styles.affiliateText}>
-                        Escuchar en Apple
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-
-                  <TouchableOpacity
-                    style={styles.saveButton}
-                    onPress={saveJournal}
-                  >
-                    <Text style={styles.saveButtonText}>Guardar Notas</Text>
-                  </TouchableOpacity>
-                </>
-              )}
-            </View>
-          </KeyboardAvoidingView>
-        </View>
-      </Modal>
-    </SafeAreaView>
+              <Button
+                backgroundColor="$brandGold"
+                paddingVertical={14}
+                borderRadius={10}
+                width="100%"
+                pressStyle={{ opacity: 0.8, scale: 0.97 }}
+                onPress={saveJournal}
+              >
+                <SizableText color="#0A0A0A" fontSize={16} fontWeight="bold">Guardar Notas</SizableText>
+              </Button>
+            </YStack>
+          )}
+        </Sheet.Frame>
+      </Sheet>
+    </YStack>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 8,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: colors.text,
-  },
-  count: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginTop: 2,
-  },
-  statsButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  statsButtonText: {
-    fontSize: 16,
-  },
-  addButton: {
-    backgroundColor: colors.primary,
-    paddingVertical: 8,
-    paddingHorizontal: 14,
-    borderRadius: 8,
-  },
-  addButtonText: {
-    color: '#0A0A0A',
-    fontSize: 13,
-    fontWeight: 'bold',
-  },
-  list: {
-    paddingHorizontal: 16,
-    paddingBottom: 100,
-  },
-  card: {
-    flexDirection: 'row',
-    backgroundColor: colors.surface,
-    borderRadius: 12,
-    padding: 12,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: colors.border,
-    alignItems: 'center',
-  },
-  cardTextBlock: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  cardTitleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  cardAlbum: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: 2,
-    flexShrink: 1,
-  },
-  cardRating: {
-    fontSize: 14,
-    color: colors.primary,
-    marginLeft: 8,
-  },
-  cardArtist: {
-    fontSize: 14,
-    color: colors.primary,
-    marginBottom: 4,
-  },
-  cardMetaRow: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  cardMeta: {
-    fontSize: 12,
-    color: colors.textSecondary,
-  },
-  deleteAction: {
-    backgroundColor: '#D32F2F',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 80,
-    borderRadius: 12,
-    marginBottom: 12,
-  },
-  deleteActionText: {
-    fontSize: 24,
-    color: '#FFFFFF',
-  },
-  emptyContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-  },
-  emptyText: {
-    fontSize: 18,
-    color: colors.text,
-    marginBottom: 8,
-  },
-  emptySubtext: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    textAlign: 'center',
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  keyboardView: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  formCard: {
-    width: '85%',
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 24,
-    borderWidth: 1,
-    borderColor: colors.border,
-    maxHeight: '80%',
-  },
-  formTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  input: {
-    backgroundColor: '#2A2A2A',
-    borderRadius: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 15,
-    color: colors.text,
-    marginBottom: 12,
-  },
-  saveButton: {
-    backgroundColor: colors.primary,
-    paddingVertical: 14,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  saveButtonText: {
-    color: '#0A0A0A',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  resultsList: {
-    maxHeight: 280,
-    marginTop: 4,
-  },
-  resultItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 4,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  resultTextBlock: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  resultAlbum: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 2,
-  },
-  resultArtist: {
-    fontSize: 13,
-    color: colors.primary,
-  },
-  tabRow: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    marginBottom: 12,
-    gap: 8,
-  },
-  tab: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: 10,
-    backgroundColor: '#2A2A2A',
-    alignItems: 'center',
-  },
-  tabActive: {
-    backgroundColor: colors.primary,
-  },
-  tabText: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  tabTextActive: {
-    color: '#0A0A0A',
-  },
-  pendingTag: {
-    fontSize: 16,
-    color: '#FFA726',
-    marginLeft: 8,
-  },
-  quickListenButton: {
-    backgroundColor: '#1A3A1A',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginTop: -6,
-    marginBottom: 12,
-    marginLeft: 72,
-    alignSelf: 'flex-start',
-  },
-  quickListenText: {
-    color: '#4CAF50',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  noResults: {
-    color: colors.textSecondary,
-    fontSize: 14,
-    textAlign: 'center',
-    marginTop: 16,
-  },
-  searchStatus: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    textAlign: 'center',
-    marginTop: 16,
-  },
-  resultActions: {
-    flexDirection: 'row',
-    gap: 8,
-    paddingHorizontal: 4,
-    paddingBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  resultListenButton: {
-    flex: 1,
-    paddingVertical: 6,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: '#4CAF50',
-    alignItems: 'center',
-  },
-  resultListenText: {
-    color: '#4CAF50',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  resultPendingButton: {
-    flex: 1,
-    paddingVertical: 6,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: '#FFA726',
-    alignItems: 'center',
-  },
-  resultPendingText: {
-    color: '#FFA726',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  manualToggle: {
-    marginTop: 16,
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  manualToggleText: {
-    color: colors.primary,
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  backToSearch: {
-    marginTop: 12,
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  backToSearchText: {
-    color: colors.textSecondary,
-    fontSize: 14,
-  },
-  journalCard: {
-    width: '85%',
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 24,
-    borderWidth: 1,
-    borderColor: colors.border,
-    alignItems: 'center',
-    maxHeight: '85%',
-  },
-  journalHeaderRow: {
-    flexDirection: 'row',
-    width: '100%',
-    marginBottom: 8,
-    alignItems: 'center',
-  },
-  closeButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    marginLeft: -12,
-  },
-  closeButtonText: {
-    color: colors.textSecondary,
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  journalDeleteButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-  },
-  journalDeleteText: {
-    color: '#D32F2F',
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  journalAlbum: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.text,
-    textAlign: 'center',
-    marginTop: 16,
-  },
-  journalArtist: {
-    fontSize: 16,
-    color: colors.primary,
-    marginTop: 4,
-    marginBottom: 16,
-  },
-  journalSection: {
-    width: '100%',
-    marginBottom: 16,
-  },
-  journalLabel: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginBottom: 8,
-    fontWeight: '600',
-  },
-  starRow: {
-    flexDirection: 'row',
-    gap: 8,
-    justifyContent: 'center',
-  },
-  star: {
-    fontSize: 32,
-    color: colors.textSecondary,
-  },
-  starActive: {
-    color: '#F5A623',
-  },
-  notesInput: {
-    backgroundColor: '#2A2A2A',
-    borderRadius: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 15,
-    color: colors.text,
-    minHeight: 100,
-  },
-  affiliateRow: {
-    flexDirection: 'row',
-    gap: 12,
-    marginBottom: 16,
-    width: '100%',
-  },
-  affiliateButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 10,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: '#1A1A1A',
-    gap: 6,
-  },
-  affiliateIcon: {
-    fontSize: 16,
-  },
-  affiliateText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  disclaimer: {
-    fontSize: 11,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    paddingVertical: 20,
-    paddingHorizontal: 24,
-    lineHeight: 16,
-  },
-});

@@ -173,14 +173,21 @@ export function useAlbums() {
     }
     const sortedGenres = Object.entries(genres).sort((a, b) => b[1] - a[1]);
     const topGenres3 = sortedGenres.slice(0, 3);
-    const genreColors = ['#F5A623', '#4CAF50', '#2196F3', '#E53935', '#9C27B0', '#00BCD4', '#FF5722', '#607D8B'];
-    const genreChartData = sortedGenres.slice(0, 8).map(([name, count], i) => ({
-      name: name.length > 12 ? name.slice(0, 12) + '…' : name,
-      count,
-      color: genreColors[i % genreColors.length],
-      legendFontColor: '#AAAAAA',
-      legendFontSize: 11,
-    }));
+    const topGenres5 = sortedGenres.slice(0, 5);
+    const otherCount = sortedGenres.slice(5).reduce((s, [, c]) => s + c, 0);
+    const genreColors = ['#F5A623', '#4CAF50', '#2196F3', '#E53935', '#9C27B0', '#607D8B'];
+    const genreChartData = [
+      ...topGenres5.map(([name, count], i) => ({
+        name: name.length > 12 ? name.slice(0, 12) + '…' : name,
+        count,
+        color: genreColors[i % genreColors.length],
+        legendFontColor: '#AAAAAA',
+        legendFontSize: 11,
+      })),
+      ...(otherCount > 0
+        ? [{ name: 'Otros', count: otherCount, color: genreColors[5], legendFontColor: '#AAAAAA', legendFontSize: 11 }]
+        : []),
+    ];
 
     // Top artists
     const artists: Record<string, number> = {};

@@ -1,17 +1,12 @@
 import { useState } from 'react';
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
   Modal,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet,
   Alert,
 } from 'react-native';
+import { YStack, XStack, Input, Button, SizableText } from 'tamagui';
 import { supabase } from '../lib/supabase';
-import { colors } from '../theme/colors';
 import { handleSupabaseError } from '../utils/authErrors';
 import { migrateJsonToSupabase } from '../utils/migration';
 
@@ -28,7 +23,6 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
   const [errorText, setErrorText] = useState('');
   const [migrating, setMigrating] = useState(false);
   const [migrateProgress, setMigrateProgress] = useState('');
-  const [migrateDone, setMigrateDone] = useState(false);
 
   const isPasswordWeak = isSignUp && password.length > 0 && password.length < 6;
 
@@ -80,7 +74,6 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
     });
     setMigrateProgress(`Hecho: ${result.inserted} insertados, ${result.errors} errores`);
     setMigrating(false);
-    setMigrateDone(true);
     if (result.errors > 0) {
       Alert.alert('Migración completada', `${result.inserted} insertados, ${result.errors} errores`);
     }
@@ -93,224 +86,141 @@ export default function LoginScreen({ visible, onClose }: LoginScreenProps) {
       transparent={true}
       onRequestClose={onClose}
     >
-      <TouchableOpacity
-        style={styles.overlay}
-        activeOpacity={1}
+      <YStack
+        flex={1}
+        backgroundColor="rgba(0,0,0,0.6)"
+        justifyContent="center"
+        alignItems="center"
         onPress={onClose}
       >
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-          style={styles.keyboardView}
+          style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }}
         >
-          <TouchableOpacity activeOpacity={1} onPress={() => {}} style={styles.card}>
-            <Text style={styles.title}>
+          <YStack
+            width="85%"
+            backgroundColor="$brandSurface"
+            borderRadius={16}
+            padding={24}
+            borderWidth={1}
+            borderColor="$brandGray"
+          >
+            <SizableText fontSize={20} fontWeight="bold" color="$color" marginBottom={20} textAlign="center">
               {isSignUp ? 'Crear Cuenta' : 'Iniciar Sesión'}
-            </Text>
+            </SizableText>
 
-            <TextInput
-              style={[styles.input, errorText ? styles.inputError : null]}
+            <Input
+              backgroundColor="$brandGray"
+              borderRadius={10}
+              paddingHorizontal={16}
+              paddingVertical={12}
+              marginBottom={12}
+              borderWidth={errorText ? 1 : 0}
+              borderColor={errorText ? '$brandRed' : 'transparent'}
               placeholder="Email"
-              placeholderTextColor={colors.textSecondary}
               value={email}
               onChangeText={(v) => { setEmail(v); setErrorText(''); }}
               autoCapitalize="none"
               keyboardType="email-address"
             />
 
-            <TextInput
-              style={[styles.input, errorText ? styles.inputError : null]}
+            <Input
+              backgroundColor="$brandGray"
+              borderRadius={10}
+              paddingHorizontal={16}
+              paddingVertical={12}
+              marginBottom={12}
+              borderWidth={errorText ? 1 : 0}
+              borderColor={errorText ? '$brandRed' : 'transparent'}
               placeholder="Contraseña"
-              placeholderTextColor={colors.textSecondary}
               value={password}
               onChangeText={(v) => { setPassword(v); setErrorText(''); }}
               secureTextEntry
             />
 
             {isPasswordWeak && (
-              <Text style={styles.hint}>
+              <SizableText color="$colorHover" fontSize={13} marginBottom={8}>
                 La contraseña debe tener al menos 6 caracteres.
-              </Text>
+              </SizableText>
             )}
 
             {errorText ? (
-              <Text style={styles.error}>{errorText}</Text>
+              <SizableText color="$brandRed" fontSize={13} marginBottom={12} textAlign="center">
+                {errorText}
+              </SizableText>
             ) : null}
 
             {isSignUp && (
-              <Text style={styles.successHint}>
+              <SizableText color="$colorHover" fontSize={12} marginBottom={12} textAlign="center">
                 Te enviaremos un email para confirmar tu cuenta.
-              </Text>
+              </SizableText>
             )}
 
-            <TouchableOpacity
-              style={[
-                styles.submitButton,
-                isPasswordWeak && styles.submitButtonDisabled,
-              ]}
-              onPress={handleSubmit}
+            <Button
+              backgroundColor="$brandGold"
+              paddingVertical={14}
+              borderRadius={10}
+              marginTop={4}
+              opacity={isPasswordWeak ? 0.5 : 1}
               disabled={submitting || !!isPasswordWeak}
+              pressStyle={{ opacity: 0.8, scale: 0.97 }}
+              onPress={handleSubmit}
             >
-              <Text style={styles.submitText}>
-                {submitting
-                  ? 'Enviando...'
-                  : isSignUp
-                    ? 'Registrarse'
-                    : 'Entrar'}
-              </Text>
-            </TouchableOpacity>
+              <SizableText color="#0A0A0A" fontSize={16} fontWeight="bold">
+                {submitting ? 'Enviando...' : isSignUp ? 'Registrarse' : 'Entrar'}
+              </SizableText>
+            </Button>
 
-            <TouchableOpacity
-              style={styles.toggleButton}
+            <Button
+              backgroundColor="transparent"
+              marginTop={16}
+              paddingVertical={8}
+              pressStyle={{ opacity: 0.8, scale: 0.97 }}
               onPress={() => { setIsSignUp(!isSignUp); setErrorText(''); }}
             >
-              <Text style={styles.toggleText}>
-                {isSignUp
-                  ? '¿Ya tienes cuenta? Inicia sesión'
-                  : '¿No tienes cuenta? Regístrate'}
-              </Text>
-            </TouchableOpacity>
+              <SizableText color="$brandGold" fontSize={14}>
+                {isSignUp ? '¿Ya tienes cuenta? Inicia sesión' : '¿No tienes cuenta? Regístrate'}
+              </SizableText>
+            </Button>
 
             {migrateProgress ? (
-              <Text style={styles.migrateText}>{migrateProgress}</Text>
+              <SizableText color="$colorHover" fontSize={12} marginBottom={4} textAlign="center">
+                {migrateProgress}
+              </SizableText>
             ) : null}
 
-            <View style={styles.adminRow}>
-              <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-                <Text style={styles.logoutText}>Cerrar Sesión</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.migrateButton}
+            <XStack justifyContent="center" gap={12} marginTop={12}>
+              <Button
+                paddingVertical={10}
+                paddingHorizontal={16}
+                borderRadius={8}
+                borderWidth={1}
+                borderColor="$brandRed"
+                backgroundColor="transparent"
+                pressStyle={{ opacity: 0.8, scale: 0.97 }}
+                onPress={handleLogout}
+              >
+                <SizableText color="$brandRed" fontSize={13} fontWeight="600">Cerrar Sesión</SizableText>
+              </Button>
+              <Button
+                paddingVertical={10}
+                paddingHorizontal={16}
+                borderRadius={8}
+                borderWidth={1}
+                borderColor="$brandGray"
+                backgroundColor="$brandGray"
+                pressStyle={{ opacity: 0.8, scale: 0.97 }}
                 onPress={handleMigrate}
                 disabled={migrating}
               >
-                <Text style={styles.migrateButtonText}>
+                <SizableText color="$brandGold" fontSize={13} fontWeight="600">
                   {migrating ? 'Migrando...' : 'Migrar'}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </TouchableOpacity>
+                </SizableText>
+              </Button>
+            </XStack>
+          </YStack>
         </KeyboardAvoidingView>
-      </TouchableOpacity>
+      </YStack>
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  keyboardView: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  card: {
-    width: '85%',
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 24,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  input: {
-    backgroundColor: '#2A2A2A',
-    borderRadius: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 15,
-    color: colors.text,
-    marginBottom: 12,
-  },
-  inputError: {
-    borderWidth: 1,
-    borderColor: '#E53935',
-  },
-  hint: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    marginBottom: 8,
-  },
-  error: {
-    color: '#E53935',
-    fontSize: 13,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  successHint: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  submitButton: {
-    backgroundColor: colors.primary,
-    paddingVertical: 14,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  submitButtonDisabled: {
-    opacity: 0.5,
-  },
-  submitText: {
-    color: '#0A0A0A',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  toggleButton: {
-    marginTop: 16,
-    paddingVertical: 8,
-    alignItems: 'center',
-  },
-  toggleText: {
-    color: colors.primary,
-    fontSize: 14,
-  },
-  adminRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: 12,
-    marginTop: 12,
-  },
-  logoutButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#E53935',
-  },
-  logoutText: {
-    color: '#E53935',
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  migrateButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: '#2A2A2A',
-  },
-  migrateButtonText: {
-    color: colors.primary,
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  migrateText: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    marginBottom: 4,
-    textAlign: 'center',
-  },
-});
